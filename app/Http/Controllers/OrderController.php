@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\LineItem;
+use App\Lineitem;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
