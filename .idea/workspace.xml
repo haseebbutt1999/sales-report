@@ -10,13 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="webhook errorlog table added">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="collection create webhook">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CollectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CollectionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/ProductsCreateJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ProductsCreateJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/ProductsDeleteJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ProductsDeleteJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/ProductsUpdateJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ProductsUpdateJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/shopify-app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/shopify-app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +187,7 @@
       <workItem from="1619597776150" duration="26000" />
       <workItem from="1619767870943" duration="1000" />
       <workItem from="1619767879369" duration="1628000" />
-      <workItem from="1619774273119" duration="5672000" />
+      <workItem from="1619774273119" duration="6448000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619774415201</created>
@@ -242,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619777860860</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="webhook errorlog table added">
+      <created>1619780033668</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619780033668</updated>
+    </task>
+    <task id="LOCAL-00009" summary="collection create webhook">
+      <created>1619780052195</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619780052195</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +274,8 @@
     <MESSAGE value="product and order webhook configuration" />
     <MESSAGE value="product create, update, delete webhook added" />
     <MESSAGE value="webhook errorlog table added" />
-    <option name="LAST_COMMIT_MESSAGE" value="webhook errorlog table added" />
+    <MESSAGE value="collection create webhook" />
+    <option name="LAST_COMMIT_MESSAGE" value="collection create webhook" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619779456200">
@@ -279,10 +290,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="634" y="361" key="NewPhpFileDialog/0.0.1600.860@0.0.1600.860" timestamp="1618985911557" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1619777862549">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1619780056335">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1619777862548" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1619780056335" />
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1619774209771">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

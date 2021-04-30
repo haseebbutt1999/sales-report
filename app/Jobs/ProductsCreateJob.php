@@ -54,7 +54,6 @@ class ProductsCreateJob implements ShouldQueue
             $shop = $this->shopDomain;
             $shop = User::where('name', $shop)->first();
             $product = $this->data;
-            $product=json_decode(json_encode($product),FALSE);
             $prod = new ProductController();
             $prod->CreateUpdateProduct($product, $shop);
         } catch (\Exception $exception){
