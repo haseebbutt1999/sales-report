@@ -58,7 +58,7 @@ class ProductsDeleteJob implements ShouldQueue
             $prod->DeleteProduct($product, $shop);
         } catch (\Exception $exception){
             $new = new ErrorLog();
-            $new->message = $exception->getMessage();
+            $new->message = "colleciton delete error".$exception->getMessage();
             $new->save();
         }
         return true;

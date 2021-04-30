@@ -59,7 +59,7 @@ class ProductsCreateJob implements ShouldQueue
             $prod->CreateUpdateProduct($product, $shop);
         } catch (\Exception $exception){
             $new = new ErrorLog();
-            $new->message = $exception->getMessage();
+            $new->message = "product create error".$exception->getMessage();
             $new->save();
         }
         return true;
