@@ -1,0 +1,8 @@
+.table thead th {
+    vertical-align: bottom;
+    background-color: #3c4aa5 !important;
+    color: white;
+}
+#toast-container {
+    margin-top: 57px !important;
+}
