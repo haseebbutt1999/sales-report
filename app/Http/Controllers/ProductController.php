@@ -15,7 +15,7 @@ class ProductController extends Controller
         $next_page = '';
         $shop = auth::user();
         $product_count_api = $shop->api()->rest('GET', '/admin/products/count.json')['body']['count'];
-        $shop = Auth::user();
+
         $count=ceil($product_count_api/250);
         for ($i=1;$i<=$count;$i++)
         {
@@ -40,7 +40,7 @@ class ProductController extends Controller
 
     public function CreateUpdateProduct($product,$shop){
         $new = new ErrorLog();
-        $new->message = json_encode($product);
+        $new->message = json_encode($product->id);
         $new->save();
 
         $product_save = Product::where('shopify_product_id', $product->id)->where('shopify_shop_id', $shop->id)->first();
@@ -49,7 +49,7 @@ class ProductController extends Controller
             $product_save = new Product();
         }
         $product_save->shopify_product_id = $product->id;
-        $product_save->shopify_shop_id = Auth::user()->id;
+        $product_save->shopify_shop_id = $shop->id;
         $product_save->body_html = $product->body_html;
         $product_save->title = $product->title;
         $product_save->product_type = $product->product_type;
@@ -64,15 +64,15 @@ class ProductController extends Controller
         $product_save->options = json_encode($product->options);
         foreach ($product->variants as $variant){
 
-            if(Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', Auth::user()->id)->exists()){
-                $variant_save = Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', auth::user()->id)->first();
+            if(Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', $shop->id)->exists()){
+                $variant_save = Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', $shop->id)->first();
             }else{
                 $variant_save = new Variant();
                 $variant_save->old_inventory_quantity = $variant->old_inventory_quantity;
             }
             $variant_save->shopify_product_id = $product->id;
             $variant_save->shopify_variant_id = $variant->id;
-            $variant_save->shopify_shop_id = Auth::user()->id;
+            $variant_save->shopify_shop_id = $shop->id;
 
             foreach($product->images as $product_image_id){
                 if($product_image_id->id === $variant->image_id){
