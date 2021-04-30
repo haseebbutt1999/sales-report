@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,11 @@ Route::group(['middleware'=>['auth.shopify']], function () {
     Route::get('/collection-sync', 'CollectionController@collection_sync')->name('collection-sync');
 
     Route::get('/', 'AdminController@dashboard')->name('dashboard');
+
+    Route::get('/webhooks',function (){
+        $webhook=Auth::user()->api()->rest('GET','/admin/webhooks.json');
+        dd($webhook);
+    });
 });
+
+
