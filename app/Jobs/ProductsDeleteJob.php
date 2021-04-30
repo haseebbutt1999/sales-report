@@ -1,5 +1,7 @@
 <?php namespace App\Jobs;
 
+use App\Http\Controllers\ProductController;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -47,10 +49,15 @@ class ProductsDeleteJob implements ShouldQueue
      */
     public function handle()
     {
-        // Convert domain
-        $this->shopDomain = ShopDomain::fromNative($this->shopDomain);
+        try {
+            $shop = $this->shopDomain;
+            $shop = User::where('name', $shop)->first();
+            $product = $this->data;
+            $prod = new ProductController();
+            $prod->DeleteProduct($product, $shop);
+        } catch (\Exception $exception){
 
-        // Do what you wish with the data
-        // Access domain name as $this->shopDomain->toNative()
+        }
+        return true;
     }
 }

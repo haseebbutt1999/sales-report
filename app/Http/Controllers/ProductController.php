@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\User;
 use App\Variant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class ProductController extends Controller
         $next_page = '';
         $shop = auth::user();
         $product_count_api = $shop->api()->rest('GET', '/admin/products/count.json')['body']['count'];
-
+        $shop = Auth::user();
         $count=ceil($product_count_api/250);
         for ($i=1;$i<=$count;$i++)
         {
@@ -29,16 +30,16 @@ class ProductController extends Controller
 
                 foreach ($product_api as $product) {
 //                    dd($product);
-                    $this->CreateUpdateProduct($product);
+                    $this->CreateUpdateProduct($product,$shop);
                 }
             }
         }
         return redirect()->back()->with('success', 'Products Sync Successfully !');
     }
 
-    public function CreateUpdateProduct($product){
+    public function CreateUpdateProduct($product,$shop){
 
-        $product_save = Product::where('shopify_product_id', $product->id)->where('shopify_shop_id', Auth::user()->id)->first();
+        $product_save = Product::where('shopify_product_id', $product->id)->where('shopify_shop_id', $shop->id)->first();
 
         if($product_save == null){
             $product_save = new Product();
@@ -97,6 +98,17 @@ class ProductController extends Controller
             $variant_save->save();
         }
         $product_save->save();
+
+    }
+
+    public function DeleteProduct($product, $shop){
+        $product_save = Product::where('shopify_product_id', $product->id)->first();
+
+        if(isset($product_save)){
+            $product_save->delete();
+        }
+
+        return true;
 
     }
 }
