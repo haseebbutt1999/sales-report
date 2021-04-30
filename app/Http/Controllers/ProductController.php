@@ -105,6 +105,10 @@ class ProductController extends Controller
         $product_save = Product::where('shopify_product_id', $product->id)->first();
 
         if(isset($product_save)){
+            $variant_data = Variant::where('shopify_product_id', $product->id)->get();
+            if(isset($variant_data)){
+                $variant_data->delete();
+            }
             $product_save->delete();
         }
 
