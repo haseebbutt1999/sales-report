@@ -41,7 +41,9 @@ class ProductController extends Controller
     public function CreateUpdateProduct($product,$shop){
 
         $product_save = Product::where('shopify_product_id', $product->id)->where('shopify_shop_id', $shop->id)->first();
-
+        $new = new ErrorLog();
+        $new->message = "product data".json_encode($product_save);
+        $new->save();
         if($product_save == null){
             $product_save = new Product();
         }
