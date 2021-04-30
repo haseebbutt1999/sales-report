@@ -105,10 +105,8 @@ class ProductController extends Controller
     public function DeleteProduct($product, $shop){
         $product_save = Product::where(['shopify_product_id'=> $product->id,'shopify_shop_id'=>$shop->id])->first();
         if(isset($product_save)){
-            $variant_data = Variant::where(['shopify_product_id'=> $product->id,'shopify_shop_id'=>$shop->id])->get();
-            if(isset($variant_data)){
-                $variant_data->delete();
-            }
+            $variant_data = Variant::where(['shopify_product_id'=> $product->id,'shopify_shop_id'=>$shop->id])->delete();
+
             $product_save->delete();
         }
 
