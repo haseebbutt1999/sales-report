@@ -1,5 +1,6 @@
 <?php namespace App\Jobs;
 
+use App\ErrorLog;
 use App\Http\Controllers\ProductController;
 use App\User;
 use Illuminate\Bus\Queueable;
@@ -56,7 +57,9 @@ class ProductsDeleteJob implements ShouldQueue
             $prod = new ProductController();
             $prod->DeleteProduct($product, $shop);
         } catch (\Exception $exception){
-
+            $new = new ErrorLog();
+            $new->message = $exception->getMessage();
+            $new->save();
         }
         return true;
     }

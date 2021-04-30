@@ -1,5 +1,6 @@
 <?php namespace App\Jobs;
 
+use App\ErrorLog;
 use App\Http\Controllers\ProductController;
 use App\User;
 use Illuminate\Bus\Queueable;
@@ -57,7 +58,9 @@ class ProductsUpdateJob implements ShouldQueue
             $prod = new ProductController();
             $prod->CreateUpdateProduct($product, $shop);
         } catch (\Exception $exception){
-
+            $new = new ErrorLog();
+            $new->message = $exception->getMessage();
+            $new->save();
         }
         return true;
     }
