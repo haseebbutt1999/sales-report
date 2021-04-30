@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ErrorLog;
 use App\Product;
 use App\User;
 use App\Variant;
@@ -38,6 +39,9 @@ class ProductController extends Controller
     }
 
     public function CreateUpdateProduct($product,$shop){
+        $new = new ErrorLog();
+        $new->message = json_encode($product);
+        $new->save();
 
         $product_save = Product::where('shopify_product_id', $product->id)->where('shopify_shop_id', $shop->id)->first();
 
