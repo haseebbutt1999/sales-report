@@ -15,23 +15,19 @@ class CollectionController extends Controller
 {
 //    sync custom & smart collections
     public function collection_sync(){
-        $shop = auth::user();
-//        GET /admin/api/2020-07/collections/{collection_id}/products.json
-//        $collection = $shop->api()->rest('GET', '/admin/api/2020-07/collections/261771460791/products.json')['body']['container'];
-//        dd($collection  );
-
+        $shop = Auth::user();
         $smart_collection = $shop->api()->rest('GET', '/admin/api/2020-07/smart_collections.json')['body']['container']['smart_collections'];
         $custom_collection = $shop->api()->rest('GET', '/admin/api/2020-07/custom_collections.json')['body']['container']['custom_collections'];
-
-//        $smarts_collection=Http::get('https://'.'us.centricwear.com'.'/collect.json')->json();
-//        $smarts_collection=Http::get('https://'.'haseeb-butt.myshopify.com'.'/collect.json')->json();
-//        $smart_collection = $shop->api()->rest('GET', '/admin/api/2020-10/collections/'.'233437036727'.'/products.json')['body'];
-//        dd($collection);
-
 
         $smart_collections = json_decode(json_encode($smart_collection,true));
         $custom_collections = json_decode(json_encode($custom_collection,true));
 
+        $this->CreateUpdateCollection($smart_collections,$custom_collections,$shop);
+
+        return redirect()->back()->with('success', 'Collections Sync Successfully !');
+    }
+
+    public function CreateUpdateCollection($smart_collections,$custom_collections,$shop){
 
 
         foreach ($smart_collections as $smart_collection){
@@ -39,14 +35,14 @@ class CollectionController extends Controller
             $collection = $shop->api()->rest('GET', '/admin/api/2020-07/collections/'.$smart_collection->id.'.json')['body']['container']['collection'];
 
             $collection = json_decode(json_encode($collection,true));
-//            dd($collection);
-            $smart_collection_check = Collection::where('shopify_collection_id', $collection->id)->where('shopify_shop_id', auth::user()->id)->first();
-//    dd($smart_collection_check);
+
+            $smart_collection_check = Collection::where('shopify_collection_id', $collection->id)->where('shopify_shop_id', $shop->id)->first();
+
             if($smart_collection_check == null){
                 $smart_collection_check = new Collection();
             }
             $smart_collection_check->shopify_collection_id = $collection->id;
-            $smart_collection_check->shopify_shop_id = auth::user()->id;
+            $smart_collection_check->shopify_shop_id = $shop->id;
             $smart_collection_check->title = $collection->title;
             $smart_collection_check->collection_type = $collection->collection_type;
             $smart_collection_check->products_count = $collection->products_count;
@@ -72,14 +68,14 @@ class CollectionController extends Controller
             $collection = $shop->api()->rest('GET', '/admin/api/2020-07/collections/'.$custom_collection->id.'.json')['body']['container']['collection'];
 
             $collection = json_decode(json_encode($collection,true));
-//            dd($collection);
-            $custom_collection_check = Collection::where('shopify_collection_id', $collection->id)->where('shopify_shop_id', auth::user()->id)->first();
-//    dd($smart_collection_check);
+
+            $custom_collection_check = Collection::where('shopify_collection_id', $collection->id)->where('shopify_shop_id', $shop->id)->first();
+
             if($custom_collection_check == null){
                 $custom_collection_check = new Collection();
             }
             $custom_collection_check->shopify_collection_id = $collection->id;
-            $custom_collection_check->shopify_shop_id = auth::user()->id;
+            $custom_collection_check->shopify_shop_id = $shop->id;
             $custom_collection_check->title = $collection->title;
             $custom_collection_check->collection_type = $collection->collection_type;
             $custom_collection_check->products_count = $collection->products_count;
@@ -99,8 +95,6 @@ class CollectionController extends Controller
             }
 
         }
-
-        return redirect()->back()->with('success', 'Collections Sync Successfully !');
     }
 
 }
