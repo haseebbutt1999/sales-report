@@ -58,7 +58,7 @@
                                                 foreach ($product->Variants as $variant){
                                                     $stock = $variant->old_inventory_quantity + $stock;
                                                     $unitIn = $variant->inventory_quantity + $unitIn;
-//                                                    $unitOut = $stock - $unitIn + $unitOut;
+                                                    $unitOut = ($stock - $unitIn);
                                                 }
                                             }
                                             ?>
