@@ -65,6 +65,8 @@ class ProductController extends Controller
                 $variant_save = Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', $shop->id)->first();
             }else{
                 $variant_save = new Variant();
+            }
+            if($variant_save->old_inventory_quantity <= $variant->old_inventory_quantity){
                 $variant_save->old_inventory_quantity = $variant->old_inventory_quantity;
             }
             $variant_save->shopify_product_id = $product->id;
