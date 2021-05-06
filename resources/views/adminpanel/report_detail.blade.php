@@ -2,7 +2,10 @@
 @section('content')
 {{--    @dd($report_item_data)--}}
     <div class="col-lg-12 col-md-12 p-4">
-        <div class="row ">
+        <div class="d-flex  pb-2 justify-content-end" id="print-button-main">
+            <button class="btn btn-primary print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
+        </div>
+        <div class="row printableArea">
             <div class="col-md-12 pl-3 pt-2" style="margin: auto;">
                 <div class="card" style="width: 100%">
                     <div class="card-header" style="background: white;">
@@ -131,4 +134,22 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js_after')
+    {{--    datepicker js--}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>
+    <script>
+
+        $(document).ready(function() {
+            $("button.print-report").click(function(){
+                var mode = 'iframe'; //popup
+                var close = mode == "popup";
+                var options = {mode: mode, popClose: close};
+                $("div.printableArea").printArea(options);
+            });
+        });
+
+    </script>
 @endsection

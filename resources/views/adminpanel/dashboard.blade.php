@@ -2,13 +2,14 @@
 @section('content')
     <div class="col-lg-12 col-md-12 p-4">
         <!-- start info box -->
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="print-class d-flex justify-content-between align-items-center">
             <form class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
                 <input type="search" autocomplete="off" name="datefilter" value="{{$datefilter}}" class="datefilter" placeholder="Select date.."/>
                 <button class="btn btn-primary ml-2">Apply</button>
             </form>
-            <div>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal">Save Report</button>
+            <div class="d-flex" id="print-button-main">
+                <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal"><i class=" fa fa-download text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Save Report</button>
             </div>
         </div>
         <form action="{{ route('save-report') }}" method="post" id="report-save">
@@ -45,8 +46,8 @@
         </div>
 
         {{--        model end--}}
-        <div class="row ">
-            <div class="col-md-12 pl-3 pt-2" style="margin: auto;">
+        <div class="row printableArea">
+            <div class="col-md-12 pl-3 pt-2 " style="margin: auto;">
                 <div class="card" style="width: 100%">
                     <div class="card-header" style="background: white;">
                         <div class="row ">
@@ -304,6 +305,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>
     <script>
 
         $(document).ready(function() {
@@ -322,12 +324,12 @@
             $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
                 $(this).val('');
             });
-
-            var push_data = [];
-            var collection_data = $('.report-row-0').find('.collection-0').text();
-            push_data.push(collection_data)
-            console.log(collection_data)
-            console.log(push_data)
+            $("button.print-report").click(function(){
+                var mode = 'iframe'; //popup
+                var close = mode == "popup";
+                var options = {mode: mode, popClose: close};
+                $("div.printableArea").printArea(options);
+            });
         });
 
     </script>

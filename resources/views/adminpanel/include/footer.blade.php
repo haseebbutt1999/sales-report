@@ -13,6 +13,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
     @if(Session::has('success'))
@@ -22,7 +23,6 @@
     @if(Session::has('error'))
     toastr.error("{{ Session::get('error') }}") ;
     @endif
-
 </script>
 @yield('js_after')
 </body>
