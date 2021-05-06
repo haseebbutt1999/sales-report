@@ -24,6 +24,8 @@
     @endif
 
 </script>
+@yield('js_after')
 </body>
 </html>
+
 {{--Footer End--}}

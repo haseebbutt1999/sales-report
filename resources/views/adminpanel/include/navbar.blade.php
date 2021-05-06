@@ -13,17 +13,17 @@
 {{--</nav>--}}
 
 <nav class="navbar navbar-expand-lg " style="background: #202e78;">
-    <a  style="margin-left: 10px;" class="navbar-brand" href="">SalesReportGenerator</a>
+    <a  style="margin-left: 10px;" class="navbar-brand" href="{{route('dashboard')}}">SalesReportGenerator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="text-center">
-{{--            <ul class="custom-ul navbar-nav mr-auto text-center">--}}
-{{--                <li class="nav-item active">--}}
-{{--                    <a class="nav-link" href="{{Route('products')}}">Products<span class="sr-only"></span></a>--}}
-{{--                </li>--}}
+            <ul class="custom-ul navbar-nav mr-auto text-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{Route('reports')}}">Reports<span class="sr-only"></span></a>
+                </li>
 {{--                <li class="nav-item active">--}}
 {{--                    <a class="nav-link" href="{{Route('feature.products')}}">Featured Products<span class="sr-only"></span></a>--}}
 {{--                </li>--}}
@@ -39,7 +39,7 @@
 {{--                <li class="nav-item active">--}}
 {{--                    <a class="nav-link" href="{{Route('rules')}}">Rules<span class="sr-only"></span></a>--}}
 {{--                </li>--}}
-{{--            </ul>--}}
+            </ul>
         </div>
     </div>
     <div >

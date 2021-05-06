@@ -6,3 +6,18 @@
 #toast-container {
     margin-top: 57px !important;
 }
+@media (min-width: 994px){
+    .navbar-expand-lg .navbar-collapse {
+        margin-left: 30% !important;
+    }
+    ul.custom-ul li {
+        padding: 5px 10px;
+    }
+    .admin-nav.navbar-collapse {
+        margin-left: 27% !important;
+    }
+    ul.custom-ul li {
+        padding: 5px 10px;
+    }
+
+}
