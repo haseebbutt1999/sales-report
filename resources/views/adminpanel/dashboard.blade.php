@@ -1,5 +1,6 @@
 @extends('adminpanel.layout.default')
 @section('content')
+    @dd($all_orders)
     <div class="col-lg-12 col-md-12 p-4">
         <!-- start info box -->
         <div class="print-class d-flex justify-content-between align-items-center">
@@ -157,7 +158,7 @@
                                             $totalDiscountVal =[];
 
                                             foreach ($collection->products as $collection_product){
-                                                dd($all_orders);
+
                                                 foreach ($all_orders as $order_lineitem){
                                                     foreach ($order_lineitem->lineitems as $lineitem){
                                                         if($lineitem->product_id != null && $lineitem->variant_id != null){
