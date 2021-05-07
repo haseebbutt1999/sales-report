@@ -6,6 +6,7 @@ use App\ErrorLog;
 use App\Product;
 use App\User;
 use App\Variant;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -98,8 +99,12 @@ class ProductController extends Controller
             $variant_save->option1 = $variant->option1;
             $variant_save->option2 = $variant->option2;
             $variant_save->option3 = $variant->option3;
+            $variant_save->created_at = Carbon::createFromTimeString($variant->created_at)->format('Y-m-d H:i:s');
+            $variant_save->updated_at = Carbon::createFromTimeString($variant->updated_at)->format('Y-m-d H:i:s');
             $variant_save->save();
         }
+        $product_save->created_at = Carbon::createFromTimeString($product->created_at)->format('Y-m-d H:i:s');
+        $product_save->updated_at = Carbon::createFromTimeString($product->updated_at)->format('Y-m-d H:i:s');
         $product_save->save();
 
     }
