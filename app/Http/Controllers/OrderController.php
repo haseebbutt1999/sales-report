@@ -135,8 +135,8 @@ class OrderController extends Controller
                 $orign_location->name = $item->origin_location->name;
                 $orign_location->save();
             }
-//            $line->save();
+            $line->save();
         }
-//        $order_data->save();
+        $order_data->save();
     }
 }
