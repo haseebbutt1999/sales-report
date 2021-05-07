@@ -157,6 +157,7 @@
                                             $totalDiscountVal =[];
 
                                             foreach ($collection->products as $collection_product){
+                                                dd($all_orders);
                                                 foreach ($all_orders as $order_lineitem){
                                                     foreach ($order_lineitem->lineitems as $lineitem){
                                                         if($lineitem->product_id != null && $lineitem->variant_id != null){
@@ -217,7 +218,7 @@
                                                 <input type="hidden" class="unitsale" name="unitsale[]" value="{{array_sum($val)}}">
                                             </td>
                                             <td  class="credit-card-sale-{{$key}}">
-                                                {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
+                                                {{if()$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
                                                 <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
                                             </td>
                                             <td class="cash-sale-{{$key}}">
