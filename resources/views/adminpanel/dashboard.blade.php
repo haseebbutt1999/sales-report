@@ -293,9 +293,9 @@
                                         @endif
                                         </tbody>
                                     </table>
-                                    @if(count($collection_data) && count($all_orders))
-                                        {!!  $collection_data->links() !!}
-                                    @endif
+{{--                                    @if(count($collection_data) && count($all_orders))--}}
+{{--                                        {!!  $collection_data->links() !!}--}}
+{{--                                    @endif--}}
                                 </div>
 
                             </div>

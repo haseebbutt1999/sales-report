@@ -54,9 +54,9 @@
                                     @endif
                                     </tbody>
                                 </table>
-                                @if(count($report_data))
-                                    {!!  $report_data->links() !!}
-                                @endif
+{{--                                @if(count($report_data))--}}
+{{--                                    {!!  $report_data->links() !!}--}}
+{{--                                @endif--}}
                             </div>
                         </div>
                     </div>
