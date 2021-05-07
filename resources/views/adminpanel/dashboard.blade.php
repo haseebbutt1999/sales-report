@@ -1,6 +1,6 @@
 @extends('adminpanel.layout.default')
 @section('content')
-    @dd($all_orders)
+{{--    @dd($all_orders)--}}
     <div class="col-lg-12 col-md-12 p-4">
         <!-- start info box -->
         <div class="print-class d-flex justify-content-between align-items-center">
@@ -218,7 +218,7 @@
                                                 {{array_sum($val)}}
                                                 <input type="hidden" class="unitsale" name="unitsale[]" value="{{array_sum($val)}}">
                                             </td>
-                                            @dd($order_lineitem)
+{{--                                            @dd($order_lineitem)--}}
                                             <td  class="credit-card-sale-{{$key}}">
                                                 {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
                                                 <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
