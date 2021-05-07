@@ -10,10 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="bug fixing">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="set collection, product, variant created and updated time  according to shopify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CollectionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CollectionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +201,7 @@
       <workItem from="1620196133590" duration="22806000" />
       <workItem from="1620282121281" duration="10028000" />
       <workItem from="1620324343813" duration="2664000" />
-      <workItem from="1620364371571" duration="11902000" />
+      <workItem from="1620364371571" duration="12763000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619774415201</created>
@@ -434,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620383515751</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="set collection, product, variant created and updated time  according to shopify">
+      <created>1620383858023</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1620383858023</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +472,8 @@
     <MESSAGE value="&#10;ada" />
     <MESSAGE value="ada" />
     <MESSAGE value="bug fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixing" />
+    <MESSAGE value="set collection, product, variant created and updated time  according to shopify" />
+    <option name="LAST_COMMIT_MESSAGE" value="set collection, product, variant created and updated time  according to shopify" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620383674430">
@@ -480,10 +488,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="634" y="361" key="NewPhpFileDialog/0.0.1600.860@0.0.1600.860" timestamp="1618985911557" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1620383527962">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1620383861427">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1620383527962" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1620383861427" />
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1619774209771">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

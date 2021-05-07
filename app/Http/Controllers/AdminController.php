@@ -45,10 +45,10 @@ class AdminController extends Controller
             $start_date = date('Y-m-d h:i:s', strtotime($dates_array[0]));
             $end_date = date('Y-m-d h:i:s', strtotime($dates_array[1]));
             $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id)->whereBetween('created_at', [$start_date, $end_date])->get();
-            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('created_at', 'desc')->whereBetween('created_at', [$start_date, $end_date])->paginate(12);
+            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('updated_at', 'desc')->whereBetween('created_at', [$start_date, $end_date])->paginate(12);
         }else{
             $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id)->get();
-            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get();
         }
 
         return view('adminpanel/dashboard', compact('collection_data', 'all_orders', 'datefilter'));

@@ -47,7 +47,7 @@ class CollectionController extends Controller
             $smart_collection_check->collection_type = $collection->collection_type;
             $smart_collection_check->products_count = $collection->products_count;
             $smart_collection_check->handle = $collection->handle;
-            $smart_collection_check->created_at = Carbon::createFromTimeString($collection->created_at)->format('Y-m-d H:i:s');
+//            $smart_collection_check->created_at = Carbon::createFromTimeString($collection->created_at)->format('Y-m-d H:i:s');
             $smart_collection_check->updated_at = Carbon::createFromTimeString($collection->updated_at)->format('Y-m-d H:i:s');
             $smart_collection_check->save();
             $collection_products = $shop->api()->rest('GET', '/admin/api/2020-07/collections/'.$smart_collection->id.'/products.json')['body']['container']['products'];
@@ -82,7 +82,7 @@ class CollectionController extends Controller
             $custom_collection_check->collection_type = $collection->collection_type;
             $custom_collection_check->products_count = $collection->products_count;
             $custom_collection_check->handle = $collection->handle;
-            $custom_collection_check->created_at = Carbon::createFromTimeString($collection->created_at)->format('Y-m-d H:i:s');
+//            $custom_collection_check->created_at = Carbon::createFromTimeString($collection->created_at)->format('Y-m-d H:i:s');
             $custom_collection_check->updated_at = Carbon::createFromTimeString($collection->updated_at)->format('Y-m-d H:i:s');
             $custom_collection_check->save();
             $collection_products = $shop->api()->rest('GET', '/admin/api/2020-07/collections/'.$custom_collection->id.'/products.json')['body']['container']['products'];
