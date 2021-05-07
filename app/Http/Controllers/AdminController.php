@@ -26,6 +26,17 @@ class AdminController extends Controller
 //        $order = Lineitem::where('shopify_lineitem_id', 9632423477431)->first();
 ////        dd($order);
 //        dd($order->order);
+//        $shop=Auth::user();
+//        $locations = [];
+//        $orders = Order::where('shopify_shop_id', $shop->id)->get();
+//        if(count($orders)){
+//            foreach ($orders as $order){
+//                dd($order->lineitems);
+//                array_push($locations, $lineitem->addressess[0]->country);
+//            }
+//            $locations = array_values(array_unique($locations));
+//        }
+
         $datefilter='';
         if($request->query('datefilter')) {
             $datefilter = $request->query('datefilter');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lineitem;
 use App\Order;
+use App\Originlocation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +29,9 @@ class OrderController extends Controller
             {
                 $next_page=$order_api['link']['next'];
                 $order_api=json_decode(json_encode($order_api['body']['orders']),FALSE);
+//                dd($order_api);
                 foreach ($order_api as $order) {
-                    dd($order);
+//                    dd($order);
                     $this->CreateUpdateOrder($order, $customer);
                 }
             }
@@ -119,9 +121,22 @@ class OrderController extends Controller
             $line->shopify_order_id = $order->id;
             $line->fulfillable_quantity = $item->fulfillable_quantity;
             $line->properties = json_encode($item->properties);
-
-            $line->save();
+            if(isset($item->origin_location)){
+                $line->origin_location_id = $item->origin_location->id;
+//                dd($item->origin_location->name);
+                if(Originlocation::where('lineitem_id', $item->id)->where('origin_location_id', $item->origin_location->id)->exists()) {
+                    $orign_location = Originlocation::where('lineitem_id', $item->id)->where('origin_location_id', $item->origin_location->id)->first();
+                }
+                else {
+                    $orign_location = new Originlocation();
+                }
+                $orign_location->lineitem_id = $item->id;
+                $orign_location->origin_location_id = $item->origin_location->id;
+                $orign_location->name = $item->origin_location->name;
+                $orign_location->save();
+            }
+//            $line->save();
         }
-        $order_data->save();
+//        $order_data->save();
     }
 }
