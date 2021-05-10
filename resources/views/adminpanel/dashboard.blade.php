@@ -7,9 +7,9 @@
             <div class="col-md-6">
                 <form class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
                     <select class="form-control mr-3" name="location">
-                        <option disabled selected>Select Store Location</option>
+                        <option selected value="select_option">Select Store Location</option>
                         @foreach($location_name as $key=>$location)
-                            <option value="{{$location_id[$key]}}">
+                            <option @if(($location_select != '') && ($location_select == $location_id[$key])) selected @endif value="{{$location_id[$key]}}">
                                 {{$location}}
                             </option>
                         @endforeach

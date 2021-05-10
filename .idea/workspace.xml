@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="apply filter according to date picker and stor location">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +202,7 @@
       <workItem from="1620282121281" duration="10028000" />
       <workItem from="1620324343813" duration="2664000" />
       <workItem from="1620364371571" duration="16120000" />
-      <workItem from="1620624767284" duration="6234000" />
+      <workItem from="1620624767284" duration="6543000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1619774415201</created>
@@ -455,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620631290410</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="apply filter according to date picker and stor location">
+      <created>1620631957472</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1620631957472</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

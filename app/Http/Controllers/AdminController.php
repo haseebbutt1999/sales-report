@@ -51,18 +51,18 @@ class AdminController extends Controller
             $collection_data->whereBetween('created_at', [$start_date, $end_date]);
         }elseif($request->query('location')){
             $location_select = $request->query('location');
-
-            $all_orders->whereHas('lineitems', function($query) use ($location_select){
-                $query->where('origin_location_id', $location_select);
-            });
-
+            if($location_select != 'select_option'){
+                $all_orders->whereHas('lineitems', function($query) use ($location_select){
+                    $query->where('origin_location_id', $location_select);
+                });
+            }
         }
 
         $all_orders = $all_orders->get();
 
         $collection_data = $collection_data->orderBy('updated_at', 'desc')->get();
 //        dd($collection_data);
-        return view('adminpanel/dashboard', compact('location_name','location_id', 'collection_data', 'all_orders', 'datefilter'));
+        return view('adminpanel/dashboard', compact('location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
 
 
     }
