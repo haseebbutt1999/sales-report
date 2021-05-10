@@ -29,7 +29,7 @@ class OrderController extends Controller
             {
                 $next_page=$order_api['link']['next'];
                 $order_api=json_decode(json_encode($order_api['body']['orders']),FALSE);
-//                dd($order_api);
+                dd($order_api);
                 foreach ($order_api as $order) {
 //                    dd($order);
                     $this->CreateUpdateOrder($order, $customer);
