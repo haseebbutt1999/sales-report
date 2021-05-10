@@ -4,7 +4,7 @@
     <div class="col-lg-12 col-md-12 p-4">
         <!-- start info box -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
                     <select class="form-control mr-3" name="location">
                         <option disabled selected>Select Store Location</option>
@@ -18,7 +18,7 @@
                     <button class="btn btn-primary ml-2">Apply</button>
                 </form>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="d-flex justify-content-end" id="print-button-main">
                     <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal"><i class=" fa fa-download text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Save Report</button>
