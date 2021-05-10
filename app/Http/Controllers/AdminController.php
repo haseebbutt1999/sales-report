@@ -17,41 +17,52 @@ class AdminController extends Controller
 {
     public function dashboard(Request $request){
 
-//        $collection = Collection::where('shopify_collection_id', 261771460791)->first();
-////        dd($collection->products);
-//        foreach($collection->products as $prod){
-//            dd($prod->lineitem->order);
-//        }
-
-//        $order = Lineitem::where('shopify_lineitem_id', 9632423477431)->first();
-////        dd($order);
-//        dd($order->order);
-//        $shop=Auth::user();
-//        $locations = [];
-//        $orders = Order::where('shopify_shop_id', $shop->id)->get();
-//        if(count($orders)){
-//            foreach ($orders as $order){
-//                dd($order->lineitems);
-//                array_push($locations, $lineitem->addressess[0]->country);
-//            }
-//            $locations = array_values(array_unique($locations));
-//        }
-
+        $location_name = [];
+        $location_select = '';
+        $location_id = [];
+        $orders = Order::where('shopify_shop_id', auth::user()->id)->get();
+        if(count($orders)){
+            foreach ($orders as $order){
+                foreach ($order->lineitems as $lineitem){
+                    if(isset($lineitem->origin_location)){
+//                        $locations += [ $lineitem->origin_location->origin_location_id => $lineitem->origin_location->name ];
+                        array_push($location_name,$lineitem->origin_location->name);
+                        array_push($location_id,$lineitem->origin_location->origin_location_id);
+                    }
+                }
+            }
+        }
+        $location_name = array_values(array_unique($location_name));
+        $location_id = array_values(array_unique($location_id));
         $datefilter='';
+
+
+        $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id);
+        $collection_data = Collection::where('shopify_shop_id', Auth::user()->id);
+//        dd($collection_data);
         if($request->query('datefilter')) {
             $datefilter = $request->query('datefilter');
             $dates_array = explode('- ', $datefilter);
 
             $start_date = date('Y-m-d h:i:s', strtotime($dates_array[0]));
             $end_date = date('Y-m-d h:i:s', strtotime($dates_array[1]));
-            $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id)->whereBetween('created_at', [$start_date, $end_date])->get();
-            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('updated_at', 'desc')->whereBetween('created_at', [$start_date, $end_date])->paginate(12);
-        }else{
-            $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id)->get();
-            $collection_data = Collection::where('shopify_shop_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get();
+
+            $all_orders->whereBetween('created_at', [$start_date, $end_date]);
+            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
+        }elseif($request->query('location')){
+            $location_select = $request->query('location');
+
+            $all_orders->whereHas('lineitems', function($query) use ($location_select){
+                $query->where('origin_location_id', $location_select);
+            });
+
         }
 
-        return view('adminpanel/dashboard', compact('collection_data', 'all_orders', 'datefilter'));
+        $all_orders = $all_orders->get();
+
+        $collection_data = $collection_data->orderBy('updated_at', 'desc')->get();
+//        dd($collection_data);
+        return view('adminpanel/dashboard', compact('location_name','location_id', 'collection_data', 'all_orders', 'datefilter'));
 
 
     }

@@ -15,4 +15,9 @@ class Lineitem extends Model
     {
         return $this->belongsTo(Order::class, 'shopify_order_id', 'shopify_order_id');
     }
+
+    public function origin_location()
+    {
+        return $this->hasOne(Originlocation::class, 'lineitem_id', 'shopify_lineitem_id');
+    }
 }

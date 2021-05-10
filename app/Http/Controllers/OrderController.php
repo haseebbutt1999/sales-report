@@ -121,6 +121,7 @@ class OrderController extends Controller
             $line->shopify_order_id = $order->id;
             $line->fulfillable_quantity = $item->fulfillable_quantity;
             $line->properties = json_encode($item->properties);
+//            $origin_location_id = '';
             if(isset($item->origin_location)){
                 $line->origin_location_id = $item->origin_location->id;
 //                dd($item->origin_location->name);
