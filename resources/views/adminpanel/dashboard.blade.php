@@ -4,9 +4,9 @@
     <div class="col-lg-12 col-md-12 p-4">
         <!-- start info box -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form id="filter-form" class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
-                    <select class="form-control mr-3" name="location">
+                    <select class="w-50 form-control mr-2" name="location">
                         <option selected value="select_option">Select Location</option>
                         @foreach($location_name as $key=>$location)
                             <option @if(($location_select != '') && ($location_select == $location_id[$key])) selected @endif value="{{$location_id[$key]}}">
@@ -14,8 +14,8 @@
                             </option>
                         @endforeach
                     </select>
-                    <input type="search" autocomplete="off" name="datefilter" value="{{$datefilter}}" class="datefilter" placeholder="Select date.."/>
-                    <button class="btn btn-primary align-items-center ml-2 d-flex filter-button">
+                    <input type="search" autocomplete="off" name="datefilter" value="{{$datefilter}}" class="datefilter w-50 mr-2" placeholder="Select date.."/>
+                    <button class="btn btn-primary align-items-center  d-flex filter-button">
                         <span class="loader-span mr-2">
                             <div class="loader"></div>
                         </span>
@@ -25,7 +25,7 @@
                 </form>
 
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="d-flex justify-content-end" id="print-button-main">
                     <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal"><i class=" fa fa-download text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Save Report</button>
