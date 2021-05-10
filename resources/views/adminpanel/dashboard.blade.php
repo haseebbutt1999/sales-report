@@ -5,7 +5,7 @@
         <!-- start info box -->
         <div class="row">
             <div class="col-md-6">
-                <form class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
+                <form id="filter-form" class="d-flex  mb-3" method="GET" action="{{ route('dashboard') }}">
                     <select class="form-control mr-3" name="location">
                         <option selected value="select_option">Select Store Location</option>
                         @foreach($location_name as $key=>$location)
@@ -15,8 +15,15 @@
                         @endforeach
                     </select>
                     <input type="search" autocomplete="off" name="datefilter" value="{{$datefilter}}" class="datefilter" placeholder="Select date.."/>
-                    <button class="btn btn-primary ml-2">Apply</button>
+                    <button class="btn btn-primary align-items-center ml-2 d-flex filter-button">
+                        <span class="loader-span mr-2">
+                            <div class="loader"></div>
+                        </span>
+
+                        Filter
+                    </button>
                 </form>
+
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-end" id="print-button-main">
@@ -329,6 +336,10 @@
     <script>
 
         $(document).ready(function() {
+            $("button .loader-span").find(".loader").css('display', 'none')
+            $("#filter-form").submit(function () {
+                $("button .loader-span").find(".loader").css('display', 'block')
+            });
 
             $('input[name="datefilter"]').daterangepicker({
                 autoUpdateInput: false,
@@ -350,6 +361,9 @@
                 var options = {mode: mode, popClose: close};
                 $("div.printableArea").printArea(options);
             });
+
+            // $(".loader-span").find(".spinner-border").css('display', 'none')
+
         });
 
     </script>

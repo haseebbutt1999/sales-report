@@ -23,6 +23,11 @@
     @if(Session::has('error'))
     toastr.error("{{ Session::get('error') }}") ;
     @endif
+
+
+    $(document).ready(function() {
+
+    });
 </script>
 @yield('js_after')
 </body>
