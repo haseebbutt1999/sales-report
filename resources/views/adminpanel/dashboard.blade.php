@@ -365,8 +365,8 @@
                                                     <label>%</label>
                                                     <input min="0" step="any" class="comision" type="number" value="1">
                                                 </div>
-                                                @dd(array_sum($all_net))
-                                                <span class="comision-result">{{((number_format(array_sum($all_net),2))*1)/100}}</span>%</td>
+{{--                                                @dd(array_sum($all_net))--}}
+                                                <span class="comision-result">{{((array_sum($all_net))*(1/100)}}</span>%</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>Payment 1</td>
