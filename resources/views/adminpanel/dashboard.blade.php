@@ -301,14 +301,14 @@
                                                 <td><b>{{number_format(array_sum($all_net),2)}}</b></td>
                                                 <td><b>{{number_format(array_sum($all_shipp),2)}}</b></td>
                                                 <td><b>{{number_format(array_sum($all_totalSale),2)}}</b></td>
-                                                <input type="hidden"  name="all_credit" value="{{number_format(array_sum($all_credit),2)}}">
-                                                <input type="hidden"  name="all_cash" value="{{number_format(array_sum($all_cash),2)}}">
+                                                <input type="hidden" class="cash-sale-input" name="all_credit" value="{{number_format(array_sum($all_credit),2)}}">
+                                                <input type="hidden"   name="all_cash" value="{{number_format(array_sum($all_cash),2)}}">
                                                 <input type="hidden"  name="all_dis" value="{{number_format(array_sum($all_dis),2)}}">
                                                 <input type="hidden"  name="all_bank" value="{{number_format(array_sum($all_bank),2)}}">
                                                 <input type="hidden"  name="all_gross" value="{{number_format(array_sum($all_gross),2)}}">
                                                 <input type="hidden"  name="all_shipp" value="{{number_format(array_sum($all_shipp),2)}}">
-                                                <input type="hidden"  name="all_net" value="{{number_format(array_sum($all_net),2)}}">
-                                                <input type="hidden"  name="all_totalSale" value="{{number_format(array_sum($all_totalSale),2)}}">
+                                                <input type="hidden" class="net_sale"  name="all_net" value="{{number_format(array_sum($all_net),2)}}">
+                                                <input type="hidden"  class="total-sale-input" name="all_totalSale" value="{{number_format(array_sum($all_totalSale),2)}}">
                                             </tr>
                                         @endif
                                         </tbody>
@@ -338,7 +338,7 @@
                                 <div class="col-md-12 px-3 pt-2">
                                     <div class="d-flex justify-content-between align-items-center mr-2">
                                         <h5>Daily Cash Closing:</h5>
-                                        {{--                                    <a href=""><button class="btn-primary">Customer Sync</button></a>--}}
+                                        {{--           <a href=""><button class="btn-primary">Customer Sync</button></a>--}}
                                     </div>
                                 </div>
                             </div>
@@ -352,15 +352,20 @@
                                         <tbody>
                                         <tr class="td-text-center ">
                                             <td>TOTAL SALE:</td>
-                                            <td>210</td>
+                                            <td class="total-sale">{{number_format(array_sum($all_totalSale),2)}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>CASH SALE:</td>
-                                            <td>100</td>
+                                            <td class="cash-sale">{{number_format(array_sum($all_credit),2)}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>COMISION %:</td>
-                                            <td>4.75</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>%</label>
+                                                    <input min="0" step="any" class="comision" type="number" value="1">
+                                                </div>
+                                                <span class="comision-result">{{((number_format(array_sum($all_net),2))*1)/100}}</span>%</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>Payment 1</td>
@@ -440,6 +445,12 @@
                 $("div.printableArea").printArea(options);
             });
 
+            $('input.comision').on('input',function(e){
+                var net_sale = $('.net_sale').val();
+                var comision = (($(this).val() / 100) * net_sale).toFixed(2);
+                $('.comision-result').text(comision)
+                console.log(comision)
+            });
             // $(".loader-span").find(".spinner-border").css('display', 'none')
 
         });
