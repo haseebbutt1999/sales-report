@@ -307,7 +307,7 @@
                                                 <input type="hidden"  name="all_bank" value="{{number_format(array_sum($all_bank),2)}}">
                                                 <input type="hidden"  name="all_gross" value="{{number_format(array_sum($all_gross),2)}}">
                                                 <input type="hidden"  name="all_shipp" value="{{number_format(array_sum($all_shipp),2)}}">
-                                                <input type="hidden" class="net_sale"  name="all_net" value="{{number_format(array_sum($all_net),2)}}">
+                                                <input type="hidden" name="all_net" value="{{number_format(array_sum($all_net),2)}}">
                                                 <input type="hidden"  class="total-sale-input" name="all_totalSale" value="{{number_format(array_sum($all_totalSale),2)}}">
                                             </tr>
                                         @endif
@@ -324,6 +324,8 @@
                 </div>
             </div>
         </form>
+        <input type="hidden" class="net_sale"  name="all_net" value="{{array_sum($all_net)}}">
+
         <div class="w-100 bg-white mt-3">
             <div class="row " >
                 <div class="col-md-6 pl-3 pt-2 " style="margin-top: -10px;">
@@ -448,7 +450,7 @@
 
             $('input.comision').on('input',function(e){
                 var net_sale = $('.net_sale').val();
-                var comision = (($(this).val() / 100) * net_sale).toFixed(2);
+                var comision = (($(this).val() / 100) * net_sale). ;
                 $('.comision-result').text(comision)
                 console.log(comision)
             });
