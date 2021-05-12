@@ -450,7 +450,7 @@
 
             $('input.comision').on('input',function(e){
                 var net_sale = $('.net_sale').val();
-                var comision = (($(this).val() / 100) * net_sale). ;
+                var comision = (($(this).val() / 100) * net_sale).toFixed(2) ;
                 $('.comision-result').text(comision)
                 console.log(comision)
             });
