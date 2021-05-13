@@ -43,7 +43,7 @@
                                         <th class="font-weight-bold " >Cash Sales</th>
                                         <th class="font-weight-bold " >Credit Card Sales</th>
                                         <th class="font-weight-bold " >Bank Transfer Sales</th>
-                                        <th class="font-weight-bold " >Customizable Other Sales</th>
+{{--                                        <th class="font-weight-bold " >Customizable Other Sales</th>--}}
                                         <th class="font-weight-bold " >Gross Sales</th>
                                         <th class="font-weight-bold " >Total Discounts</th>
                                         <th class="font-weight-bold " >Net Sales</th>
@@ -85,9 +85,9 @@
 
                                                     {{$report_item->bank_sale}}
                                                 </td>
-                                                <td class="">
+{{--                                                <td class="">--}}
 
-                                                </td>
+{{--                                                </td>--}}
                                                 <td class="gross-sale-{{$key}}">
                                                     {{$report_item->gross_sale}}
 
@@ -117,7 +117,7 @@
                                             <td><b>{{$report_data->all_credit}}</b></td>
                                             <td><b>{{$report_data->all_cash}}</b></td>
                                             <td><b>{{$report_data->all_bank}}</b></td>
-                                            <td><b></b></td>
+{{--                                            <td><b></b></td>--}}
                                             <td><b>{{$report_data->all_gross}}</b></td>
                                             <td><b>{{$report_data->all_dis}}</b></td>
                                             <td><b>{{$report_data->all_net}}</b></td>
