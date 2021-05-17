@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="apply filter according to date picker and stor location">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="daily commison closing fields">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
@@ -203,20 +203,10 @@
       <workItem from="1620364371571" duration="16120000" />
       <workItem from="1620624767284" duration="14445000" />
       <workItem from="1620725785307" duration="4292000" />
-    </task>
-    <task id="LOCAL-00001" summary="first commit">
-      <created>1619774415201</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1619774415202</updated>
-    </task>
-    <task id="LOCAL-00002" summary="first commit">
-      <created>1619775917543</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1619775917543</updated>
+      <workItem from="1620810960302" duration="11435000" />
+      <workItem from="1620930704323" duration="17000" />
+      <workItem from="1621124646547" duration="980000" />
+      <workItem from="1621233450437" duration="4439000" />
     </task>
     <task id="LOCAL-00003" summary="first commit">
       <created>1619776013057</created>
@@ -512,7 +502,56 @@
       <option name="project" value="LOCAL" />
       <updated>1620639957172</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="daily commison closing fields">
+      <created>1620811218416</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1620811218416</updated>
+    </task>
+    <task id="LOCAL-00046" summary="daily commison closing fields">
+      <created>1620811492177</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1620811492177</updated>
+    </task>
+    <task id="LOCAL-00047" summary="daily commison closing fields">
+      <created>1620811724182</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1620811724182</updated>
+    </task>
+    <task id="LOCAL-00048" summary="daily commison closing fields">
+      <created>1620812020346</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1620812020346</updated>
+    </task>
+    <task id="LOCAL-00049" summary="daily commison closing fields">
+      <created>1620812794309</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1620812794309</updated>
+    </task>
+    <task id="LOCAL-00050" summary="daily commison closing fields">
+      <created>1620812870360</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1620812870378</updated>
+    </task>
+    <task id="LOCAL-00051" summary="daily commison closing fields">
+      <created>1620883422209</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1620883422218</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +584,8 @@
     <MESSAGE value="bug fixing" />
     <MESSAGE value="set collection, product, variant created and updated time  according to shopify" />
     <MESSAGE value="apply filter according to date picker and stor location" />
-    <option name="LAST_COMMIT_MESSAGE" value="apply filter according to date picker and stor location" />
+    <MESSAGE value="daily commison closing fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="daily commison closing fields" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620383674430">
@@ -560,10 +600,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="634" y="361" key="NewPhpFileDialog/0.0.1600.860@0.0.1600.860" timestamp="1618985911557" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1620639959472">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1620883424042">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1620639959472" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1620883424042" />
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1619774209771">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

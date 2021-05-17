@@ -603,11 +603,50 @@
                                             </tr>
                                             <tr class="td-text-center ">
                                                 <td>Total cash remaining $</td>
-                                                <td>95.25</td>
+                                                <td class="total-cash-remaining"></td>
                                             </tr>
                                             <tr class="td-text-center ">
                                                 <td>Total cash collected $</td>
-                                                <td>95.25</td>
+                                                <td class="d-flex w-100 justify-content-between total-cash-collected">
+                                                    <div style="width: 15%;">
+                                                        <span class="total-amount-collected" >0</span>
+                                                    </div>
+                                                    <div style="width: 70%;">
+                                                        <span><strong>Note:</strong></span>
+                                                        <span class="total-amount-collected-note-result" ></span>
+                                                    </div>
+                                                    <div style="width: 15%;text-align: right;">
+                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#collected-amount"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                    </div>
+                                                    {{--        model start--}}
+                                                    <div class="modal fade mt-5 modal-div" id="collected-amount" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-popout" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="block card p-3 block-themed block-transparent mb-0">
+                                                                    <div class="block-header bg-primary-dark">
+                                                                        <div class="block-options d-flex justify-content-between">
+                                                                            <h5 class="block-title">Note</h5>
+                                                                            <button type="button" class="btn-block-option">
+                                                                                <i class="fa fa-fw fa-times"  data-dismiss="modal" aria-label="Close"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-content">
+                                                                        <div class='form-group '>
+                                                                            <label class='control-label'>Note:</label>
+                                                                            <input class='form-control total-collected-amount-note' type='text' name="report_name">
+                                                                        </div>
+                                                                        <div class="text-right mb-2">
+                                                                            <button class="btn btn-primary btn-lg collected-amount-save-btn" type="button">Save</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{--        model end--}}
+
+                                                </td>
                                             </tr>
 
                                             </tbody>
@@ -634,12 +673,14 @@
     <script>
 
         $(document).ready(function() {
+            var payment1=0,payment2=0,payment3=0,payment4=0,payment5 =0;
+
             $("button .loader-span").find(".loader").css('display', 'none')
             $(".payment1-save-btn").click(function(){
                 var payment1_note = $('.payment1-note').val();
                 var payment1_amount = $('.payment1-amount').val();
 
-                $('.payment1').find('.payment1-note-result').text(payment1_note)
+                var payment1 = $('.payment1').find('.payment1-note-result').text(payment1_note)
                 $('.payment1').find('.payment1-amount-result').text(payment1_amount)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
@@ -649,7 +690,7 @@
                 var payment2_note = $('.payment2-note').val();
                 var payment2_amount = $('.payment2-amount').val();
 
-                $('.payment2').find('.payment2-note-result').text(payment2_note)
+                var payment2 = $('.payment2').find('.payment2-note-result').text(payment2_note)
                 $('.payment2').find('.payment2-amount-result').text(payment2_amount)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
@@ -659,7 +700,7 @@
                 var payment3_note = $('.payment3-note').val();
                 var payment3_amount = $('.payment3-amount').val();
 
-                $('.payment3').find('.payment3-note-result').text(payment3_note)
+               var payment3 = $('.payment3').find('.payment3-note-result').text(payment3_note)
                 $('.payment3').find('.payment3-amount-result').text(payment3_amount)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
@@ -669,7 +710,7 @@
                 var payment4_note = $('.payment4-note').val();
                 var payment4_amount = $('.payment4-amount').val();
 
-                $('.payment4').find('.payment4-note-result').text(payment4_note)
+                var payment4 = $('.payment4').find('.payment4-note-result').text(payment4_note)
                 $('.payment4').find('.payment4-amount-result').text(payment4_amount)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
@@ -679,12 +720,23 @@
                 var payment5_note = $('.payment5-note').val();
                 var payment5_amount = $('.payment5-amount').val();
 
-                $('.payment5').find('.payment5-note-result').text(payment5_note)
+                var payment5 = $('.payment5').find('.payment5-note-result').text(payment5_note)
                 $('.payment5').find('.payment5-amount-result').text(payment5_amount)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
             });
+
+            $(".collected-amount-save-btn").click(function(){
+                var collected_amount_note_result = $('.total-collected-amount-note').val();
+
+                var payment5 = $('.total-cash-collected').find('.total-amount-collected-note-result').text(collected_amount_note_result)
+
+                jQuery.noConflict();
+                $('.modal-div').modal("hide")
+
+            });
+
             $("#filter-form").submit(function () {
                 $("button .loader-span").find(".loader").css('display', 'block')
             });
@@ -710,12 +762,22 @@
                 $("div.printableArea").printArea(options);
             });
 
+            var comision = $('.comision-result').text();
+            var cash_sale = $('.cash-sale').text();
+            var total_cash_remaining = (cash_sale - comision).toFixed(2)
+
+            $('.total-cash-remaining').text(total_cash_remaining);
+            $('.total-amount-collected').text(total_cash_remaining);
+
             $('input.comision').on('input',function(e){
                 var net_sale = $('.net_sale').val();
                 var comision = (($(this).val() / 100) * net_sale).toFixed(2) ;
-                $('.comision-result').text(comision)
-                console.log(comision)
+                var comision_result = $('.comision-result').text(comision)
+                var total_cash_remaining = (cash_sale - comision).toFixed(2)
+                $('.total-cash-remaining').text(total_cash_remaining);
+                $('.total-amount-collected').text(total_cash_remaining);
             });
+
             // $(".loader-span").find(".spinner-border").css('display', 'none')
 
         });
