@@ -6,11 +6,11 @@
 #toast-container {
     margin-top: 57px !important;
 }
-input[type="checkbox"]{
-    height: 19px !important;
-    width: 15px !important;
-    opacity: 1 !important;
-}
+/*input[type="checkbox"]{*/
+/*    height: 19px !important;*/
+/*    width: 15px !important;*/
+/*    opacity: 1 !important;*/
+/*}*/
 .loader {
     border: 5px solid #f3f3f3;
     border-radius: 50%;
