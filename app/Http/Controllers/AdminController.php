@@ -88,6 +88,21 @@ class AdminController extends Controller
         $report_save->all_totalSale = $request->all_totalSale;
         $report_save->report_name = $request->report_name;
         $report_save->shopify_shop_id = Auth::user()->id;
+        $report_save->comision = $request->comision;
+        $report_save->payment1 = $request->payment1;
+        $report_save->payment2 = $request->payment2;
+        $report_save->payment3 = $request->payment3;
+        $report_save->payment4 = $request->payment4;
+        $report_save->payment5 = $request->payment5;
+        $report_save->total_cash_remaining = $request->total_cash_remaining;
+        $report_save->total_cash_collected = $request->total_cash_collected;
+        $report_save->note1 = $request->note1;
+        $report_save->note2 = $request->note2;
+        $report_save->note3 = $request->note3;
+        $report_save->note4 = $request->note4;
+        $report_save->note5 = $request->note5;
+        $report_save->total_cash_collected_note = $request->total_cash_collected_note;
+
         if($report_save->save()){
             $count = count($request->collection_name);
             $val=0;

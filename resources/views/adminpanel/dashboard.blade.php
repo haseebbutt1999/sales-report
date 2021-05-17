@@ -321,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+
             <input type="hidden" class="net_sale"  name="all_net" value="{{array_sum($all_net)}}">
 
             <div class="w-100 bg-white mt-3">
@@ -379,7 +379,7 @@
                                                         <span class="payment1-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: end;">
-                                                        <button  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment1"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment1"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="payment1" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -397,7 +397,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control payment1-note' type='text' name="report_name">
+                                                                            <input class='form-control payment1-note' type='text' >
                                                                         </div>
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Amount:</label>
@@ -425,7 +425,7 @@
                                                         <span class="payment2-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: right">
-                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment2"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment2"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="payment2" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -443,7 +443,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control payment2-note' type='text' name="report_name">
+                                                                            <input class='form-control payment2-note' type='text' >
                                                                         </div>
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Amount:</label>
@@ -471,7 +471,7 @@
                                                         <span class="payment3-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: right;">
-                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment3"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment3"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="payment3" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -489,7 +489,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control payment3-note' type='text' name="report_name">
+                                                                            <input class='form-control payment3-note' type='text' >
                                                                         </div>
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Amount:</label>
@@ -518,7 +518,7 @@
                                                         <span class="payment4-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: right;">
-                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment4"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment4"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="payment4" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -536,7 +536,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control payment4-note' type='text' name="report_name">
+                                                                            <input class='form-control payment4-note' type='text' >
                                                                         </div>
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Amount:</label>
@@ -565,7 +565,7 @@
                                                         <span class="payment5-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: right;">
-                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment5"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#payment5"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="payment5" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -583,7 +583,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control payment5-note' type='text' name="report_name">
+                                                                            <input class='form-control payment5-note' type='text' >
                                                                         </div>
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Amount:</label>
@@ -616,7 +616,7 @@
                                                         <span class="total-amount-collected-note-result" ></span>
                                                     </div>
                                                     <div style="width: 15%;text-align: right;">
-                                                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#collected-amount"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
+                                                        <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#collected-amount"><i class="fa fa-pencil " style="font-size: 16px;color: white" aria-hidden="true"></i></button>
                                                     </div>
                                                     {{--        model start--}}
                                                     <div class="modal fade mt-5 modal-div" id="collected-amount" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
@@ -634,7 +634,7 @@
                                                                     <div class="block-content">
                                                                         <div class='form-group '>
                                                                             <label class='control-label'>Note:</label>
-                                                                            <input class='form-control total-collected-amount-note' type='text' name="report_name">
+                                                                            <input class='form-control total-collected-amount-note' type='text' >
                                                                         </div>
                                                                         <div class="text-right mb-2">
                                                                             <button class="btn btn-primary btn-lg collected-amount-save-btn" type="button">Save</button>
@@ -659,6 +659,21 @@
                     </div>
                 </div>
             </div>
+                <input type="hidden" class="all-comision" name="comision" value="">
+                <input type="hidden" class="all-payment1" name="payment1" value="0">
+                <input type="hidden" class="all-payment2" name="payment2" value="0">
+                <input type="hidden" class="all-payment3" name="payment3" value="0">
+                <input type="hidden" class="all-payment4" name="payment4" value="0">
+                <input type="hidden" class="all-payment5" name="payment5" value="0">
+                <input type="hidden" class="all-total-cash-remaining" name="total_cash_remaining" value="0">
+                <input type="hidden" class="all-total-cash-collected" name="total_cash_collected" value="0">
+                <input type="hidden" class="all-note1" name="note1" value="">
+                <input type="hidden" class="all-note2" name="note2" value="">
+                <input type="hidden" class="all-note3" name="note3" value="">
+                <input type="hidden" class="all-note4" name="note4" value="">
+                <input type="hidden" class="all-note5" name="note5" value="">
+                <input type="hidden" class="all-total-cash-collected-note" name="total_cash_collected_note" value="">
+            </form>
         </div>
 
     </div>
@@ -677,11 +692,15 @@
 
             $("button .loader-span").find(".loader").css('display', 'none')
             $(".payment1-save-btn").click(function(){
+
                 var payment1_note = $('.payment1-note').val();
                 var payment1_amount = $('.payment1-amount').val();
 
                 var payment1 = $('.payment1').find('.payment1-note-result').text(payment1_note)
                 $('.payment1').find('.payment1-amount-result').text(payment1_amount)
+                $('.all-payment1').val(payment1_amount)
+                $('.all-note1').val(payment1_note)
+
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -692,6 +711,9 @@
 
                 var payment2 = $('.payment2').find('.payment2-note-result').text(payment2_note)
                 $('.payment2').find('.payment2-amount-result').text(payment2_amount)
+                $('.all-payment2').val(payment2_amount)
+                $('.all-note2').val(payment2_note)
+
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -702,6 +724,9 @@
 
                var payment3 = $('.payment3').find('.payment3-note-result').text(payment3_note)
                 $('.payment3').find('.payment3-amount-result').text(payment3_amount)
+                $('.all-payment3').val(payment3_amount)
+                $('.all-note3').val(payment3_note)
+
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -712,6 +737,9 @@
 
                 var payment4 = $('.payment4').find('.payment4-note-result').text(payment4_note)
                 $('.payment4').find('.payment4-amount-result').text(payment4_amount)
+                $('.all-payment4').val(payment4_amount)
+                $('.all-note4').val(payment4_note)
+
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -722,6 +750,9 @@
 
                 var payment5 = $('.payment5').find('.payment5-note-result').text(payment5_note)
                 $('.payment5').find('.payment5-amount-result').text(payment5_amount)
+                $('.all-payment5').val(payment5_amount)
+                $('.all-note5').val(payment5_note)
+
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -730,8 +761,8 @@
             $(".collected-amount-save-btn").click(function(){
                 var collected_amount_note_result = $('.total-collected-amount-note').val();
 
-                var payment5 = $('.total-cash-collected').find('.total-amount-collected-note-result').text(collected_amount_note_result)
-
+                var colected_cash_note = $('.total-cash-collected').find('.total-amount-collected-note-result').text(collected_amount_note_result)
+                $('.all-total-cash-collected-note').val(collected_amount_note_result)
                 jQuery.noConflict();
                 $('.modal-div').modal("hide")
 
@@ -763,6 +794,7 @@
             });
 
             var comision = $('.comision-result').text();
+            $('.all-comision').val(comision);
             var cash_sale = $('.cash-sale').text();
             var total_cash_remaining = (cash_sale - comision).toFixed(2)
 
@@ -772,8 +804,11 @@
             $('input.comision').on('input',function(e){
                 var net_sale = $('.net_sale').val();
                 var comision = (($(this).val() / 100) * net_sale).toFixed(2) ;
+                $('.all-comision').val(comision);
                 var comision_result = $('.comision-result').text(comision)
                 var total_cash_remaining = (cash_sale - comision).toFixed(2)
+                $('.all-total-cash-remaining').val(total_cash_remaining)
+                $('.all-total-cash-collected').val(total_cash_remaining)
                 $('.total-cash-remaining').text(total_cash_remaining);
                 $('.total-amount-collected').text(total_cash_remaining);
             });
