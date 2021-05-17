@@ -36,7 +36,7 @@
                                     <tbody>
                                     @if(count($report_data))
                                         @foreach($report_data as $key=>$report)
-                                            <tr class="td-text-center ">
+                                            <tr class="td-text-center">
                                                 <td scope="row">
                                                     <a href="{{route('report-detail', $report->id)}}">{{$report->report_name}}</a>
                                                 </td>

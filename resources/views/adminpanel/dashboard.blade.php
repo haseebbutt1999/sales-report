@@ -80,7 +80,7 @@
                                     <div class="col-md-12 px-3 pt-2">
                                         <div class="d-flex justify-content-between align-items-center mr-2">
                                             <h5>Sales Report</h5>
-                                            {{--                                    <a href=""><button class="btn-primary">Customer Sync</button></a>--}}
+                                            <button class="btn-primary display-all-columns btn-sm" type="button">Display Table All Columns</button>
                                         </div>
                                     </div>
                                 </div>
@@ -89,25 +89,23 @@
                             <div class="card-body">
                                 <div id="product_append">
                                     <div class="row px-3" style="overflow-x:auto;">
-
                                         <table id="datatabled" class="table   table-hover  table-class ">
                                             <thead class="border-0 ">
                                             <tr class="th-tr table-tr text-center">
-                                                <th class="font-weight-bold " >Collections</th>
-                                                <th class="font-weight-bold " >Begin Stock</th>
-                                                <th class="font-weight-bold " >Units In</th>
-                                                <th class="font-weight-bold " >Units Out</th>
-                                                <th class="font-weight-bold " >Units Sales</th>
-                                                <th class="font-weight-bold " >Cash Sales</th>
-                                                <th class="font-weight-bold " >Credit Card Sales</th>
-                                                <th class="font-weight-bold " >Bank Transfer Sales</th>
-{{--                                                <th class="font-weight-bold " >Customizable Other Sales</th>--}}
-                                                <th class="font-weight-bold " >Gross Sales</th>
-                                                <th class="font-weight-bold " >Total Discounts</th>
-                                                <th class="font-weight-bold " >Net Sales</th>
-
-                                                <th class="font-weight-bold " >Shipping Sales</th>
-                                                <th class="font-weight-bold " >Total Sales</th>
+                                                <th class="font-weight-bold" >Collections</th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid"><span>Begin Stock</span><input type="checkbox" class="hidecol ml-1" value="name" id="col_2" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units In <input type="checkbox" class="hidecol ml-1" value="salary" id="col_3" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units Out <input type="checkbox" class="hidecol ml-1" value="gender" id="col_4" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_5" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Cash Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_6" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Credit Card Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_7" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Bank Transfer Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_8" /></div></th>
+{{--                                                <th class="font-weight-bold " >Customizable Other Sales</div></th>--}}
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Gross Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_9" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Total Discounts <input type="checkbox" class="hidecol ml-1" value="gender" id="col_10" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Net Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_11" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Shipping Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_12" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Total Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_13" /></div></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -814,7 +812,35 @@
             });
 
             // $(".loader-span").find(".spinner-border").css('display', 'none')
+            $(".hidecol").click(function(){
 
+                var id = this.id;
+                var splitid = id.split("_");
+                var colno = splitid[1];
+                var checked = true;
+
+                // Checking Checkbox state
+                if($(this).is(":checked")){
+                    checked = true;
+                }else{
+                    checked = false;
+                }
+                setTimeout(function(){
+                    if(checked){
+                        $('#datatabled td:nth-child('+colno+')').hide();
+                        $('#datatabled th:nth-child('+colno+')').hide();
+                    } else{
+                        $('#datatabled td:nth-child('+colno+')').show();
+                        $('#datatabled th:nth-child('+colno+')').show();
+                    }
+
+                }, 100);
+
+            });
+            $(".display-all-columns").click(function(){
+                $('#datatabled td,th').show();
+                $('#datatabled th input').prop("checked", false);
+            });
         });
 
     </script>
