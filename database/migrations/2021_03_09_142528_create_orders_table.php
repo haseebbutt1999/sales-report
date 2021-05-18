@@ -30,7 +30,7 @@ class CreateOrdersTable extends Migration
 
             $table->text('customer')->nullable();
             $table->integer('order_number')->nullable();
-            $table->integer('location_id')->nullable();
+
             $table->text('tax_lines')->nullable();
             $table->text('payment_details')->nullable();
             $table->text('line_items')->nullable();
