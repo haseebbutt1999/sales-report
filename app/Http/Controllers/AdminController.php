@@ -54,9 +54,10 @@ class AdminController extends Controller
         }elseif($request->query('location')){
             $location_select = $request->query('location');
             if($location_select != 'select_option'){
-                $all_orders->whereHas('lineitems', function($query) use ($location_select){
-                    $query->where('origin_location_id', $location_select);
-                });
+//                $all_orders->whereHas('lineitems', function($query) use ($location_select){
+//                    $query->where('origin_location_id', $location_select);
+//                });
+                $all_orders->where('location_id',$location_select);
             }
         }
 
