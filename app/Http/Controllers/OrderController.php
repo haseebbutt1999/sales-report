@@ -92,6 +92,7 @@ class OrderController extends Controller
         $order_data->currency= $order-> currency;
         $order_data->financial_status= $order-> financial_status;
         $order_data->total_line_items_price= $order-> total_line_items_price;
+        $order_data->location_id= $order->location_id;
         $order_data->taxes_included= $order-> taxes_included;
         $order_data->confirmed= $order-> confirmed;
         $order_data->cancel_reason= $order-> cancel_reason;

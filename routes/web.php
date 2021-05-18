@@ -24,6 +24,7 @@ Route::group(['middleware'=>['auth.shopify']], function () {
     Route::get('/order-sync', 'OrderController@order_sync')->name('order-sync');
     Route::get('/product-sync', 'ProductController@product_sync')->name('product-sync');
     Route::get('/collection-sync', 'CollectionController@collection_sync')->name('collection-sync');
+    Route::get('/location-sync', 'CollectionController@locatoin_sync')->name('location-sync');
 
     Route::post('/save-report', 'AdminController@save_report')->name('save-report');
     Route::get('/reports', 'AdminController@reports_index')->name('reports');
