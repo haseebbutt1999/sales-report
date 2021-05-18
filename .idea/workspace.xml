@@ -10,9 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="sync location from store">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="genrate report accornding to store location filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +210,7 @@
       <workItem from="1621233450437" duration="13151000" />
       <workItem from="1621255278952" duration="7290000" />
       <workItem from="1621289607312" duration="136000" />
-      <workItem from="1621322010927" duration="19915000" />
-    </task>
-    <task id="LOCAL-00013" summary="product create bug fixing">
-      <created>1619782427633</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1619782427633</updated>
+      <workItem from="1621322010927" duration="20253000" />
     </task>
     <task id="LOCAL-00014" summary="product create bug fixing">
       <created>1619782793312</created>
@@ -555,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621349708471</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="genrate report accornding to store location filter">
+      <created>1621350011902</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1621350011902</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +593,8 @@
     <MESSAGE value="daily cashe closing added into save report page" />
     <MESSAGE value="show and hide the tanle column" />
     <MESSAGE value="sync location from store" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync location from store" />
+    <MESSAGE value="genrate report accornding to store location filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="genrate report accornding to store location filter" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620383674430">
@@ -616,10 +617,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1621349712199">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1621350121595">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1621349712199" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1621350121595" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
