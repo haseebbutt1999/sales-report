@@ -27,6 +27,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{Route('reports')}}">Saved Reports<span class="sr-only"></span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{Route('settings')}}">Settings<span class="sr-only"></span></a>
+                </li>
             </ul>
         </div>
     </div>

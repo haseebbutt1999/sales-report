@@ -31,6 +31,8 @@ Route::group(['middleware'=>['auth.shopify']], function () {
     Route::get('/report-delete/{id}', 'AdminController@report_delete')->name('report-delete');
 
     Route::get('/', 'AdminController@dashboard')->name('dashboard');
+    Route::get('settings', 'AdminController@settings')->name('settings');
+    Route::post('columns-save', 'AdminController@columns_save')->name('columns-save');
 
     Route::get('/webhooks',function (){
         $webhook=Auth::user()->api()->rest('GET','/admin/webhooks.json');

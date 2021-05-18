@@ -10,11 +10,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="daily cashe closing added into save report page">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="show and hide the tanle column">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/reports.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/reports.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/include/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/include/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/include/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/report_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/report_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,14 +162,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/adminpanel" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\sales-channel-report-generator\public\assets\js" />
       <recent name="C:\laragon\www\sales-channel-report-generator\resources\views\adminpanel" />
+      <recent name="C:\laragon\www\sales-channel-report-generator\public\assets\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,21 +214,9 @@
       <workItem from="1620930704323" duration="17000" />
       <workItem from="1621124646547" duration="980000" />
       <workItem from="1621233450437" duration="13151000" />
-      <workItem from="1621255278952" duration="3990000" />
-    </task>
-    <task id="LOCAL-00005" summary="product create, update, delete webhook added">
-      <created>1619777265013</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1619777265013</updated>
-    </task>
-    <task id="LOCAL-00006" summary="product create, update, delete webhook added">
-      <created>1619777408455</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1619777408455</updated>
+      <workItem from="1621255278952" duration="7290000" />
+      <workItem from="1621289607312" duration="136000" />
+      <workItem from="1621322010927" duration="13732000" />
     </task>
     <task id="LOCAL-00007" summary="webhook errorlog table added">
       <created>1619777860860</created>
@@ -554,7 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621244621456</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="show and hide the tanle column">
+      <created>1621259351031</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1621259351033</updated>
+    </task>
+    <task id="LOCAL-00055" summary="show and hide the tanle column">
+      <created>1621261852439</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1621261852439</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +597,8 @@
     <MESSAGE value="daily commison closing fields" />
     <MESSAGE value="daily cash closing" />
     <MESSAGE value="daily cashe closing added into save report page" />
-    <option name="LAST_COMMIT_MESSAGE" value="daily cashe closing added into save report page" />
+    <MESSAGE value="show and hide the tanle column" />
+    <option name="LAST_COMMIT_MESSAGE" value="show and hide the tanle column" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620383674430">
@@ -605,10 +613,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="634" y="361" key="NewPhpFileDialog/0.0.1600.860@0.0.1600.860" timestamp="1618985911557" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1621244623585">
+    <state x="303" y="76" key="SettingsEditor" timestamp="1621261589377">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1621244623585" />
+    <state x="303" y="76" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1621261589377" />
+    <state width="561" height="446" key="SwitcherDM" timestamp="1621261605083">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1621261857476">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1621261857476" />
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1619774209771">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -617,10 +633,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1619523596793" />
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1621255573586">
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1621261586441">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1621255573586" />
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1621261586441" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

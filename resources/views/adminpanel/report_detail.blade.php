@@ -37,96 +37,112 @@
                                     <thead class="border-0 ">
                                     <tr class="th-tr table-tr text-center">
                                         <th class="font-weight-bold " >Collections</th>
-                                        <th class="font-weight-bold " >Begin Stock</th>
-                                        <th class="font-weight-bold " >Units In</th>
-                                        <th class="font-weight-bold " >Units Out</th>
-                                        <th class="font-weight-bold " >Units Sales</th>
-                                        <th class="font-weight-bold " >Cash Sales</th>
-                                        <th class="font-weight-bold " >Credit Card Sales</th>
-                                        <th class="font-weight-bold " >Bank Transfer Sales</th>
+                                        @if($report_item_data[0]->begin_stock != '')<th class="font-weight-bold " >Begin Stock</th>@endif
+                                        @if($report_item_data[0]->unitin != null)<th class="font-weight-bold " >Units In</th>@endif
+                                        @if($report_item_data[0]->unitout != null)<th class="font-weight-bold " >Units Out</th>@endif
+                                        @if($report_item_data[0]->unitsale != null)<th class="font-weight-bold " >Units Sales</th>@endif
+                                        @if($report_item_data[0]->credit_card_sale != null)<th class="font-weight-bold " >Cash Sales</th>@endif
+                                        @if($report_item_data[0]->cashsale != null)<th class="font-weight-bold " >Credit Card Sales</th>@endif
+                                        @if($report_item_data[0]->bank_sale != null)<th class="font-weight-bold " >Bank Transfer Sales</th>@endif
 {{--                                        <th class="font-weight-bold " >Customizable Other Sales</th>--}}
-                                        <th class="font-weight-bold " >Gross Sales</th>
-                                        <th class="font-weight-bold " >Total Discounts</th>
-                                        <th class="font-weight-bold " >Net Sales</th>
+                                        @if($report_item_data[0]->gross_sale != null)<th class="font-weight-bold " >Gross Sales</th>@endif
+                                        @if($report_item_data[0]->total_discount != null)<th class="font-weight-bold " >Total Discounts</th>@endif
+                                        @if($report_item_data[0]->net_sale != null)<th class="font-weight-bold " >Net Sales</th>@endif
 
-                                        <th class="font-weight-bold " >Shipping Sales</th>
-                                        <th class="font-weight-bold " >Total Sales</th>
+                                        @if($report_item_data[0]->shipping_sale != null)<th class="font-weight-bold " >Shipping Sales</th>@endif
+                                        @if($report_item_data[0]->total_sale != null)<th class="font-weight-bold " >Total Sales</th>@endif
                                     </tr>
                                     </thead>
                                     <tbody>
-
+{{--                                @dd($report_item_data)--}}
                                     @if($report_data != null && count($report_item_data))
                                         @foreach($report_item_data as $key=>$report_item)
                                             <tr class="td-text-center report-row-{{$key}}">
                                                 <td scope="row">
                                                     {{$report_item->collection_name}}
+                                                </td>
+                                                @if($report_item->begin_stock != '')
+                                                    <td class="stock-{{$key}}">
+                                                        {{$report_item->begin_stock}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->unitin != '')
+                                                    <td class="unitin-{{$key}}">
+                                                        {{$report_item->unitin}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->unitout != '')
+                                                    <td class="unitout-{{$key}}">
+                                                        {{$report_item->unitout}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->unitsale != '')
+                                                    <td class="unitsale-{{$key}}">
+                                                        {{$report_item->unitsale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->credit_card_sale != '')
+                                                    <td  class="credit-card-sale-{{$key}}">
+                                                        {{$report_item->credit_card_sale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->cashsale != '')
+                                                    <td class="cash-sale-{{$key}}">
+                                                        {{$report_item->cashsale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->bank_sale != '')
+                                                    <td class="bank-sale-{{$key}}">
 
-                                                </td>
+                                                        {{$report_item->bank_sale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->gross_sale != '')
+                                                    <td class="gross-sale-{{$key}}">
+                                                        {{$report_item->gross_sale}}
 
-                                                <td class="stock-{{$key}}">
-                                                    {{$report_item->begin_stock}}
-                                                </td>
-                                                <td class="unitin-{{$key}}">
-                                                    {{$report_item->unitin}}
-                                                </td>
-                                                <td class="unitout-{{$key}}">
-                                                    {{$report_item->unitout}}
-                                                </td>
-
-                                                <td class="unitsale-{{$key}}">
-                                                    {{$report_item->unitsale}}
-                                                </td>
-                                                <td  class="credit-card-sale-{{$key}}">
-                                                    {{$report_item->credit_card_sale}}
-                                                </td>
-                                                <td class="cash-sale-{{$key}}">
-                                                    {{$report_item->cashsale}}
-                                                </td>
-                                                <td class="bank-sale-{{$key}}">
-
-                                                    {{$report_item->bank_sale}}
-                                                </td>
-{{--                                                <td class="">--}}
-
-{{--                                                </td>--}}
-                                                <td class="gross-sale-{{$key}}">
-                                                    {{$report_item->gross_sale}}
-
-                                                </td>
-                                                <td class="total-discount-{{$key}}">
-                                                    {{$report_item->total_discount}}
-                                                </td>
-                                                <td class="net-sale-{{$key}}">
-                                                    {{$report_item->net_sale}}
-                                                </td>
-
-                                                <td class="total-shipping-{{$key}}">
-                                                    {{$report_item->shipping_sale}}
-                                                </td>
-
-                                                <td class="total-sale-{{$key}}">
-                                                    {{$report_item->total_sale}}
-                                                </td>
+                                                    </td>
+                                                @endif
+                                                @if($report_item->total_discount != '')
+                                                    <td class="total-discount-{{$key}}">
+                                                        {{$report_item->total_discount}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->net_sale != '')
+                                                    <td class="net-sale-{{$key}}">
+                                                        {{$report_item->net_sale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->shipping_sale != '')
+                                                    <td class="total-shipping-{{$key}}">
+                                                        {{$report_item->shipping_sale}}
+                                                    </td>
+                                                @endif
+                                                @if($report_item->total_sale != '')
+                                                    <td class="total-sale-{{$key}}">
+                                                        {{$report_item->total_sale}}
+                                                    </td>
+                                                @endif
                                             </tr>
                                         @endforeach
-                                        <tr>
-                                            <td><b>Total</b></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><b>{{$report_data->all_credit}}</b></td>
-                                            <td><b>{{$report_data->all_cash}}</b></td>
-                                            <td><b>{{$report_data->all_bank}}</b></td>
-{{--                                            <td><b></b></td>--}}
-                                            <td><b>{{$report_data->all_gross}}</b></td>
-                                            <td><b>{{$report_data->all_dis}}</b></td>
-                                            <td><b>{{$report_data->all_net}}</b></td>
-                                            <td><b>{{$report_data->all_shipp}}</b></td>
-                                            <td><b>{{$report_data->all_totalSale}}</b></td>
-                                        </tr>
                                     @endif
                                     </tbody>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        @if($report_item->begin_stock != '')<td></td>@endif
+                                        @if($report_item->unitin != '')<td></td>@endif
+                                        @if($report_item->unitout != '')<td></td>@endif
+                                        @if($report_item->unitsale != '')<td></td>@endif
+                                        @if($report_data->all_credit != '')<td><b>{{$report_data->all_credit}}</b></td>@endif
+                                        @if($report_data->all_cash != '')<td><b>{{$report_data->all_cash}}</b></td>@endif
+                                        @if($report_data->all_bank != '')<td><b>{{$report_data->all_bank}}</b></td>@endif
+                                        {{--                                            @if($report_data->net_sale != '')<td><b></b></td>@endif--}}
+                                        @if($report_data->all_gross != '')<td><b>{{$report_data->all_gross}}</b></td>@endif
+                                        @if($report_data->all_dis != '')<td><b>{{$report_data->all_dis}}</b></td>@endif
+                                        @if($report_data->all_net != '')<td><b>{{$report_data->all_net}}</b></td>@endif
+                                        @if($report_data->all_shipp != '')<td><b>{{$report_data->all_shipp}}</b></td>@endif
+                                        @if($report_data->all_totalSale != '')<td><b>{{$report_data->all_totalSale}}</b></td>@endif
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -268,6 +284,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script>
 
         $(document).ready(function() {
@@ -277,6 +295,9 @@
                 var options = {mode: mode, popClose: close};
                 $("div.printableArea").printArea(options);
             });
+            $('#datatabled').DataTable( {
+                "order": [[ 3, "desc" ]]
+            } );
         });
 
     </script>

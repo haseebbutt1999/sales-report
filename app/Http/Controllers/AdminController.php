@@ -8,6 +8,7 @@ use App\Order;
 use App\Product;
 use App\Report;
 use App\Reportitem;
+use App\Tablecolumns;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
@@ -62,7 +63,9 @@ class AdminController extends Controller
 
         $collection_data = $collection_data->orderBy('updated_at', 'desc')->get();
 //        dd($collection_data);
-        return view('adminpanel/dashboard', compact('location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
+        $column_data = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();
+
+        return view('adminpanel/dashboard', compact('column_data','location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
 
 
     }
@@ -146,5 +149,32 @@ class AdminController extends Controller
         }
         return redirect()->back()->with('success', 'Successfully Delete Report');
 
+    }
+
+    public  function settings(){
+        $column_data = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();
+        return view('adminpanel/settings', compact('column_data'));
+    }
+
+    public function columns_save(Request $request){
+        $table_column = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();
+        if($table_column == null){
+            $table_column =  new Tablecolumns();
+        }
+        $table_column->shopify_shop_id = Auth::user()->id;
+        $table_column->begin_stock= $request->begin_stock;
+        $table_column->units_in= $request->units_in;
+        $table_column->units_out= $request->units_out;
+        $table_column->units_sales= $request->units_sales;
+        $table_column->credit_card_sales= $request->credit_card_sales;
+        $table_column->cashsales= $request->cashsales;
+        $table_column->bank_transfer_sales= $request->bank_transfer_sales;
+        $table_column->gross_sales= $request->gross_sales;
+        $table_column->total_discounts= $request->total_discounts;
+        $table_column->net_sales= $request->net_sales;
+        $table_column->shipping_sales= $request->shipping_sales;
+        $table_column->total_sales= $request->total_sales;
+        $table_column->save();
+        return redirect()->back()->with('success','Successfuly save table columns.');
     }
 }

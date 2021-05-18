@@ -80,6 +80,7 @@
                                     <div class="col-md-12 px-3 pt-2">
                                         <div class="d-flex justify-content-between align-items-center mr-2">
                                             <h5>Sales Report</h5>
+                                            <button class="btn-primary display-all-columns btn-sm" type="button">Display Table All Columns</button>
                                         </div>
                                     </div>
                                 </div>
@@ -92,43 +93,19 @@
                                             <thead class="border-0 ">
                                             <tr class="th-tr table-tr text-center">
                                                 <th class="font-weight-bold" >Collections</th>
-                                                @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid"><span>Begin Stock</span></div></th>
-                                                @endif
-                                                @if(isset($column_data->units_in) && $column_data->units_in == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Units In </div></th>
-                                                @endif
-                                                @if(isset($column_data->units_out) && $column_data->units_out == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Units Out </div></th>
-                                                @endif
-                                                @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Units Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Cash Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Credit Card Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Bank Transfer Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Gross Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Total Discounts </div></th>
-                                                @endif
-                                                @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Net Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Shipping Sales </div></th>
-                                                @endif
-                                                @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')
-                                                    <th class="font-weight-bold " ><div  class="custom-grid">Total Sales </div></th>
-                                                @endif
-
+                                                @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show') <th class="font-weight-bold " ><div  class="custom-grid"><span>Begin Stock</span><input type="checkbox" class="hidecol ml-1" value="name" id="col_2" /></div></th>@endif
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units In <input type="checkbox" class="hidecol ml-1" value="salary" id="col_3" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units Out <input type="checkbox" class="hidecol ml-1" value="gender" id="col_4" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Units Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_5" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Cash Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_6" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Credit Card Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_7" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Bank Transfer Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_8" /></div></th>
+{{--                                                <th class="font-weight-bold " >Customizable Other Sales</div></th>--}}
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Gross Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_9" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Total Discounts <input type="checkbox" class="hidecol ml-1" value="gender" id="col_10" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Net Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_11" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Shipping Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_12" /></div></th>
+                                                <th class="font-weight-bold " ><div  class="custom-grid">Total Sales <input type="checkbox" class="hidecol ml-1" value="gender" id="col_13" /></div></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -161,26 +138,19 @@
                                                             }
                                                         }
                                                         ?>
-                                                        @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
-                                                            <td class="stock-{{$key}}">
-                                                                {{$stock}}
-                                                                <input type="hidden" class="begin-stock" name="begin_stock[]" value="{{$stock}}">
-                                                            </td>
-                                                        @endif
-                                                        @if(isset($column_data->units_in) && $column_data->units_in == 'show')
-                                                            <td class="unitin-{{$key}}">
-                                                                {{$unitIn}}
-                                                                <input type="hidden" class="unitin" name="unitin[]" value="{{$unitIn}}">
+                                                        <td class="stock-{{$key}}">
+                                                            {{$stock}}
+                                                            <input type="hidden" class="begin-stock" name="begin_stock[]" value="{{$stock}}">
+                                                        </td>
+                                                        <td class="unitin-{{$key}}">
+                                                            {{$unitIn}}
+                                                            <input type="hidden" class="unitin" name="unitin[]" value="{{$unitIn}}">
 
-                                                            </td>
-                                                        @endif
-                                                        @if(isset($column_data->units_out) && $column_data->units_out == 'show')
-                                                            <td class="unitout-{{$key}}">
-                                                                {{$unitOut}}
-                                                                <input type="hidden" class="unitout" name="unitout[]" value="{{$unitOut}}">
-                                                            </td>
-                                                        @endif
-
+                                                        </td>
+                                                        <td class="unitout-{{$key}}">
+                                                            {{$unitOut}}
+                                                            <input type="hidden" class="unitout" name="unitout[]" value="{{$unitOut}}">
+                                                        </td>
                                                         <?php
 
                                                         $unitSales = 0;
@@ -265,71 +235,48 @@
 
                                                         //                                            dd($totalSumVal);
                                                         ?>
-                                                        @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')
-                                                            <td class="unitsale-{{$key}}">
-                                                                {{array_sum($val)}}
-                                                                <input type="hidden" class="unitsale" name="unitsale[]" value="{{array_sum($val)}}">
-                                                            </td>
-                                                        @endif
 
-                                                        @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
+                                                        <td class="unitsale-{{$key}}">
+                                                            {{array_sum($val)}}
+                                                            <input type="hidden" class="unitsale" name="unitsale[]" value="{{array_sum($val)}}">
+                                                        </td>
                                                         {{--                                            @dd($order_lineitem)--}}
-                                                            <td  class="credit-card-sale-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
-                                                                <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
-                                                            </td>
-                                                        @endif
+                                                        <td  class="credit-card-sale-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
+                                                            <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
+                                                        </td>
+                                                        <td class="cash-sale-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}
+                                                            <input type="hidden" class="credit-card-sale" name="cashsale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}">
+                                                        </td>
+                                                        <td class="bank-sale-{{$key}}">
 
-                                                        @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')
-                                                            <td class="cash-sale-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}
-                                                                <input type="hidden" class="credit-card-sale" name="cashsale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}">
-                                                            </td>
-                                                        @endif
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}
+                                                            <input type="hidden" class="bank-sale" name="bank_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}">
+                                                        </td>
 
-                                                        @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')
-                                                            <td class="bank-sale-{{$key}}">
+                                                        <td class="gross-sale-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}
+                                                            <input type="hidden" class="gross-sale" name="gross_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}">
+                                                        </td>
+                                                        <td class="total-discount-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}
+                                                            <input type="hidden" class="total-discount" name="total_discount[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}">
+                                                        </td>
+                                                        <td class="net-sale-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}
+                                                            <input type="hidden" class="net-sale" name="net_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}">
+                                                        </td>
 
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}
-                                                                <input type="hidden" class="bank-sale" name="bank_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}">
-                                                            </td>
-                                                        @endif
+                                                        <td class="total-shipping-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}
+                                                            <input type="hidden" class="shipping-sale" name="shipping_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}">
+                                                        </td>
 
-                                                        @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')
-                                                            <td class="gross-sale-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}
-                                                                <input type="hidden" class="gross-sale" name="gross_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}">
-                                                            </td>
-                                                        @endif
-
-                                                        @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')
-                                                            <td class="total-discount-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}
-                                                                <input type="hidden" class="total-discount" name="total_discount[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}">
-                                                            </td>
-                                                        @endif
-
-                                                        @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')
-                                                            <td class="net-sale-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}
-                                                                <input type="hidden" class="net-sale" name="net_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}">
-                                                            </td>
-                                                        @endif
-
-                                                        @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')
-                                                            <td class="total-shipping-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}
-                                                                <input type="hidden" class="shipping-sale" name="shipping_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}">
-                                                            </td>
-                                                        @endif
-
-                                                        @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')
-                                                            <td class="total-sale-{{$key}}">
-                                                                {{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}
-                                                                <input type="hidden" class="total-sale" name="total_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}">
-                                                            </td>
-                                                        @endif
-
+                                                        <td class="total-sale-{{$key}}">
+                                                            {{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}
+                                                            <input type="hidden" class="total-sale" name="total_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}">
+                                                        </td>
                                                         <?php
 
                                                         ?>
@@ -340,27 +287,27 @@
                                             </tbody>
                                             <tr>
                                                 <td><b>Total</b></td>
-                                                @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')<td></td>@endif
-                                                @if(isset($column_data->units_in) && $column_data->units_in == 'show')<td></td>@endif
-                                                @if(isset($column_data->units_out) && $column_data->units_out == 'show')<td></td>@endif
-                                                @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')<td></td>@endif
-                                                @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')<td><b>{{number_format(array_sum($all_credit),2)}}</b></td>@endif
-                                                @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')<td><b>{{number_format(array_sum($all_cash),2)}}</b></td>@endif
-                                                @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')<td><b>{{number_format(array_sum($all_bank),2)}}</b></td>@endif
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><b>{{number_format(array_sum($all_credit),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_cash),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_bank),2)}}</b></td>
 
-                                                @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')<td><b>{{number_format(array_sum($all_gross),2)}}</b></td>@endif
-                                                @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')<td><b>{{number_format(array_sum($all_dis),2)}}</b></td>@endif
-                                                @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')<td><b>{{number_format(array_sum($all_net),2)}}</b></td>@endif
-                                                @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')<td><b>{{number_format(array_sum($all_shipp),2)}}</b></td>@endif
-                                                @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')<td><b>{{number_format(array_sum($all_totalSale),2)}}</b></td>@endif
-                                                @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')<input type="hidden" class="cash-sale-input" name="all_credit" value="{{number_format(array_sum($all_credit),2)}}">@endif
-                                                @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')<input type="hidden"   name="all_cash" value="{{number_format(array_sum($all_cash),2)}}">@endif
-                                                @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')<input type="hidden"  name="all_dis" value="{{number_format(array_sum($all_dis),2)}}">@endif
-                                                @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')<input type="hidden"  name="all_bank" value="{{number_format(array_sum($all_bank),2)}}">@endif
-                                                @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')<input type="hidden"  name="all_gross" value="{{number_format(array_sum($all_gross),2)}}">@endif
-                                                @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')<input type="hidden"  name="all_shipp" value="{{number_format(array_sum($all_shipp),2)}}">@endif
-                                                @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')<input type="hidden" name="all_net" value="{{number_format(array_sum($all_net),2)}}">@endif
-                                                @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')<input type="hidden"  class="total-sale-input" name="all_totalSale" value="{{number_format(array_sum($all_totalSale),2)}}">@endif
+                                                <td><b>{{number_format(array_sum($all_gross),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_dis),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_net),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_shipp),2)}}</b></td>
+                                                <td><b>{{number_format(array_sum($all_totalSale),2)}}</b></td>
+                                                <input type="hidden" class="cash-sale-input" name="all_credit" value="{{number_format(array_sum($all_credit),2)}}">
+                                                <input type="hidden"   name="all_cash" value="{{number_format(array_sum($all_cash),2)}}">
+                                                <input type="hidden"  name="all_dis" value="{{number_format(array_sum($all_dis),2)}}">
+                                                <input type="hidden"  name="all_bank" value="{{number_format(array_sum($all_bank),2)}}">
+                                                <input type="hidden"  name="all_gross" value="{{number_format(array_sum($all_gross),2)}}">
+                                                <input type="hidden"  name="all_shipp" value="{{number_format(array_sum($all_shipp),2)}}">
+                                                <input type="hidden" name="all_net" value="{{number_format(array_sum($all_net),2)}}">
+                                                <input type="hidden"  class="total-sale-input" name="all_totalSale" value="{{number_format(array_sum($all_totalSale),2)}}">
                                             </tr>
                                         </table>
     {{--                                    @if(count($collection_data) && count($all_orders))--}}
@@ -374,7 +321,7 @@
                     </div>
                 </div>
 
-            <input type="hidden" class="net_sale"  value="{{array_sum($all_net)}}">
+            <input type="hidden" class="net_sale"  name="all_net" value="{{array_sum($all_net)}}">
 
             <div class="w-100 bg-white mt-3">
                 <div class="row " >
