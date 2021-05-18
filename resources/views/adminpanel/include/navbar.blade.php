@@ -40,6 +40,7 @@
                 <a class="dropdown-item" href="{{route('collection-sync')}}">Sync Collections</a>
                 <a class="dropdown-item" href="{{route('product-sync')}}">Sync Products</a>
                 <a class="dropdown-item" href="{{route('order-sync')}}">Sync Orders</a>
+                <a class="dropdown-item" href="{{route('location-sync')}}">Sync Location</a>
             </div>
         </div>
     </div>

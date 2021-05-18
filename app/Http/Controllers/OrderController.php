@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lineitem;
+use App\Location;
 use App\Order;
 use App\Originlocation;
 use Carbon\Carbon;
@@ -140,5 +141,22 @@ class OrderController extends Controller
             $line->save();
         }
         $order_data->save();
+    }
+
+    public function sync_locations(){
+        $shop = Auth::user();
+        $locations = $shop->api()->rest('GET', 'admin/api/2021-04/locations.json')['body']['locations'];
+        foreach ($locations as $location){
+            $location_data = Location::where('shopify_location_id',$location->id)->where('shopify_shop_id',auth::user()->id)->first();
+            if($location_data == null){
+                $location_data = new Location();
+            }
+            $location_data->shopify_location_id = $location->id;
+            $location_data->shopify_shop_id = Auth::user()->id;
+            $location_data->name = $location->name;
+            $location_data->save();
+        }
+        return redirect()->back()->with('success', 'Locations Sync Successfully !');
+
     }
 }
