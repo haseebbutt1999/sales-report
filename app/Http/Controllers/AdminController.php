@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Collection;
 use App\Lineitem;
+use App\Location;
 use App\Order;
 use App\Product;
 use App\Report;
@@ -18,25 +19,25 @@ class AdminController extends Controller
 {
     public function dashboard(Request $request){
 
-        $location_name = [];
+//        $location_name = [];
         $location_select = '';
         $location_id = [];
-        $orders = Order::where('shopify_shop_id', auth::user()->id)->get();
-        if(count($orders)){
-            foreach ($orders as $order){
-                foreach ($order->lineitems as $lineitem){
-                    if(isset($lineitem->origin_location)){
-//                        $locations += [ $lineitem->origin_location->origin_location_id => $lineitem->origin_location->name ];
-                        array_push($location_name,$lineitem->origin_location->name);
-                        array_push($location_id,$lineitem->origin_location->origin_location_id);
-                    }
-                }
-            }
-        }
-        $location_name = array_values(array_unique($location_name));
+//        $orders = Order::where('shopify_shop_id', auth::user()->id)->get();
+//        if(count($orders)){
+//            foreach ($orders as $order){
+//                foreach ($order->lineitems as $lineitem){
+//                    if(isset($lineitem->origin_location)){
+////                        $locations += [ $lineitem->origin_location->origin_location_id => $lineitem->origin_location->name ];
+//                        array_push($location_name,$lineitem->origin_location->name);
+//                        array_push($location_id,$lineitem->origin_location->origin_location_id);
+//                    }
+//                }
+//            }
+//        }
+//        $location_name = array_values(array_unique($location_name));
         $location_id = array_values(array_unique($location_id));
         $datefilter='';
-
+        $location_name = Location::where('shopify_shop_id', Auth::user()->id)->get();
 
         $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id);
         $collection_data = Collection::where('shopify_shop_id', Auth::user()->id);

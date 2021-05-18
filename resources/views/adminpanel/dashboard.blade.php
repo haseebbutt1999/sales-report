@@ -9,8 +9,8 @@
                     <select class="w-50 form-control mr-2" name="location">
                         <option selected value="select_option">Select Location</option>
                         @foreach($location_name as $key=>$location)
-                            <option @if(($location_select != '') && ($location_select == $location_id[$key])) selected @endif value="{{$location_id[$key]}}">
-                                {{$location}}
+                            <option @if(($location_select != '') && ($location_select == $location_id[$key])) selected @endif value="{{$location->shopify_location_id}}">
+                                {{$location->name}}
                             </option>
                         @endforeach
                     </select>
