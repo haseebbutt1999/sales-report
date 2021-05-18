@@ -9,7 +9,7 @@
         <div class="row ">
             <div class="col-md-12 pl-3 pt-2" style="margin: auto;">
                 <div class="card" style="width: 100%">
-                    <div class="card-header" style="background: white;">
+                    <div class="card-header bg-primary text-white" style="background: white;">
                         <div class="row ">
                             @if (session('status'))
                                 <div class="alert alert-success">
@@ -154,7 +154,7 @@
             <div class="row " >
                 <div class="col-md-6 pl-3 pt-2 " style="margin-top: -10px;">
                     <div class="card" style="width: 100%">
-                        <div class="card-header" style="background: white;">
+                        <div class="card-header bg-primary text-white" style="background: white;">
                             <div class="row ">
                                 @if (session('status'))
                                     <div class="alert alert-success">
@@ -163,7 +163,7 @@
                                 @endif
                                 <div class="col-md-12 px-3 pt-2">
                                     <div class="d-flex justify-content-between align-items-center mr-2">
-                                        <h5>Daily Cash Closing:</h5>
+                                        <h5>Daily Cash Closing</h5>
                                         {{--           <a href=""><button class="btn-primary">Customer Sync</button></a>--}}
                                     </div>
                                 </div>

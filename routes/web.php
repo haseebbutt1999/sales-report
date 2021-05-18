@@ -38,6 +38,18 @@ Route::group(['middleware'=>['auth.shopify']], function () {
         $webhook=Auth::user()->api()->rest('GET','/admin/webhooks.json');
         dd($webhook);
     });
+
+    Route::get('location', function (){
+
+//        $shop = Auth::user();
+//        $locations = $shop->api()->rest('GET', 'admin/api/2021-04/locations.json')['body']['locations'];
+//        dd($locations);
+
+        $customer = Auth::user();
+        $order_count_api = $customer->api()->rest('GET', '/admin/orders.json')['body']['orders'];
+        dd($order_count_api);
+
+    });
 });
 
 
