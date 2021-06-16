@@ -106,6 +106,7 @@ class AdminController extends Controller
         $report_save->note3 = $request->note3;
         $report_save->note4 = $request->note4;
         $report_save->note5 = $request->note5;
+        $report_save->currency = $request->currency;
         $report_save->total_cash_collected_note = $request->total_cash_collected_note;
 
         if($report_save->save()){

@@ -178,11 +178,11 @@
                                         <tbody>
                                         <tr class="td-text-center ">
                                             <td>TOTAL SALE:</td>
-                                            <td class="total-sale">{{$report_data->all_totalSale}}</td>
+                                            <td class="total-sale"><span class="mr-1">{{$report_data->currency}}</span>{{$report_data->all_totalSale}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>CASH SALE:</td>
-                                            <td class="cash-sale">{{$report_data->all_credit}}</td>
+                                            <td class="cash-sale"><span class="mr-1">{{$report_data->currency}}</span>{{$report_data->all_credit}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>COMISION %:</td>
@@ -251,14 +251,16 @@
                                             </td>
                                         </tr>
                                         <tr class="td-text-center ">
-                                            <td>Total cash remaining $</td>
-                                            <td class="total-cash-remaining">{{$report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5)}}</td>
+                                            <td>Total cash remaining </td>
+
+                                            <td class="total-cash-remaining"><span class="mr-1">{{$report_data->currency}}</span>{{$report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5)}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
-                                            <td>Total cash collected $</td>
+                                            <td>Total cash collected </td>
                                             <td class="d-flex w-100 justify-content-between total-cash-collected">
                                                 <div style="width: 15%;">
-                                                    <span class="total-amount-collected" >{{$report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5)}}</span>
+                                                    <span>{{$report_data->currency}}</span>
+                                                    <span class="ml-1 total-amount-collected" >{{$report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5)}}</span>
                                                 </div>
                                                 <div style="width: 70%;">
                                                     <span><strong>Note:</strong></span>
@@ -296,7 +298,9 @@
                 $("div.printableArea").printArea(options);
             });
             $('#datatabled').DataTable( {
-                "order": [[ 3, "desc" ]]
+                "order": [[ 3, "desc" ]],
+                "paging":   false,
+                "info":     false
             } );
         });
 

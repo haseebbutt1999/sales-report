@@ -26,8 +26,16 @@
 
             </div>
             <div class="col-md-6">
-                <div class="d-flex justify-content-end" id="print-button-main">
-                    <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
+                <div class="d-flex justify-content-end print-div" >
+{{--                    id="print-button-main"--}}
+{{--                    print-report--}}
+                    <button class="print">
+
+                        Print this
+
+                    </button>
+
+                    <button class="btn btn-primary mr-2 "><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal"><i class=" fa fa-download text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Save Report</button>
                 </div>
             </div>
@@ -404,11 +412,21 @@
                                             <tbody>
                                             <tr class="td-text-center ">
                                                 <td>TOTAL SALE:</td>
-                                                <td class="total-sale">{{number_format(array_sum($all_totalSale),2)}}</td>
+                                                <td  class="d-flex ">
+                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div class="ml-1 total-sale">
+                                                        {{number_format(array_sum($all_totalSale),2)}}
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <tr class="td-text-center ">
                                                 <td>CASH SALE:</td>
-                                                <td class="cash-sale">{{number_format(array_sum($all_credit),2)}}</td>
+                                                <td  class="d-flex ">
+                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div class="ml-1 cash-sale">
+                                                        {{number_format(array_sum($all_credit),2)}}
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <tr class="td-text-center ">
                                                 <td>COMISION %:</td>
@@ -654,15 +672,23 @@
                                                 </td>
                                             </tr>
                                             <tr class="td-text-center ">
-                                                <td>Total cash remaining $</td>
-                                                <td class="total-cash-remaining"></td>
+                                                <td>Total cash remaining </td>
+                                                <td  class="d-flex ">
+                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div class="ml-1 total-cash-remaining">
+
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <tr class="td-text-center ">
-                                                <td>Total cash collected $</td>
+                                                <td>Total cash collected </td>
                                                 <td class="d-flex w-100 justify-content-between total-cash-collected">
-                                                    <div style="width: 15%;">
-                                                        <span class="total-amount-collected" >0</span>
-                                                    </div>
+                                                <div style="width: 15%;" class="d-flex ">
+                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <span class="ml-1 total-amount-collected">
+                                                        0
+                                                    </span>
+                                                </div>
                                                     <div style="width: 70%;">
                                                         <span><strong>Note:</strong></span>
                                                         <span class="total-amount-collected-note-result" ></span>
@@ -724,6 +750,7 @@
                 <input type="hidden" class="all-note3" name="note3" value="">
                 <input type="hidden" class="all-note4" name="note4" value="">
                 <input type="hidden" class="all-note5" name="note5" value="">
+                <input type="hidden" class="" name="currency" value="{{$order_lineitem->currency}}">
                 <input type="hidden" class="all-total-cash-collected-note" name="total_cash_collected_note" value="">
             </form>
         </div>
@@ -732,13 +759,29 @@
 
 @endsection
 @section('js_after')
+
     {{--    datepicker js--}}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+{{--    </script>--}}
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+
+
+    {{--    --}}
     <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>
     <script>
+        $(function() {
+
+            $(".print-div").find('button.print').on('click', function() {
+
+                $.print(".printableArea");
+
+            });
+
+        });
 
         $(document).ready(function() {
             var payment1=0,payment2=0,payment3=0,payment4=0,payment5 =0;
@@ -898,8 +941,12 @@
             });
 
             $('#datatabled').DataTable( {
-                "order": [[ 3, "desc" ]]
+
+                "order": [[ 3, "desc" ]],
+                "paging":   false,
+                "info":     false,
             } );
+
         });
 
     </script>
