@@ -26,16 +26,17 @@
 
             </div>
             <div class="col-md-6">
-                <div class="d-flex justify-content-end print-div" >
-{{--                    id="print-button-main"--}}
-{{--                    print-report--}}
-                    <button class="print">
+                <div class="d-flex justify-content-end print-div" id="print-button-main">
+{{--                    --}}
+{{--                    --}}
+{{--                    <button class="print">--}}
 
-                        Print this
+{{--                        Print this--}}
 
-                    </button>
+{{--                    </button>--}}
+{{--                    <button type="button" id="print" class="btn btn-light btn-block border">Print</button>--}}
 
-                    <button class="btn btn-primary mr-2 "><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
+                    <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Print</button>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#save_report_modal"><i class=" fa fa-download text-white" style="font-size: 20px;margin-right: 10px;cursor: pointer;" aria-hidden="true"></i>Save Report</button>
                 </div>
             </div>
@@ -766,24 +767,35 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 {{--    </script>--}}
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+{{--    <script type="text/javascript" src=""></script>--}}
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
+{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>--}}
+{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>--}}
 
+    {{--    printThis cdn for orint multiple doms on multi pages prints--}}
+    <script type="text/javascript" src="{{asset('print_mul_dom/printThis.js')}}"></script>
 
     {{--    --}}
-    <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>
+{{--    <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>--}}
     <script>
         $(function() {
 
-            $(".print-div").find('button.print').on('click', function() {
-
-                $.print(".printableArea");
-
-            });
+            // $(".print-div").find('button.print').on('click', function() {
+            //
+            //     $.print(".printableArea");
+            //
+            // });
 
         });
 
         $(document).ready(function() {
+            $("#print-button-main").find('button.print-report').on('click', function() {
+
+                $(".printableArea").printThis();
+
+            });
+
             var payment1=0,payment2=0,payment3=0,payment4=0,payment5 =0;
 
             $("button .loader-span").find(".loader").css('display', 'none')
@@ -945,7 +957,21 @@
                 "order": [[ 3, "desc" ]],
                 "paging":   false,
                 "info":     false,
+                // "processing":true,
+                // "serverSide":true,
+                // "order":[],
+                // "ajax":{
+                //     url:"script.php",
+                //     type:"POST"
+                // },
+
+
+                "dom": 'Bfrtip',
+                "buttons": [
+                    'print'
+                ],
             } );
+
 
         });
 
