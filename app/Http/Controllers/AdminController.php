@@ -62,8 +62,10 @@ class AdminController extends Controller
         }
 
         $all_orders = $all_orders->get();
-        $currency = $all_orders[0]->currency;
-
+        $currency='';
+        if(isset($all_orders[0]->currency)){
+            $currency = $all_orders[0]->currency;
+        }
         $collection_data = $collection_data->orderBy('updated_at', 'desc')->get();
 //        dd($collection_data);
         $column_data = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();

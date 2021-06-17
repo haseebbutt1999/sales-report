@@ -10,10 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="genrate report accornding to store location filter">
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="print report and add currency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,14 +213,7 @@
       <workItem from="1621322010927" duration="20902000" />
       <workItem from="1623673415695" duration="323000" />
       <workItem from="1623847064432" duration="7359000" />
-      <workItem from="1623908568780" duration="6582000" />
-    </task>
-    <task id="LOCAL-00022" summary="save reports">
-      <created>1620282387261</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1620282387261</updated>
+      <workItem from="1623908568780" duration="8072000" />
     </task>
     <task id="LOCAL-00023" summary="save reports">
       <created>1620291850088</created>
@@ -559,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623915433105</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="print report and add currency">
+      <created>1623916108976</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1623916108976</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +597,8 @@
     <MESSAGE value="show and hide the tanle column" />
     <MESSAGE value="sync location from store" />
     <MESSAGE value="genrate report accornding to store location filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="genrate report accornding to store location filter" />
+    <MESSAGE value="print report and add currency" />
+    <option name="LAST_COMMIT_MESSAGE" value="print report and add currency" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="187" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620383674430">
@@ -621,10 +621,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623915436426">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623916111452">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623915436426" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623916111452" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -637,10 +637,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1619523596793" />
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1623849826268">
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1623917087764">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1623849826268" />
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1623917087764" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
