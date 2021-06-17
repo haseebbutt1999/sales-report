@@ -1,7 +1,7 @@
 @extends('adminpanel.layout.default')
 @section('content')
     {{--    @dd($all_orders)--}}
-    <div class="col-lg-12 col-md-12 p-4">
+    <div class="col-lg-12 col-md-12 p-4 all-page">
         <!-- start info box -->
         <div class="row">
             <div class="col-md-6">
@@ -792,7 +792,28 @@
         $(document).ready(function() {
             $("#print-button-main").find('button.print-report').on('click', function() {
 
-                $(".printableArea").printThis();
+                $(".all-page").printThis({
+                    debug: false,               // show the iframe for debugging
+                    importCSS: true,            // import parent page css
+                    importStyle: false,         // import style tags
+                    printContainer: true,       // print outer container/$.selector
+                    loadCSS: "",                // path to additional css file - use an array [] for multiple
+                    pageTitle: "",              // add title to print page
+                    removeInline: false,        // remove inline styles from print elements
+                    removeInlineSelector: "*",  // custom selectors to filter inline styles. removeInline must be true
+                    printDelay: 333,            // variable print delay
+                    header: null,               // prefix to html
+                    footer: null,               // postfix to html
+                    base: false,                // preserve the BASE tag or accept a string for the URL
+                    formValues: true,           // preserve input/form values
+                    canvas: false,              // copy canvas content
+                    doctypeString: '...',       // enter a different doctype for older markup
+                    removeScripts: false,       // remove script tags from print content
+                    copyTagClasses: false,      // copy classes from the html & body tag
+                    beforePrintEvent: null,     // function for printEvent in iframe
+                    beforePrint: null,          // function called before iframe is filled
+                    afterPrint: null}
+            );
 
             });
 
