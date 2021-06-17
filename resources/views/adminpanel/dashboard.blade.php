@@ -790,15 +790,28 @@
         });
 
         $(document).ready(function() {
+            // $('.report-pdf-btn').click(function () {
+            //     var restorepage = $('body').html();
+            //     var printcontent = $('#pdfDownload').clone();
+            //     $('body').empty().html(printcontent);
+            //     window.print();
+            //     $('body').html(restorepage);
+            // });
             $("#print-button-main").find('button.print-report').on('click', function() {
+                var restorepage = $('body').html();
+                var printcontent = $('.printableArea').clone();
+                $('body').empty().html(printcontent);
+                window.print();
+                $('body').html(restorepage);
 
-                $(".all-page").printThis({
-                    debug: false,               // show the iframe for debugging
-                    importCSS: true,            // import parent page css
-                    importStyle: false,         // import style tags
-                    printContainer: true,       // print outer container/$.selector
-                    }
-            );
+
+                // $(".all-page").printThis({
+                //     debug: false,               // show the iframe for debugging
+                //     importCSS: true,            // import parent page css
+                //     importStyle: false,         // import style tags
+                //     printContainer: true,       // print outer container/$.selector
+            //         }
+            // );
 
             });
 
