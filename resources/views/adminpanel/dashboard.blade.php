@@ -966,10 +966,10 @@
                 // },
 
 
-                "dom": 'Bfrtip',
-                "buttons": [
-                    'print'
-                ],
+                // "dom": 'Bfrtip',
+                // "buttons": [
+                //     'print'
+                // ],
             } );
 
 

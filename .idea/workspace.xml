@@ -10,11 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="genrate report accornding to store location filter">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/include/header.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="genrate report accornding to store location filter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -214,14 +210,7 @@
       <workItem from="1621322010927" duration="20902000" />
       <workItem from="1623673415695" duration="323000" />
       <workItem from="1623847064432" duration="7359000" />
-      <workItem from="1623908568780" duration="3689000" />
-    </task>
-    <task id="LOCAL-00016" summary="product create bug fixing">
-      <created>1619783361120</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1619783361120</updated>
+      <workItem from="1623908568780" duration="3886000" />
     </task>
     <task id="LOCAL-00017" summary="product create bug fixing">
       <created>1619783521867</created>
@@ -559,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623853702937</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="genrate report accornding to store location filter">
+      <created>1623913315664</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1623913315664</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
