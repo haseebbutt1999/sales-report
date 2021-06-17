@@ -213,14 +213,7 @@
       <workItem from="1621322010927" duration="20902000" />
       <workItem from="1623673415695" duration="323000" />
       <workItem from="1623847064432" duration="7359000" />
-      <workItem from="1623908568780" duration="5449000" />
-    </task>
-    <task id="LOCAL-00020" summary="delete extra folders">
-      <created>1620020748579</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1620020748579</updated>
+      <workItem from="1623908568780" duration="5934000" />
     </task>
     <task id="LOCAL-00021" summary="delete extra folders">
       <created>1620021217206</created>
@@ -558,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623914292268</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="genrate report accornding to store location filter">
+      <created>1623915071993</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1623915071993</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,10 +620,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623914299442">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623915075435">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623914299442" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623915075435" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
