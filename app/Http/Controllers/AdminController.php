@@ -62,12 +62,13 @@ class AdminController extends Controller
         }
 
         $all_orders = $all_orders->get();
+        $currency = $all_orders[0]->currency;
 
         $collection_data = $collection_data->orderBy('updated_at', 'desc')->get();
 //        dd($collection_data);
         $column_data = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();
 
-        return view('adminpanel/dashboard', compact('column_data','location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
+        return view('adminpanel/dashboard', compact('column_data','currency','location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
 
 
     }

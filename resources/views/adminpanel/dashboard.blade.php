@@ -1,6 +1,7 @@
 @extends('adminpanel.layout.default')
 @section('content')
     {{--    @dd($all_orders)--}}
+
     <div class="col-lg-12 col-md-12 p-4 all-page">
         <!-- start info box -->
         <div class="row">
@@ -213,7 +214,6 @@
                                                         $totalShippingSalesVal =[];
                                                         $val =[];
                                                         $totalDiscountVal =[];
-
                                                         foreach ($collection->products as $collection_product){
 
                                                             foreach ($all_orders as $order_lineitem){
@@ -414,7 +414,7 @@
                                             <tr class="td-text-center ">
                                                 <td>TOTAL SALE:</td>
                                                 <td  class="d-flex ">
-                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div>{{$currency}}</div>
                                                     <div class="ml-1 total-sale">
                                                         {{number_format(array_sum($all_totalSale),2)}}
                                                     </div>
@@ -423,7 +423,7 @@
                                             <tr class="td-text-center ">
                                                 <td>CASH SALE:</td>
                                                 <td  class="d-flex ">
-                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div>{{$currency}}</div>
                                                     <div class="ml-1 cash-sale">
                                                         {{number_format(array_sum($all_credit),2)}}
                                                     </div>
@@ -675,7 +675,7 @@
                                             <tr class="td-text-center ">
                                                 <td>Total cash remaining </td>
                                                 <td  class="d-flex ">
-                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div>{{$currency}}</div>
                                                     <div class="ml-1 total-cash-remaining">
 
                                                     </div>
@@ -685,7 +685,7 @@
                                                 <td>Total cash collected </td>
                                                 <td class="d-flex w-100 justify-content-between total-cash-collected">
                                                 <div style="width: 15%;" class="d-flex ">
-                                                    <div>{{$order_lineitem->currency}}</div>
+                                                    <div>{{$currency}}</div>
                                                     <span class="ml-1 total-amount-collected">
                                                         0
                                                     </span>
@@ -751,7 +751,7 @@
                 <input type="hidden" class="all-note3" name="note3" value="">
                 <input type="hidden" class="all-note4" name="note4" value="">
                 <input type="hidden" class="all-note5" name="note5" value="">
-                <input type="hidden" class="" name="currency" value="{{$order_lineitem->currency}}">
+                <input type="hidden" class="" name="currency" value="{{$currency}}">
                 <input type="hidden" class="all-total-cash-collected-note" name="total_cash_collected_note" value="">
             </form>
         </div>
