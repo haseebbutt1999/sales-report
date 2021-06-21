@@ -111,6 +111,9 @@
                                                 @if(isset($column_data->units_out) && $column_data->units_out == 'show')
                                                     <th class="font-weight-bold " ><div  class="custom-grid">Units Out </div></th>
                                                 @endif
+{{--                                                @if(isset($column_data->units_out) && $column_data->units_out == 'show')--}}
+                                                    <th class="font-weight-bold " ><div  class="custom-grid">Remaining Stock</div></th>
+{{--                                                @endif--}}
                                                 @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')
                                                     <th class="font-weight-bold " ><div  class="custom-grid">Units Sales </div></th>
                                                 @endif
@@ -161,11 +164,13 @@
                                                         </td>
                                                         <?php
                                                         $stock = 0;
+                                                        $remainingStock = 0;
                                                         $unitIn = 0;
                                                         $unitOut = 0;
                                                         foreach($collection->Products as $product){
                                                             foreach ($product->Variants as $variant){
                                                                 $stock = $variant->old_inventory_quantity + $stock;
+                                                                $remainingStock = $variant->inventory_quantity + $remainingStock;
                                                                 $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
                                                                 $unitOut = ($stock - $unitIn);
                                                             }
@@ -181,7 +186,6 @@
                                                             <td class="unitin-{{$key}}">
                                                                 {{$unitIn}}
                                                                 <input type="hidden" class="unitin" name="unitin[]" value="{{$unitIn}}">
-
                                                             </td>
                                                         @endif
                                                         @if(isset($column_data->units_out) && $column_data->units_out == 'show')
@@ -190,6 +194,12 @@
                                                                 <input type="hidden" class="unitout" name="unitout[]" value="{{$unitOut}}">
                                                             </td>
                                                         @endif
+{{--                                                        @if(isset($column_data->units_out) && $column_data->units_out == 'show')--}}
+                                                            <td class="remaining-stock-{{$key}}">
+                                                                {{$remainingStock}}
+                                                                <input type="hidden" class="remaining" name="remaining[]" value="{{$remainingStock}}">
+                                                            </td>
+{{--                                                        @endif--}}
 
                                                         <?php
 

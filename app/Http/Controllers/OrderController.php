@@ -52,7 +52,7 @@ class OrderController extends Controller
                 $variant_api_data = $shop->api()->rest('GET', '/admin/api/2020-10/variants/'.$variant_id.'.json')['body']['variant'];
                 $product_images_array = $product_api_data->images;
                 foreach ($product_images_array as $product_image){
-                    if( $product_image->id === $variant_api_data->image_id){
+                    if( isset($variant_api_data->src) && $product_image->id === $variant_api_data->image_id){
                         $line_item['image']=$variant_api_data->src;
                     }elseif (isset($product_image->id)){
                         $line_item['image']=$product_api_data->image->src;

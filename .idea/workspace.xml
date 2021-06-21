@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="print report and add currency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,14 +214,10 @@
       <workItem from="1621322010927" duration="20902000" />
       <workItem from="1623673415695" duration="323000" />
       <workItem from="1623847064432" duration="7359000" />
-      <workItem from="1623908568780" duration="8072000" />
-    </task>
-    <task id="LOCAL-00023" summary="save reports">
-      <created>1620291850088</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1620291850091</updated>
+      <workItem from="1623908568780" duration="9644000" />
+      <workItem from="1623925179829" duration="2030000" />
+      <workItem from="1624259975250" duration="1504000" />
+      <workItem from="1624282541738" duration="1835000" />
     </task>
     <task id="LOCAL-00024" summary="add location in line item">
       <created>1620369782298</created>
@@ -558,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623916108976</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="print report and add currency">
+      <created>1623917569425</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1623917569429</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,10 +625,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623916111452">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1623917572674">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623916111452" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1623917572674" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
