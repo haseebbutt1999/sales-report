@@ -50,7 +50,7 @@ class AdminController extends Controller
             $end_date = date('Y-m-d h:i:s', strtotime($dates_array[1]));
 
             $all_orders->whereBetween('created_at', [$start_date, $end_date]);
-            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
+            $collection_data->whereBetween('updated_at', [$start_date, $end_date]);
         }elseif($request->query('location')){
             $location_select = $request->query('location');
             if($location_select != 'select_option'){
