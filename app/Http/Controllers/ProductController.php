@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ErrorLog;
+use App\Inventorylevel;
+use App\InventorylevelVariant;
 use App\Product;
 use App\User;
 use App\Variant;
@@ -123,9 +125,21 @@ class ProductController extends Controller
 
     public function CreateUpdateInventorylevel($inventorylevelData,$shop){
         try {
-            $new = new ErrorLog();
-            $new->message = json_encode($inventorylevelData);
-            $new->save();
+
+//            $inventory_level_data = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
+            $inventory_level_data = new Inventorylevel();
+            $inventory_level_data->available = $inventorylevelData->available;
+            $inventory_level_data->inventory_item_id = $inventorylevelData->inventory_item_id;
+            $inventory_level_data->location_id = $inventorylevelData->location_id;
+            $inventory_level_data->save();
+            $inventory_variant_quantity = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
+            if($inventory_variant_quantity != null){
+                $inventory_variant = new InventorylevelVariant();
+                $inventory_variant->inventory_id = $inventorylevelData->inventory_item_id;
+                $inventory_variant->variant_id = $inventory_variant_quantity->shopify_variant_id;
+                $inventory_variant->save();
+            }
+
         } catch (\Exception $exception){
             $new = new ErrorLog();
             $new->message = "inventory level update error ".$exception->getMessage();
