@@ -20,6 +20,8 @@ class AdminController extends Controller
     public function dashboard(Request $request){
 
 //        $location_name = [];
+        $start_date = '';
+        $end_date = '';
         $location_select = '';
         $location_id = [];
 //        $orders = Order::where('shopify_shop_id', auth::user()->id)->get();
@@ -50,7 +52,8 @@ class AdminController extends Controller
             $end_date = date('Y-m-d h:i:s', strtotime($dates_array[1]));
 
             $all_orders->whereBetween('created_at', [$start_date, $end_date]);
-            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
+
+//            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
         }elseif($request->query('location')){
             $location_select = $request->query('location');
             if($location_select != 'select_option'){
@@ -70,7 +73,7 @@ class AdminController extends Controller
 //        dd($collection_data);
         $column_data = Tablecolumns::where('shopify_shop_id',Auth::user()->id)->first();
 
-        return view('adminpanel/dashboard', compact('column_data','currency','location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
+        return view('adminpanel/dashboard', compact('column_data','start_date','end_date','currency','location_name','location_id', 'collection_data', 'all_orders', 'datefilter','location_select'));
 
 
     }

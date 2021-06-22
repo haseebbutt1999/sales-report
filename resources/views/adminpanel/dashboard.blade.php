@@ -167,14 +167,30 @@
                                                         $remainingStock = 0;
                                                         $unitIn = 0;
                                                         $unitOut = 0;
-                                                        foreach($collection->Products as $product){
-                                                            foreach ($product->Variants as $variant){
-                                                                $stock = $variant->old_inventory_quantity + $stock;
-                                                                $remainingStock = $variant->inventory_quantity + $remainingStock;
-                                                                $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
-                                                                $unitOut = ($stock - $unitIn);
+//                                                        $c->Products->where('id',59)
+//                                                        foreach($collection->Products as $product){
+
+                                                        if($start_date != '' && $end_date != ''){
+                                                            $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
+                                                            foreach($collec_products as $product){
+                                                                foreach ($product->Variants as $variant){
+                                                                    $stock = $variant->old_inventory_quantity + $stock;
+                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
+                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    $unitOut = ($stock - $unitIn);
+                                                                }
+                                                            }
+                                                        }else{
+                                                            foreach($collection->Products as $product){
+                                                                foreach ($product->Variants as $variant){
+                                                                    $stock = $variant->old_inventory_quantity + $stock;
+                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
+                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    $unitOut = ($stock - $unitIn);
+                                                                }
                                                             }
                                                         }
+
                                                         ?>
                                                         @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
                                                             <td class="stock-{{$key}}">
@@ -224,8 +240,9 @@
                                                         $totalShippingSalesVal =[];
                                                         $val =[];
                                                         $totalDiscountVal =[];
-                                                        foreach ($collection->products as $collection_product){
-
+                                                        if($start_date != '' && $end_date != ''){
+                                                            $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
+                                                        foreach ($collec_products as $collection_product){
                                                             foreach ($all_orders as $order_lineitem){
                                                                 foreach ($order_lineitem->lineitems as $lineitem){
                                                                     if($lineitem->product_id != null && $lineitem->variant_id != null){
@@ -281,6 +298,64 @@
                                                                 }
                                                             }
                                                         }
+                                                        }else{
+                                                            foreach ($collection->products as $collection_product){
+                                                                foreach ($all_orders as $order_lineitem){
+                                                                    foreach ($order_lineitem->lineitems as $lineitem){
+                                                                        if($lineitem->product_id != null && $lineitem->variant_id != null){
+                                                                            foreach($collection_product->Variants as $collection_variant){
+                                                                                if($collection_variant->shopify_variant_id == $lineitem->variant_id && $collection_variant->shopify_product_id == $lineitem->product_id){
+                                                                                    $variant_count = \App\Variant::where('shopify_variant_id', $lineitem->variant_id)->where('shopify_product_id', $lineitem->product_id)->count();
+                                                                                    $unitSales = $variant_count * $lineitem->quantity;
+                                                                                    array_push($val, $unitSales);
+
+                                                                                    $totalDiscounts = ($variant_count * (float)$lineitem->total_discount) * $lineitem->quantity;
+                                                                                    array_push($totalDiscountVal, $totalDiscounts);
+                                                                                    array_push($all_dis, $totalDiscounts);
+
+                                                                                    $order_shippingline = json_decode($order_lineitem->shipping_lines);
+                                                                                    //                                                                    $totalShippingSales = ((float)($order_shippingline[0]->price) + $totalShippingSales);
+                                                                                    if(!count($order_shippingline)){
+                                                                                        $totalShippingSales = 0 + $totalShippingSales;
+                                                                                    }else{
+                                                                                        $totalShippingSales = ($order_shippingline[0]->price) + $totalShippingSales;
+                                                                                    }
+                                                                                    array_push($totalShippingSalesVal, $totalShippingSales);
+                                                                                    array_push($all_shipp, $totalShippingSales);
+
+                                                                                    $grossSales = (($variant_count * (float)$lineitem->price ) * $lineitem->quantity);
+                                                                                    array_push($GrossSumVal, $grossSales);
+                                                                                    array_push($all_gross, $grossSales);
+
+                                                                                    $netSales = $grossSales - $totalDiscounts;
+                                                                                    array_push($netSalesVal, $netSales);
+                                                                                    array_push($all_net, $netSales);
+
+                                                                                    $totalSales = $netSales + $totalShippingSales;
+                                                                                    array_push($totalSalesVal, $totalSales);
+                                                                                    array_push($all_totalSale, $totalSales);
+
+                                                                                    $payment_method =  json_decode($order_lineitem->payment_gateway_names);
+                                                                                    if(in_array("Cash on Delivery (COD)", $payment_method)){
+                                                                                        $cashSale = (($variant_count * (float)$lineitem->price ) * $lineitem->quantity);
+                                                                                        array_push($cashSaleVal, $cashSale);
+                                                                                        array_push($all_cash, $cashSale);
+                                                                                    }elseif(in_array("Bank Deposit", $payment_method)){
+                                                                                        $bankSale = (($variant_count * (float)$lineitem->price ) * $lineitem->quantity);
+                                                                                        array_push($bankSaleVal, $bankSale);
+                                                                                        array_push($all_bank, $bankSale);
+                                                                                    }else{
+                                                                                        $creditSale = (($variant_count * (float)$lineitem->price ) * $lineitem->quantity);
+                                                                                        array_push($creditSaleVal, $creditSale);
+                                                                                        array_push($all_credit, $creditSale);
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
 
                                                         //                                            dd($totalSumVal);
                                                         ?>
@@ -294,58 +369,74 @@
                                                         @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
                                                         {{--                                            @dd($order_lineitem)--}}
                                                             <td  class="credit-card-sale-{{$key}}">
+                                                                @if(isset($creditSaleVal) && $creditSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
                                                                 <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')
                                                             <td class="cash-sale-{{$key}}">
+                                                                @if( $cashSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}
                                                                 <input type="hidden" class="credit-card-sale" name="cashsale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')
                                                             <td class="bank-sale-{{$key}}">
-
+                                                                @if( $bankSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}
                                                                 <input type="hidden" class="bank-sale" name="bank_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')
+
                                                             <td class="gross-sale-{{$key}}">
+                                                                @if($GrossSumVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}
                                                                 <input type="hidden" class="gross-sale" name="gross_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')
                                                             <td class="total-discount-{{$key}}">
+                                                                @if($totalDiscountVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}
                                                                 <input type="hidden" class="total-discount" name="total_discount[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')
                                                             <td class="net-sale-{{$key}}">
+                                                                @if($netSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}
                                                                 <input type="hidden" class="net-sale" name="net_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')
                                                             <td class="total-shipping-{{$key}}">
+                                                                @if($totalShippingSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}
                                                                 <input type="hidden" class="shipping-sale" name="shipping_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}">
+                                                                @endif
                                                             </td>
                                                         @endif
 
                                                         @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')
                                                             <td class="total-sale-{{$key}}">
+                                                                @if($totalSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}
                                                                 <input type="hidden" class="total-sale" name="total_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}">
+                                                                @endif
                                                             </td>
                                                         @endif
 

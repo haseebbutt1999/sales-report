@@ -52,5 +52,12 @@ Route::group(['middleware'=>['auth.shopify']], function () {
 
     });
 });
+Route::get('test',function(){
+    $c  = \App\Collection::find(17);
+//    dd($c);
+    $p = $c->Products->where('id',59);
+    dd($p);
+
+});
 
 
