@@ -54,6 +54,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-between align-items-center">
+                                                        <div>Remaining Stock</div>
+                                                        <label class="switch">
+                                                            <input @if(isset($column_data->remaining_stock) && $column_data->remaining_stock == 'show') checked @endif value="show"  name="remaining_stock" type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="d-flex justify-content-between align-items-center">
                                                         <div>Units Sales</div>
                                                         <label class="switch">
                                                             <input @if(isset($column_data->units_sales) && $column_data->units_sales == 'show') checked @endif value="show"  name="units_sales" type="checkbox">

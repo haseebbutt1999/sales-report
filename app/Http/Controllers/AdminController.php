@@ -121,19 +121,35 @@ class AdminController extends Controller
             for($val; $val<$count; $val++){
                 $report_item = new Reportitem();
                 $report_item->report_id = $report_save->id;
+
                 $report_item->collection_name=$request->collection_name[$val];
+
                 $report_item->begin_stock=$request->begin_stock[$val];
+
                 $report_item->unitin=$request->unitin[$val];
+
                 $report_item->unitout=$request->unitout[$val];
+
+                $report_item->remaining_stock=$request->remaining_stock[$val];
+
                 $report_item->unitsale=$request->unitsale[$val];
+
                 $report_item->credit_card_sale=$request->credit_card_sale[$val];
+
                 $report_item->cashsale=$request->cashsale[$val];
+
                 $report_item->bank_sale=$request->bank_sale[$val];
+
                 $report_item->gross_sale=$request->gross_sale[$val];
+
                 $report_item->net_sale=$request->net_sale[$val];
+
                 $report_item->shipping_sale=$request->shipping_sale[$val];
+
                 $report_item->total_discount=$request->total_discount[$val];
+
                 $report_item->total_sale=$request->total_sale[$val];
+
                 $report_item->save();
             }
         }
@@ -174,6 +190,7 @@ class AdminController extends Controller
         $table_column->begin_stock= $request->begin_stock;
         $table_column->units_in= $request->units_in;
         $table_column->units_out= $request->units_out;
+        $table_column->remaining_stock= $request->remaining_stock;
         $table_column->units_sales= $request->units_sales;
         $table_column->credit_card_sales= $request->credit_card_sales;
         $table_column->cashsales= $request->cashsales;
