@@ -321,18 +321,23 @@ return [
             'topic' => 'products/delete',
             'address' => 'https://phpstack-176572-1903902.cloudwaysapps.com/webhook/products-delete'
         ],
+//        [
+//            'topic' => 'collections/create',
+//            'address' => 'https://your-domain.com/webhook/collection-create'
+//        ],
+//        [
+//            'topic' => 'collections/update',
+//            'address' => 'https://your-domain.com/webhook/collection-update'
+//        ],
+//        [
+//            'topic' => 'collections/delete',
+//            'address' => 'https://your-domain.com/webhook/collection-delete'
+//        ],
         [
-            'topic' => 'collections/create',
-            'address' => 'https://your-domain.com/webhook/collection-create'
-        ],
-        [
-            'topic' => 'collections/update',
-            'address' => 'https://your-domain.com/webhook/collection-update'
-        ],
-        [
-            'topic' => 'collections/delete',
-            'address' => 'https://your-domain.com/webhook/collection-delete'
+            'topic' => 'inventory_levels/update',
+            'address' => 'https://phpstack-176572-1903902.cloudwaysapps.com/webhook/inventorylevel-update'
         ]
+
 
     ],
 

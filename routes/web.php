@@ -56,7 +56,11 @@ Route::group(['middleware'=>['auth.shopify']], function () {
     Route::get('inventory',function(){
 
         $customer = Auth::user();
-        $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json');
+        $inventory =  $customer->api()->rest('GET', '/admin/inventory_levels.json',[
+            'inventory_item_ids'=>"41888448479392",
+//            'location_ids'=>"61573333152",
+        ])['body']['container'];
+//        $inventory =  $customer->api()->rest('GET', '/admin/locations.json');
         dd($inventory);
 
     });
@@ -64,7 +68,9 @@ Route::group(['middleware'=>['auth.shopify']], function () {
 Route::get('test',function(){
 
     $customer = Auth::user();
-    $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json');
+    $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json',[
+        'ids'=>'123'
+    ]);
     dd($inventory);
     $c  = \App\Collection::find(17);
 //    dd($c);

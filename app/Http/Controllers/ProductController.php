@@ -120,4 +120,16 @@ class ProductController extends Controller
         return true;
 
     }
+
+    public function CreateUpdateInventorylevel($inventorylevelData,$shop){
+        try {
+            $new = new ErrorLog();
+            $new->message = json_encode($inventorylevelData);
+            $new->save();
+        } catch (\Exception $exception){
+            $new = new ErrorLog();
+            $new->message = "inventory level update error ".$exception->getMessage();
+            $new->save();
+        }
+    }
 }
