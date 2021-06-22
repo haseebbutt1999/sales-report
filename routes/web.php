@@ -47,12 +47,25 @@ Route::group(['middleware'=>['auth.shopify']], function () {
 //        dd($locations);
 
         $customer = Auth::user();
+
         $order_count_api = $customer->api()->rest('GET', '/admin/orders.json')['body']['orders'];
         dd($order_count_api);
 
     });
+
+    Route::get('inventory',function(){
+
+        $customer = Auth::user();
+        $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json');
+        dd($inventory);
+
+    });
 });
 Route::get('test',function(){
+
+    $customer = Auth::user();
+    $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json');
+    dd($inventory);
     $c  = \App\Collection::find(17);
 //    dd($c);
     $p = $c->Products->where('id',59);
