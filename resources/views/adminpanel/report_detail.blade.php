@@ -252,7 +252,7 @@
                                         </tr>
                                         <tr class="td-text-center ">
                                             <td>Total cash remaining </td>
-
+                                            @dump($report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5))
                                             <td class="total-cash-remaining"><span class="mr-1">{{$report_data->currency}}</span>{{$report_data->all_credit - $report_data->comision - ($report_data->payment1 + $report_data->payment2 + $report_data->payment3 + $report_data->payment4 + $report_data->payment5)}}</td>
                                         </tr>
                                         <tr class="td-text-center ">
