@@ -372,7 +372,7 @@
                                                                 @if(isset($creditSaleVal) && $creditSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}
                                                                 @endif
-                                                                <input type="hidden" class="cashsale" name="credit_card_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}">
+                                                                <input type="hidden" class="cashsale" name="credit_card_sale[]" @if(isset($creditSaleVal) && $creditSaleVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($creditSaleVal),2) }}" @else value="{{number_format(array_sum($creditSaleVal),2) }}" @endif>
                                                             </td>
                                                         @endif
 
@@ -381,7 +381,7 @@
                                                                 @if( $cashSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}
                                                                 @endif
-                                                                    <input type="hidden" class="credit-card-sale" name="cashsale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}">
+                                                                    <input type="hidden" class="credit-card-sale" name="cashsale[]" @if( $cashSaleVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}" @else value="{{number_format(array_sum($cashSaleVal),2) }}" @endif>
 
                                                             </td>
                                                         @endif
@@ -391,7 +391,7 @@
                                                                 @if( $bankSaleVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}
                                                                 @endif
-                                                                    <input type="hidden" class="bank-sale" name="bank_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}">
+                                                                    <input type="hidden" class="bank-sale" name="bank_sale[]" @if( $bankSaleVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}" @else value="{{number_format(array_sum($bankSaleVal),2)}}" @endif>
 
                                                             </td>
                                                         @endif
@@ -402,7 +402,8 @@
                                                                 @if($GrossSumVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}
                                                                 @endif
-                                                                    <input type="hidden" class="gross-sale" name="gross_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}">
+
+                                                                    <input type="hidden" class="gross-sale" name="gross_sale[]" @if($GrossSumVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}" @else  value="{{number_format(array_sum($GrossSumVal),2) }}" @endif>
 
                                                             </td>
                                                         @endif
@@ -412,7 +413,7 @@
                                                                 @if($totalDiscountVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}
                                                                 @endif
-                                                                    <input type="hidden" class="total-discount" name="total_discount[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}">
+                                                                    <input type="hidden" class="total-discount" name="total_discount[]"  @if($totalDiscountVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}" @else  value="{{number_format(array_sum($totalDiscountVal),2) }}" @endif>
 
                                                             </td>
                                                         @endif
@@ -422,7 +423,7 @@
                                                                 @if($netSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}
                                                                  @endif
-                                                                    <input type="hidden" class="net-sale" name="net_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}">
+                                                                    <input type="hidden" class="net-sale" name="net_sale[]" @if($netSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}" @else  value="{{number_format(array_sum($netSalesVal),2) }}" @endif>
 
                                                             </td>
                                                         @endif
@@ -432,7 +433,7 @@
                                                                 @if($totalShippingSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}
                                                                  @endif
-                                                                    <input type="hidden" class="shipping-sale" name="shipping_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}">
+                                                                    <input type="hidden" class="shipping-sale" name="shipping_sale[]" @if($totalShippingSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}" @else   value="{{number_format(array_sum($totalShippingSalesVal),2)}}" @endif>
 
                                                             </td>
                                                         @endif
@@ -442,7 +443,7 @@
                                                                 @if($totalSalesVal != null)
                                                                 {{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}
                                                                 @endif
-                                                                    <input type="hidden" class="total-sale" name="total_sale[]" value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}">
+                                                                    <input type="hidden" class="total-sale" name="total_sale[]" @if($totalSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}" @else value="{{number_format(array_sum($totalSalesVal),2)}}"  @endif>
 
                                                             </td>
                                                         @endif
