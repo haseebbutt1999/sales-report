@@ -65,18 +65,28 @@ Route::group(['middleware'=>['auth.shopify']], function () {
 
     });
 });
-Route::get('test',function(){
+Route::get('test',function(Request $request){
+    $test = \App\Variant::find($request->inventory_levels);
 
-    $customer = Auth::user();
-    $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json',[
-        'ids'=>'123'
-    ]);
-    dd($inventory);
-    $c  = \App\Collection::find(17);
-//    dd($c);
-    $p = $c->Products->where('id',59);
-    dd($p);
+//    $customer = Auth::user();
+//    $inventory =  $customer->api()->rest('GET', '/admin/inventory_items.json',[
+//        'ids'=>'123'
+//    ]);
+//    dd($inventory);
+//    $c  = \App\Collection::find(17);
+////    dd($c);
+//    $p = $c->Products->where('id',59);
+//    dd($p);
 
+});
+Route::get('change',function (){
+    $datas = \App\Variant::where('inventory_item_id',41483285495902)->first();
+    dd($datas->inventory_levels);
+//    foreach ($datas  as $data ){
+//        $data->shopify_shop_id = 3;
+//        $data->save();
+//    }
+//    return 'ok';
 });
 
 

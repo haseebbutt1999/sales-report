@@ -178,18 +178,46 @@
                                                                     $remainingStock = $variant->inventory_quantity + $remainingStock;
                                                                     $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
                                                                     $unitOut = ($stock - $unitIn);
+                                                                    $variant_by_inventoryItem = \App\Variant::where('inventory_item_id',$variant->inventory_item_id)->first();
+                                                                    if(isset($variant_by_inventoryItem->inventory_levels)){
+                                                                        dd($variant_by_inventoryItem->inventory_levels);
+                                                                    }
                                                                 }
                                                             }
                                                         }else{
+                                                            $arr = [];
                                                             foreach($collection->Products as $product){
                                                                 foreach ($product->Variants as $variant){
                                                                     $stock = $variant->old_inventory_quantity + $stock;
                                                                     $remainingStock = $variant->inventory_quantity + $remainingStock;
                                                                     $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
-                                                                    $unitOut = ($stock - $unitIn);
+//                                                                    $unitOut = ($stock - $unitIn);
+
+                                                                   if(isset($variant->inventory_levels) && $variant->inventory_levels->count()){
+//                                                                       array_push($arr,$variant->inventory_levels);
+//                                                                       dd();
+                                                                       foreach ($variant->inventory_levels as $inv_key => $inventory_level){
+                                                                           if($inv_key == 0){
+
+                                                                               $unitOut = intval($inventory_level->available);
+                                                                           }elseif(($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key-1])){
+                                                                               $unitOut = $unitOut + $inventory_level->available ;
+                                                                           }elseif($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key-1])){
+                                                                               $unitOut = $unitOut - $inventory_level->available ;
+                                                                           }
+
+
+                                                                       }
+//                                                                       $unitOut = $unitOut;
+//                                                                       dump($unitOut);
+//                                                                       break;
+                                                                   }
                                                                 }
                                                             }
+
+
                                                         }
+//                                                        dd($unitOut);
 
                                                         ?>
                                                         @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')

@@ -10,4 +10,8 @@ class Variant extends Model
     {
         return $this->belongsTo(Product::class,'shopify_product_id', 'shopify_product_id');
     }
+
+    public function inventory_levels(){
+        return $this->hasMany(Inventorylevel::class, 'inventory_item_id', 'inventory_item_id');
+    }
 }
