@@ -44,6 +44,7 @@ class AdminController extends Controller
         $all_orders = \App\Order::where('shopify_shop_id', \Illuminate\Support\Facades\Auth::user()->id);
         $collection_data = Collection::where('shopify_shop_id', Auth::user()->id);
 //        dd($collection_data);
+
         if($request->query('datefilter')) {
             $datefilter = $request->query('datefilter');
             $dates_array = explode('- ', $datefilter);
@@ -54,8 +55,8 @@ class AdminController extends Controller
             $all_orders->whereBetween('created_at', [$start_date, $end_date]);
 
 //            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
-        }elseif($request->query('location')){
-            $location_select = $request->query('location');
+        }elseif($request->location){
+            $location_select = $request->location;
             if($location_select != 'select_option'){
 //                $all_orders->whereHas('lineitems', function($query) use ($location_select){
 //                    $query->where('origin_location_id', $location_select);

@@ -222,15 +222,29 @@
 //                                                                       dd();
                                                                         foreach ($variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date]) as $inv_key => $inventory_level) {
                                                                             if ($inv_key == 0) {
-
                                                                                 $unitOut = intval($inventory_level->available);
                                                                             } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
                                                                                 $unitOut = $unitOut + $inventory_level->available;
                                                                             } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
                                                                                 $unitOut = $unitOut - $inventory_level->available;
                                                                             }
-
-
+                                                                        }
+//                                                                       $unitOut = $unitOut;
+//                                                                       dump($unitOut);
+//                                                                       break;
+                                                                    }
+                                                                    if ($location_select != " " && isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select)->count()) {
+//                                                                       array_push($arr,$variant->inventory_levels);
+//                                                                       dd();
+                                                                        $inventory_levels =$variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select);
+                                                                        foreach ($inventory_levels as $inv_key => $inventory_level) {
+                                                                            if ($inv_key == 0) {
+                                                                                $unitOut = intval($inventory_level->available);
+                                                                            } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
+                                                                                $unitOut = $unitOut + $inventory_level->available;
+                                                                            } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
+                                                                                $unitOut = $unitOut - $inventory_level->available;
+                                                                            }
                                                                         }
 //                                                                       $unitOut = $unitOut;
 //                                                                       dump($unitOut);
