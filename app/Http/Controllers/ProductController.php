@@ -6,6 +6,7 @@ use App\ErrorLog;
 use App\Inventorylevel;
 use App\InventorylevelVariant;
 use App\Product;
+use App\Quantity;
 use App\User;
 use App\Variant;
 use Carbon\Carbon;
@@ -72,6 +73,20 @@ class ProductController extends Controller
             if($variant_save->old_inventory_quantity <= $variant->old_inventory_quantity){
                 $variant_save->old_inventory_quantity = $variant->old_inventory_quantity;
             }
+
+            // add quantity to new table start
+            $quantity = Quantity::where('shopify_shop_id',$shop->id)->where('shopify_variant_id',$variant->id)->first();
+            if(isset($variant_save->inventory_quantity) && $variant_save->inventory_quantity != $variant->inventory_quantity){
+                $quantity = new Quantity();
+                $quantity->quantity = $variant->inventory_quantity;
+                $quantity->shopify_variant_id = $variant->id;
+                $quantity->shopify_shop_id = $shop->id;
+                $quantity->save();
+            }
+
+
+// add quantity to new table end
+
             $variant_save->shopify_product_id = $product->id;
             $variant_save->shopify_variant_id = $variant->id;
             $variant_save->shopify_shop_id = $shop->id;
@@ -104,6 +119,8 @@ class ProductController extends Controller
             $variant_save->created_at = Carbon::createFromTimeString($variant->created_at)->format('Y-m-d H:i:s');
             $variant_save->updated_at = Carbon::createFromTimeString($variant->updated_at)->format('Y-m-d H:i:s');
             $variant_save->save();
+
+
         }
         $product_save->created_at = Carbon::createFromTimeString($product->created_at)->format('Y-m-d H:i:s');
         $product_save->updated_at = Carbon::createFromTimeString($product->updated_at)->format('Y-m-d H:i:s');
