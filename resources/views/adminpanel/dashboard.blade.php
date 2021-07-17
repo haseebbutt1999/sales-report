@@ -260,10 +260,10 @@
 //                                                                    $stock = $variant->old_inventory_quantity + $stock;
 
 //                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
-                                                                    if($variant->quantities()->count()){
+//                                                                    if($variant->quantities()->count()){
                                                                         $variant_qunatity_count = $variant->quantities()->count();
                                                                         $stock = ($variant->quantities[$variant_qunatity_count -1]->quantity) + $stock;
-                                                                    }
+//                                                                    }
 
 
                                                                     $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
