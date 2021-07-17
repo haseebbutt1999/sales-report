@@ -75,8 +75,11 @@ class ProductController extends Controller
             }
 
             // add quantity to new table start
-            $quantity = Quantity::where('shopify_shop_id',$shop->id)->where('shopify_variant_id',$variant->id)->first();
-            if(isset($variant_save->inventory_quantity) && $variant_save->inventory_quantity != $variant->inventory_quantity){
+//            $quantity = Quantity::where('shopify_shop_id',$shop->id)->where('shopify_variant_id',$variant->id)->first();
+//            if(Variant::where('shopify_variant_id', $variant->id)->where('shopify_shop_id', $shop->id)->exists()){
+//
+//            }
+            if(!isset($variant_save->inventory_quantity) && $variant_save->inventory_quantity != $variant->inventory_quantity){
                 $quantity = new Quantity();
                 $quantity->quantity = $variant->inventory_quantity;
                 $quantity->shopify_variant_id = $variant->id;
