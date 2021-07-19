@@ -154,6 +154,8 @@ class OrderController extends Controller
             $location_data->shopify_location_id = $location->id;
             $location_data->shopify_shop_id = Auth::user()->id;
             $location_data->name = $location->name;
+            $location_data->created_at = Carbon::createFromTimeString($location->created_at)->format('Y-m-d H:i:s');
+            $location_data->updated_at = Carbon::createFromTimeString($location->updated_at)->format('Y-m-d H:i:s');
             $location_data->save();
         }
         return redirect()->back()->with('success', 'Locations Sync Successfully !');
