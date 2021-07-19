@@ -204,6 +204,7 @@
                                                         </td>
                                                         <?php
                                                         $stock = 0;
+                                                        $stock_new = 0;
                                                         $remainingStock = 0;
                                                         $unitIn = 0;
                                                         $unitOut = 0;
@@ -258,16 +259,18 @@
                                                             foreach ($collection->Products as $product) {
                                                                 foreach ($product->Variants as $variant) {
 //                                                                    $stock = $variant->old_inventory_quantity + $stock;
+//                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
 
 //                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
 
                                                                     if($variant->quantities->count()){
+                                                                        $stock = ($variant->quantities[0]->quantity) + $stock;
+
                                                                         $variant_qunatity_count = $variant->quantities()->count();
-                                                                        $stock = ($variant->quantities[$variant_qunatity_count -1]->quantity) + $stock;
+                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) + $stock_new;
+                                                                        $unitIn = ($stock_new - $stock) + $unitIn;
                                                                     }
 
-
-                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
 //                                                                    $unitOut = ($stock - $unitIn);
 
                                                                     if (isset($variant->inventory_levels) && $variant->inventory_levels->count()) {
