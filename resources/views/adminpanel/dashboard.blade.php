@@ -205,9 +205,12 @@
                                                         <?php
                                                         $stock = 0;
                                                         $stock_new = 0;
+                                                        $stock_begin=0;
                                                         $remainingStock = 0;
                                                         $unitIn = 0;
                                                         $unitOut = 0;
+
+
                                                         //                                                        $c->Products->where('id',59)
                                                         //                                                        foreach($collection->Products as $product){
 
@@ -262,13 +265,13 @@
 //                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
 
 //                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
-                                                                    $stock_new=0;
+
                                                                     if($variant->quantities->count()){
                                                                         $stock = ($variant->quantities[0]->quantity) + $stock;
-
+                                                                        $stock_begin = ($variant->quantities[0]->quantity);
                                                                         $variant_qunatity_count = $variant->quantities()->count();
                                                                         $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
-                                                                        $unitIn = ($stock_new - $stock) + $unitIn;
+                                                                        $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
 
 //                                                                    $unitOut = ($stock - $unitIn);
