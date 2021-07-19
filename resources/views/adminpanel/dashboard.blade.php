@@ -288,7 +288,7 @@
 
                                                                                 $unitOut = intval($inventory_level->available);
                                                                             } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
-                                                                                $unitOut = $unitOut + $inventory_level->available;
+//                                                                                $unitOut = $unitOut + $inventory_level->available;
                                                                             } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
                                                                                 $unitOut = $unitOut - $inventory_level->available;
                                                                             }
