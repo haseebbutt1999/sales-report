@@ -218,9 +218,19 @@
                                                             $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
                                                             foreach ($collec_products as $product) {
                                                                 foreach ($product->Variants as $variant) {
-                                                                    $stock = $variant->old_inventory_quantity + $stock;
-                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
-                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+//                                                                    $stock = $variant->old_inventory_quantity + $stock;
+//                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
+//                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    if($variant->quantities->whereBetween('created_at', [$start_date, $end_date])->count()){
+                                                                        $stock = ($variant->quantities[0]->whereBetween('created_at', [$start_date, $end_date])->quantity) + $stock;
+                                                                        dd($stock);
+                                                                        $variant_qunatity_count = $variant->quantities()->count();
+                                                                        $stock_begin = ($variant->quantities[0]->quantity);
+                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
+                                                                        $unitIn = ($stock_new - $stock_begin) + $unitIn;
+                                                                    }
+
+
 //                                                                    $unitOut = ($stock - $unitIn);
                                                                     if (isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->count()) {
 //                                                                       array_push($arr,$variant->inventory_levels);
@@ -268,8 +278,8 @@
 
                                                                     if($variant->quantities->count()){
                                                                         $stock = ($variant->quantities[0]->quantity) + $stock;
-                                                                        $stock_begin = ($variant->quantities[0]->quantity);
                                                                         $variant_qunatity_count = $variant->quantities()->count();
+                                                                        $stock_begin = ($variant->quantities[0]->quantity);
                                                                         $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
                                                                         $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
