@@ -55,7 +55,8 @@ class AdminController extends Controller
             $all_orders->whereBetween('created_at', [$start_date, $end_date]);
 
 //            $collection_data->whereBetween('created_at', [$start_date, $end_date]);
-        }elseif($request->location){
+        }
+        if($request->location){
             $location_select = $request->location;
             if($location_select != 'select_option'){
 //                $all_orders->whereHas('lineitems', function($query) use ($location_select){
