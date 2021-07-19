@@ -10,7 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out" />
+    <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,14 +223,7 @@
       <workItem from="1625492918405" duration="3275000" />
       <workItem from="1625549842177" duration="17904000" />
       <workItem from="1626518026361" duration="9238000" />
-      <workItem from="1626674596375" duration="11564000" />
-    </task>
-    <task id="LOCAL-00062" summary="genrate report accornding to store location filter">
-      <created>1621350011902</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1621350011902</updated>
+      <workItem from="1626674596375" duration="12274000" />
     </task>
     <task id="LOCAL-00063" summary="genrate report accornding to store location filter">
       <created>1621350357102</created>
@@ -565,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626690977972</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="location and units out">
+      <created>1626691089037</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1626691089037</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,10 +635,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1626690982266">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1626691091402">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626690982266" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626691091402" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
