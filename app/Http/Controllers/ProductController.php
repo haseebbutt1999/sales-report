@@ -84,6 +84,7 @@ class ProductController extends Controller
                 $quantity->quantity = $variant->inventory_quantity;
                 $quantity->shopify_variant_id = $variant->id;
                 $quantity->shopify_shop_id = $shop->id;
+                $quantity->created_at = Carbon::createFromTimeString($variant->updated_at)->format('Y-m-d H:i:s');
                 $quantity->save();
             }
 

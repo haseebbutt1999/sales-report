@@ -215,6 +215,8 @@
                                                         //                                                        foreach($collection->Products as $product){
 
                                                         if ($start_date != '' && $end_date != '') {
+
+
                                                             $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
 //                                                            $collec_products = $collection->Products;
                                                             foreach ($collec_products as $product) {
@@ -227,14 +229,13 @@
 //                                                                        dd($stock_date);
                                                                         $stock = ($stock_date->quantity) + $stock;
 
-
                                                                         $variant_qunatity_count = $variant->quantities()->whereBetween('created_at', [$start_date, $end_date])->count();
                                                                         $stock_begin = ($stock_date->quantity);
                                                                         $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
                                                                         $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
-                                                                    dd($location_select);
-                                                                    if ($location_select != " " && isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select)->count()) {
+
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select)->count()) {
                                                                         $inventory_levels =$variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select);
                                                                         foreach ($inventory_levels as $inv_key => $inventory_level) {
                                                                             if ($inv_key == 0) {

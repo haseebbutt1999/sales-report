@@ -62,9 +62,11 @@ class AdminController extends Controller
 //                $all_orders->whereHas('lineitems', function($query) use ($location_select){
 //                    $query->where('origin_location_id', $location_select);
 //                });
+//                $all_orders;
                 $all_orders->where('location_id',$location_select);
             }
         }
+//        dd($location_select);
 
         $all_orders = $all_orders->get();
         $currency='';
