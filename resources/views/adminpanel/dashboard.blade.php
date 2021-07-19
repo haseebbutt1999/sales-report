@@ -267,7 +267,7 @@
                                                                         $stock = ($variant->quantities[0]->quantity) + $stock;
 
                                                                         $variant_qunatity_count = $variant->quantities()->count();
-                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) + $stock_new;
+                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
                                                                         $unitIn = ($stock_new - $stock) + $unitIn;
                                                                     }
 
