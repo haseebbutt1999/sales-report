@@ -12,7 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,14 +223,7 @@
       <workItem from="1625492918405" duration="3275000" />
       <workItem from="1625549842177" duration="17904000" />
       <workItem from="1626518026361" duration="9238000" />
-      <workItem from="1626674596375" duration="8189000" />
-    </task>
-    <task id="LOCAL-00058" summary="show and hide the tanle column">
-      <created>1621345728778</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1621345728778</updated>
+      <workItem from="1626674596375" duration="8639000" />
     </task>
     <task id="LOCAL-00059" summary="show and hide the tanle column">
       <created>1621346151126</created>
@@ -568,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626685167825</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="location and units out">
+      <created>1626685457873</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1626685457873</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,18 +635,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1626685171267">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1626685460355">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626685171267" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626685460355" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1621343226400" />
-    <state x="509" y="183" width="581" height="494" key="find.popup" timestamp="1626685328936">
+    <state x="509" y="183" width="581" height="494" key="find.popup" timestamp="1626685727259">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="509" y="183" width="581" height="494" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1626685328936" />
+    <state x="509" y="183" width="581" height="494" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1626685727259" />
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1619774209771">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

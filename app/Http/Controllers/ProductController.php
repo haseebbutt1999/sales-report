@@ -152,6 +152,7 @@ class ProductController extends Controller
             $inventory_level_data->available = $inventorylevelData->available;
             $inventory_level_data->inventory_item_id = $inventorylevelData->inventory_item_id;
             $inventory_level_data->location_id = $inventorylevelData->location_id;
+            $inventory_level_data->created_at = Carbon::createFromTimeString($inventorylevelData->updated_at)->format('Y-m-d H:i:s');
             $inventory_level_data->save();
             $inventory_variant_quantity = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
             if($inventory_variant_quantity != null){
