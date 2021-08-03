@@ -224,14 +224,7 @@
       <workItem from="1625549842177" duration="17904000" />
       <workItem from="1626518026361" duration="9238000" />
       <workItem from="1626674596375" duration="12751000" />
-      <workItem from="1627998937482" duration="558000" />
-    </task>
-    <task id="LOCAL-00064" summary="genrate report accornding to store location filter">
-      <created>1623853702934</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1623853702937</updated>
+      <workItem from="1627998937482" duration="1110000" />
     </task>
     <task id="LOCAL-00065" summary="genrate report accornding to store location filter">
       <created>1623913315664</created>
@@ -569,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626691847897</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="location and units out">
+      <created>1627999514586</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1627999514586</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,10 +624,6 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="174" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1619774111158" />
-    <state x="634" y="361" key="NewPhpFileDialog" timestamp="1618985911557">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="634" y="361" key="NewPhpFileDialog/0.0.1600.860@0.0.1600.860" timestamp="1618985911557" />
     <state x="303" y="76" key="SettingsEditor" timestamp="1621261589377">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -636,10 +632,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1626691852150">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1627999548535">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626691852150" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1627999548535" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -678,6 +674,11 @@
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
           <line>278</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
+          <line>323</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

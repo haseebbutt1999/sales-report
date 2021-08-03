@@ -321,16 +321,16 @@
                                                         @endif
                                                         @if(isset($column_data->units_in) && $column_data->units_in == 'show')
                                                             <td class="unitin-{{$key}}">
-                                                                {{$unitIn}}
+                                                                {{abs($unitIn)}}
                                                                 <input type="hidden" class="unitin" name="unitin[]"
-                                                                       value="{{$unitIn}}">
+                                                                       value="{{abs($unitIn)}}">
                                                             </td>
                                                         @endif
                                                         @if(isset($column_data->units_out) && $column_data->units_out == 'show')
                                                             <td class="unitout-{{$key}}">
-                                                                {{$unitOut}}
+                                                                {{abs($unitOut)}}
                                                                 <input type="hidden" class="unitout" name="unitout[]"
-                                                                       value="{{$unitOut}}">
+                                                                       value="{{abs($unitOut)}}">
                                                             </td>
                                                         @endif
 
