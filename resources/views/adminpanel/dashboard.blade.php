@@ -283,17 +283,21 @@
                                                                     if (isset($variant->inventory_levels) && $variant->inventory_levels->count()) {
 //                                                                       array_push($arr,$variant->inventory_levels);
 //                                                                       dd();
-                                                                        foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
-                                                                            if ($inv_key == 0) {
+                                                                        $variant_inventory_count_for_unit_out = $variant->inventory_levels()->count();
+//                                                                        foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
+
+                                                                            if ($variant_inventory_count_for_unit_out == 1) {
 //                                                                                $unitOut = intval($inventory_level->available);
                                                                                 $unitOut = 0;
-                                                                            } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
+                                                                            } elseif (($variant_inventory_count_for_unit_out > 0) && ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2])) {
 //                                                                                $unitOut = $unitOut + $inventory_level->available;
                                                                                 $unitOut = $unitOut + 0;
-                                                                            } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
-                                                                                $unitOut = $unitOut - $inventory_level->available;
+                                                                            } elseif ($variant_inventory_count_for_unit_out > 0 && ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2])) {
+//                                                                                $unitOut = $unitOut - $inventory_level->available;
+                                                                                $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]));
+
                                                                             }
-                                                                        }
+//                                                                        }
 //                                                                       $unitOut = $unitOut;
 //                                                                       dump($unitOut);
 //                                                                       break;
