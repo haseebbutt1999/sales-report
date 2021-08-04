@@ -280,7 +280,7 @@
 
 //                                                                    $unitOut = ($stock - $unitIn);
 
-                                                                    if (isset($variant->inventory_levels) && $variant->inventory_levels->count()) {
+                                                                    if (isset($variant->inventory_levels) && $variant->inventory_levels()->count()) {
 //                                                                       array_push($arr,$variant->inventory_levels);
 //                                                                       dd();
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->count();
@@ -288,14 +288,13 @@
 
                                                                             if ($variant_inventory_count_for_unit_out == 1) {
 //                                                                                $unitOut = intval($inventory_level->available);
-                                                                                $unitOut = 0;
-                                                                            } elseif (($variant_inventory_count_for_unit_out > 0) && ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2])) {
+//                                                                                $unitOut = 0;
+                                                                            } elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
 //                                                                                $unitOut = $unitOut + $inventory_level->available;
                                                                                 $unitOut = $unitOut + 0;
-                                                                            } elseif ($variant_inventory_count_for_unit_out > 0 && ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2])) {
+                                                                            } elseif ( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
 //                                                                                $unitOut = $unitOut - $inventory_level->available;
                                                                                 $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]);
-
                                                                             }
 //                                                                        }
 //                                                                       $unitOut = $unitOut;
