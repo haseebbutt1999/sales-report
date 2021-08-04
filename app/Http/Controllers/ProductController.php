@@ -147,27 +147,34 @@ class ProductController extends Controller
     public function CreateUpdateInventorylevel($inventorylevelData,$shop){
         try {
 
-            $inventory_level_data = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
-            if($inventory_level_data == null){
-                $inventory_level_data = new Inventorylevel();
-                $inventory_level_data->old_available = $inventorylevelData->available;
-                $inventory_level_data->available = $inventorylevelData->available;
+            $variant_inventory_level_data = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
+            if($variant_inventory_level_data != null){
+                $inventory_level_data = Inventorylevel::where('inventory_item_id', $inventorylevelData->inventory_item_id)->first();
+
+                if($inventory_level_data == null){
+                    $inventory_level_data = new Inventorylevel();
+                    $inventory_level_data->old_available = $inventorylevelData->available;
+                    $inventory_level_data->available = $inventorylevelData->available;
+
+                }
+                if($inventory_level_data->old_available != null && $inventory_level_data->old_available > $inventorylevelData->available ){
+                    $inventory_level_data->available = $inventorylevelData->available;
+                    $inventory_level_data->old_available = $inventorylevelData->available;
+                }
+                $inventory_level_data->location_id = $inventorylevelData->location_id;
+                $inventory_level_data->inventory_item_id = $inventorylevelData->inventory_item_id;
+
+                $inventory_level_data->created_at = Carbon::createFromTimeString($inventorylevelData->updated_at)->format('Y-m-d H:i:s');
+                $inventory_level_data->save();
+                $inventory_variant_quantity = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
+                if($inventory_variant_quantity != null){
+                    $inventory_variant = new InventorylevelVariant();
+                    $inventory_variant->inventory_id = $inventorylevelData->inventory_item_id;
+                    $inventory_variant->variant_id = $inventory_variant_quantity->shopify_variant_id;
+                    $inventory_variant->save();
+                }
             }
-            if($inventory_level_data->old_available != null && $inventory_level_data->old_available > $inventorylevelData->available ){
-                $inventory_level_data->available = $inventorylevelData->available;
-                $inventory_level_data->old_available = $inventorylevelData->available;
-            }
-            $inventory_level_data->inventory_item_id = $inventorylevelData->inventory_item_id;
-            $inventory_level_data->location_id = $inventorylevelData->location_id;
-            $inventory_level_data->created_at = Carbon::createFromTimeString($inventorylevelData->updated_at)->format('Y-m-d H:i:s');
-            $inventory_level_data->save();
-            $inventory_variant_quantity = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
-            if($inventory_variant_quantity != null){
-                $inventory_variant = new InventorylevelVariant();
-                $inventory_variant->inventory_id = $inventorylevelData->inventory_item_id;
-                $inventory_variant->variant_id = $inventory_variant_quantity->shopify_variant_id;
-                $inventory_variant->save();
-            }
+
 
         } catch (\Exception $exception){
             $new = new ErrorLog();

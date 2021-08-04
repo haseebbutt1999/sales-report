@@ -292,8 +292,6 @@
                                                                             } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
                                                                                 $unitOut = $unitOut - $inventory_level->available;
                                                                             }
-
-
                                                                         }
 //                                                                       $unitOut = $unitOut;
 //                                                                       dump($unitOut);
@@ -314,9 +312,9 @@
                                                         ?>
                                                         @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
                                                             <td class="stock-{{$key}}">
-                                                                {{$stock}}
+                                                                {{abs($stock)}}
                                                                 <input type="hidden" class="begin-stock"
-                                                                       name="begin_stock[]" value="{{$stock}}">
+                                                                       name="begin_stock[]" value="{{abs($stock)}}">
                                                             </td>
                                                         @endif
                                                         @if(isset($column_data->units_in) && $column_data->units_in == 'show')
@@ -486,10 +484,10 @@
                                                         @endif
                                                         @if(isset($column_data->remaining_stock) && $column_data->remaining_stock == 'show')
                                                             <td class="remaining-stock-{{$key}}">
-                                                                {{$stock + $unitIn - $unitOut - array_sum($val)}}
+                                                                {{abs($stock + $unitIn - $unitOut - array_sum($val))}}
                                                                 <input type="hidden" class="remaining"
                                                                        name="remaining_stock[]"
-                                                                       value="{{$stock + $unitIn - $unitOut - array_sum($val)}}">
+                                                                       value="{{abs($stock + $unitIn - $unitOut - array_sum($val))}}">
                                                             </td>
                                                         @endif
 
