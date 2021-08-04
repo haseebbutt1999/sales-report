@@ -294,7 +294,7 @@
                                                                                 $unitOut = $unitOut + 0;
                                                                             } elseif ($variant_inventory_count_for_unit_out > 0 && ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2])) {
 //                                                                                $unitOut = $unitOut - $inventory_level->available;
-                                                                                $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]));
+                                                                                $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]));
 
                                                                             }
 //                                                                        }

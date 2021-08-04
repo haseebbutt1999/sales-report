@@ -11,7 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,14 +225,7 @@
       <workItem from="1626674596375" duration="12751000" />
       <workItem from="1627998937482" duration="2487000" />
       <workItem from="1628054906099" duration="194000" />
-      <workItem from="1628078552838" duration="7563000" />
-    </task>
-    <task id="LOCAL-00068" summary="genrate report accornding to store location filter">
-      <created>1623914292268</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1623914292268</updated>
+      <workItem from="1628078552838" duration="7585000" />
     </task>
     <task id="LOCAL-00069" summary="genrate report accornding to store location filter">
       <created>1623915071993</created>
@@ -571,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628086610130</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="location and units out">
+      <created>1628087846587</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1628087846587</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
