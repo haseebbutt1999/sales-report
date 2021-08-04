@@ -149,18 +149,18 @@ class ProductController extends Controller
 
             $variant_inventory_level_data = Variant::where('inventory_item_id', $inventorylevelData->inventory_item_id)->where('shopify_shop_id', $shop->id)->first();
             if($variant_inventory_level_data != null){
-                $inventory_level_data = Inventorylevel::where('inventory_item_id', $inventorylevelData->inventory_item_id)->first();
-
-                if($inventory_level_data == null){
+//                $inventory_level_data = Inventorylevel::where('inventory_item_id', $inventorylevelData->inventory_item_id)->first();
+//
+//                if($inventory_level_data == null){
                     $inventory_level_data = new Inventorylevel();
                     $inventory_level_data->old_available = $inventorylevelData->available;
                     $inventory_level_data->available = $inventorylevelData->available;
 
-                }
-                if($inventory_level_data->old_available != null && $inventory_level_data->old_available > $inventorylevelData->available ){
-                    $inventory_level_data->available = $inventorylevelData->available;
-                    $inventory_level_data->old_available = $inventorylevelData->available;
-                }
+//                }
+//                if($inventory_level_data->old_available != null && $inventory_level_data->old_available > $inventorylevelData->available ){
+//                    $inventory_level_data->available = $inventorylevelData->available;
+//                    $inventory_level_data->old_available = $inventorylevelData->available;
+//                }
                 $inventory_level_data->location_id = $inventorylevelData->location_id;
                 $inventory_level_data->inventory_item_id = $inventorylevelData->inventory_item_id;
 

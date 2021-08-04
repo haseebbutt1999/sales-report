@@ -285,10 +285,11 @@
 //                                                                       dd();
                                                                         foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
                                                                             if ($inv_key == 0) {
-
-                                                                                $unitOut = intval($inventory_level->available);
+//                                                                                $unitOut = intval($inventory_level->available);
+                                                                                $unitOut = 0;
                                                                             } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
-                                                                                $unitOut = $unitOut + $inventory_level->available;
+//                                                                                $unitOut = $unitOut + $inventory_level->available;
+                                                                                $unitOut = $unitOut + 0;
                                                                             } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
                                                                                 $unitOut = $unitOut - $inventory_level->available;
                                                                             }
