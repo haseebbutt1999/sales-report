@@ -192,7 +192,7 @@
                                                         <?php
                                                         $stock = 0;
                                                         $stock_new = 0;
-                                                        $stock_begin=0;
+                                                        $stock_begin = 0;
                                                         $remainingStock = 0;
                                                         $unitIn = 0;
                                                         $unitOut = 0;
@@ -202,105 +202,87 @@
                                                         //                                                        foreach($collection->Products as $product){
 
                                                         if ($start_date != '' && $end_date != '') {
-
-
                                                             $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
-                                                            //                                                            $collec_products = $collection->Products;
                                                             foreach ($collec_products as $product) {
                                                                 foreach ($product->Variants as $variant) {
-                                                                    //                                                                    $stock = $variant->old_inventory_quantity + $stock;
-                                                                    //                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
-                                                                    //                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
-                                                                    if($variant->quantities->whereBetween('created_at', [$start_date, $end_date])->count()){
+                                                                    //  $stock = $variant->old_inventory_quantity + $stock;
+                                                                    //  $remainingStock = $variant->inventory_quantity + $remainingStock;
+                                                                    //  $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    if ($variant->quantities->whereBetween('created_at', [$start_date, $end_date])->count()) {
                                                                         $stock_date = $variant->quantities->whereBetween('created_at', [$start_date, $end_date])->first();
-                                                                        //                                                                        dd($stock_date);
+
                                                                         $stock = ($stock_date->quantity) + $stock;
 
                                                                         $variant_qunatity_count = $variant->quantities()->whereBetween('created_at', [$start_date, $end_date])->count();
                                                                         $stock_begin = ($stock_date->quantity);
-                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
+                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count - 1]->quantity);
                                                                         $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
 
-                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select)->count()) {
-                                                                        $inventory_levels =$variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id',$location_select);
-                                                                        foreach ($inventory_levels as $inv_key => $inventory_level) {
-                                                                            if ($inv_key == 0) {
-                                                                                $unitOut = intval($inventory_level->available);
-                                                                            } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
-                                                                                $unitOut = $unitOut + $inventory_level->available;
-                                                                            } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
-                                                                                $unitOut = $unitOut - $inventory_level->available;
-                                                                            }
-                                                                        }
-                                                                    }else{
-                                                                        if (isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->count()) {
-                                                                            foreach ($variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date]) as $inv_key => $inventory_level) {
-                                                                                if ($inv_key == 0) {
-                                                                                    $unitOut = intval($inventory_level->available);
-                                                                                } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
-                                                                                    $unitOut = $unitOut + $inventory_level->available;
-                                                                                } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
-                                                                                    $unitOut = $unitOut - $inventory_level->available;
-                                                                                }
-                                                                            }
+                                                                    if (isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->count()) {
+                                                                        $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->count();
+                                                                        $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date]);
+                                                                        if ($variant_inventory_count_for_unit_out == 1) {
+
+                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available > $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
+                                                                            $unitOut = $unitOut;
+                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available < $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
+                                                                            $unitOut = $unitOut + ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available - $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available);
                                                                         }
                                                                     }
+
+
+//                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
+//                                                                        $inventory_levels = $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select);
+//                                                                        foreach ($inventory_levels as $inv_key => $inventory_level) {
+//                                                                            if ($inv_key == 0) {
+//                                                                                $unitOut = intval($inventory_level->available);
+//                                                                            } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
+//                                                                                $unitOut = $unitOut + $inventory_level->available;
+//                                                                            } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
+//                                                                                $unitOut = $unitOut - $inventory_level->available;
+//                                                                            }
+//                                                                        }
+//                                                                    } else {
+//                                                                        if (isset($variant->inventory_levels) && $variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date])->count()) {
+//                                                                            foreach ($variant->inventory_levels->whereBetween('created_at', [$start_date, $end_date]) as $inv_key => $inventory_level) {
+//                                                                                if ($inv_key == 0) {
+//                                                                                    $unitOut = intval($inventory_level->available);
+//                                                                                } elseif (($inv_key > 0) && ($inventory_level[$inv_key] > $inventory_level[$inv_key - 1])) {
+//                                                                                    $unitOut = $unitOut + $inventory_level->available;
+//                                                                                } elseif ($inv_key > 0 && ($inventory_level[$inv_key] < $inventory_level[$inv_key - 1])) {
+//                                                                                    $unitOut = $unitOut - $inventory_level->available;
+//                                                                                }
+//                                                                            }
+//                                                                        }
+//                                                                    }
                                                                 }
                                                             }
                                                         } else {
                                                             $arr = [];
                                                             foreach ($collection->Products as $product) {
                                                                 foreach ($product->Variants as $variant) {
-                                                                    //                                                                    $stock = $variant->old_inventory_quantity + $stock;
-                                                                    //                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
-
-                                                                    //                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
-
-                                                                    if($variant->quantities->count()){
+                                                                    if ($variant->quantities->count()) {
                                                                         $stock = ($variant->quantities[0]->quantity) + $stock;
+
                                                                         $variant_qunatity_count = $variant->quantities()->count();
                                                                         $stock_begin = ($variant->quantities[0]->quantity);
-                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count -1]->quantity) ;
-                                                                        $unitIn = ($stock_begin - $stock_new  ) + $unitIn;
+                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count - 1]->quantity);
+                                                                        $unitIn = ($stock_begin - $stock_new) + $unitIn;
                                                                     }
-
-                                                                    //                                                                    $unitOut = ($stock - $unitIn);
-
                                                                     if (isset($variant->inventory_levels) && $variant->inventory_levels()->count()) {
-                                                                        //                                                                       array_push($arr,$variant->inventory_levels);
-                                                                        //                                                                       dd();
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->count();
-                                                                        //                                                                        foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
+                                                                        if ($variant_inventory_count_for_unit_out == 1) {
 
-                                                                        if($variant_inventory_count_for_unit_out == 1) {
-//                                                                            $unitOut = intval($inventory_level->available);
-//                                                                            $unitOut = 0;
-                                                                        }elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available) {
-                                                                            //                                                                                $unitOut = $unitOut + $inventory_level->available;
+                                                                        } elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available) {
                                                                             $unitOut = $unitOut;
-                                                                        }elseif ( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available) {
-                                                                            //                                                                                $unitOut = $unitOut - $inventory_level->available;
-//                                                                            dd($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available);
-                                                                            $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available);
+                                                                        } elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available) {
+                                                                            $unitOut = $unitOut + ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available);
                                                                         }
-                                                                        //                                                                        }
-                                                                        //                                                                       $unitOut = $unitOut;
-                                                                        //                                                                       dump($unitOut);
-                                                                        //                                                                       break;
                                                                     }
-
-                                                                    //                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock ;
-                                                                    //                                                                    dd($unitOut);
-                                                                    //                                                                    $remainingStock = ($stock + $unitIn - $unitOut) + $remainingStock ;
-
                                                                 }
                                                             }
-
-
                                                         }
-                                                        //                                                        dd($unitOut);
-
                                                         ?>
                                                         @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
                                                             <td class="stock-{{$key}}">
@@ -1057,9 +1039,7 @@
                                                     <td class="d-flex w-100 justify-content-between total-cash-collected">
                                                         <div style="width: 15%;" class="d-flex ">
                                                             <div>{{$currency}}</div>
-                                                            <span class="ml-1 total-amount-collected">
-                                             0
-                                             </span>
+                                                            <span class="ml-1 total-amount-collected">0</span>
                                                         </div>
                                                         <div style="width: 70%;">
                                                             <span><strong>Note:</strong></span>
