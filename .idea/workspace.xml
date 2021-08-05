@@ -13,6 +13,7 @@
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,56 +228,7 @@
       <workItem from="1627998937482" duration="2487000" />
       <workItem from="1628054906099" duration="194000" />
       <workItem from="1628078552838" duration="8521000" />
-      <workItem from="1628141419988" duration="6629000" />
-    </task>
-    <task id="LOCAL-00083" summary="add scope read_all_orders">
-      <created>1624366502944</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1624366502944</updated>
-    </task>
-    <task id="LOCAL-00084" summary="bug fix on date filter">
-      <created>1625494726971</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1625494726975</updated>
-    </task>
-    <task id="LOCAL-00085" summary="bug fix on date filter">
-      <created>1625561009974</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1625561009974</updated>
-    </task>
-    <task id="LOCAL-00086" summary="bug fix on date filter">
-      <created>1625561536850</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1625561536851</updated>
-    </task>
-    <task id="LOCAL-00087" summary="units out">
-      <created>1625566699028</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1625566699028</updated>
-    </task>
-    <task id="LOCAL-00088" summary="location and units out">
-      <created>1625573685434</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1625573685437</updated>
-    </task>
-    <task id="LOCAL-00089" summary="location and units out">
-      <created>1626523864816</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1626523864817</updated>
+      <workItem from="1628141419988" duration="10190000" />
     </task>
     <task id="LOCAL-00090" summary="location and units out">
       <created>1626529564549</created>
@@ -572,7 +524,56 @@
       <option name="project" value="LOCAL" />
       <updated>1628144955804</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="location and units out">
+      <created>1628148405397</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1628148405397</updated>
+    </task>
+    <task id="LOCAL-00133" summary="location and units out">
+      <created>1628148662682</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1628148662683</updated>
+    </task>
+    <task id="LOCAL-00134" summary="location and units out">
+      <created>1628148716314</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1628148716314</updated>
+    </task>
+    <task id="LOCAL-00135" summary="location and units out">
+      <created>1628148795281</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1628148795282</updated>
+    </task>
+    <task id="LOCAL-00136" summary="location and units out">
+      <created>1628149277238</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1628149277238</updated>
+    </task>
+    <task id="LOCAL-00137" summary="location and units out">
+      <created>1628150170449</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1628150170451</updated>
+    </task>
+    <task id="LOCAL-00138" summary="location and units out">
+      <created>1628150386740</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1628150386740</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,10 +640,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628145001095">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628150389890">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628145001095" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628150389890" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1628144683899">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -659,10 +660,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1619523596793" />
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1628145613159">
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1628151661412">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1628145613159" />
+    <state x="456" y="83" width="672" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1628151661412" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -674,23 +675,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>330</line>
+          <line>381</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>336</line>
+          <line>387</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>383</line>
+          <line>434</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>219</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
