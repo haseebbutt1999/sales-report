@@ -476,7 +476,7 @@
                                                                 {{abs($stock + $unitIn - $unitOut - array_sum($val))}}
                                                                 <input type="hidden" class="remaining"
                                                                        name="remaining_stock[]"
-                                                                       value="{{abs($stock + $unitIn - $unitOut - array_sum($val))}}">
+                                                                       value="{{abs(($stock + $unitIn) - ($unitOut - array_sum(abs(intval($val))))}}">
                                                             </td>
                                                         @endif
                                                         @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
