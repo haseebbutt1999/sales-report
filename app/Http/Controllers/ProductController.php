@@ -88,18 +88,6 @@ class ProductController extends Controller
                 $quantity->created_at = Carbon::createFromTimeString($variant->updated_at)->format('Y-m-d H:i:s');
                 $quantity->save();
 
-                $inventory =  $shop->api()->rest('GET', '/admin/inventory_levels.json',[
-                    'inventory_item_ids'=>$variant->inventory_item_id,
-//            'location_ids'=>"61573333152",
-                ])['body']['container'];
-
-                foreach ($inventory as $inv){
-                    $inv_save  = new InventoryLocationQuantity();
-                    $inv_save->inventory_item_id = $variant->inventory_item_id;
-                    $inv_save->location_id = $inv->location_id;
-                    $inv_save->available = $inv->available;
-                    $inv_save->save();
-                }
 
             }
 
@@ -108,12 +96,24 @@ class ProductController extends Controller
             $variant_save->shopify_product_id = $product->id;
             $variant_save->shopify_variant_id = $variant->id;
             $variant_save->shopify_shop_id = $shop->id;
-
-            foreach($product->images as $product_image_id){
-                if($product_image_id->id === $variant->image_id){
-                    $variant_save->image = $product_image_id->src;
+            $inventory =  $shop->api()->rest('GET', '/admin/inventory_levels.json',[
+                'inventory_item_ids'=>$variant->inventory_item_id,
+//            'location_ids'=>"61573333152",
+            ])['body']['container'];
+            if(!$inventory['errors'] ){
+                foreach ($inventory as $inv){
+                    $inv_save  = new InventoryLocationQuantity();
+                    $inv_save->inventory_item_id = $variant->inventory_item_id;
+                    $inv_save->location_id = $inv->location_id;
+                    $inv_save->available = $inv->available;
+                    $inv_save->save();
                 }
             }
+//            foreach($product->images as $product_image_id){
+//                if($product_image_id->id === $variant->image_id){
+//                    $variant_save->image = $product_image_id->src;
+//                }
+//            }
             $variant_save->title = $variant->title;
             $variant_save->position = $variant->position;
             $variant_save->price = $variant->price;
