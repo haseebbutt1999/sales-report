@@ -263,7 +263,7 @@
                                                                     }
                                                                 }
                                                             }
-                                                        }elseif($location_select != "select_option"){
+                                                        }elseif($location_select != "select_option" && $location_select != ''){
                                                             $collec_products = $collection->Products;
                                                             foreach ($collec_products as $product) {
                                                                 foreach ($product->Variants as $variant) {
