@@ -89,7 +89,7 @@ Route::get('change',function (){
 //    return 'ok';
 });
 Route::get('qty',function (){
-    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
+    $variant = \App\Variant::where('shopify_variant_id',14626753937460)->first();
     $variant_qunatity_count = $variant->quantities()->count();
     dd($variant->quantities[$variant_qunatity_count -1]->quantity);
 //    foreach ($datas  as $data ){
