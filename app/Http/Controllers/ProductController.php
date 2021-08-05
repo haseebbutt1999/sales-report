@@ -92,15 +92,15 @@ class ProductController extends Controller
                     'inventory_item_ids'=>$variant->inventory_item_id,
 //            'location_ids'=>"61573333152",
                 ])['body']['container'];
-                if(!$inventory['errors'] ){
-                    foreach ($inventory as $inv){
-                        $inv_save  = new InventoryLocationQuantity();
-                        $inv_save->inventory_item_id = $variant->inventory_item_id;
-                        $inv_save->location_id = $inv->location_id;
-                        $inv_save->available = $inv->available;
-                        $inv_save->save();
-                    }
+
+                foreach ($inventory as $inv){
+                    $inv_save  = new InventoryLocationQuantity();
+                    $inv_save->inventory_item_id = $variant->inventory_item_id;
+                    $inv_save->location_id = $inv->location_id;
+                    $inv_save->available = $inv->available;
+                    $inv_save->save();
                 }
+
             }
 
 // add quantity to new table end
