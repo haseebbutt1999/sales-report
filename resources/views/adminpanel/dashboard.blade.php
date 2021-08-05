@@ -473,7 +473,7 @@
                                                         @endif
                                                         @if(isset($column_data->remaining_stock) && $column_data->remaining_stock == 'show')
                                                             <td class="remaining-stock-{{$key}}">
-                                                                {{abs($stock + $unitIn - $unitOut - array_sum($val))}}
+                                                                {{abs(($stock + $unitIn) - ($unitOut - array_sum(abs(intval($val))))}}
                                                                 <input type="hidden" class="remaining"
                                                                        name="remaining_stock[]"
                                                                        value="{{abs(($stock + $unitIn) - ($unitOut - array_sum(abs(intval($val))))}}">
