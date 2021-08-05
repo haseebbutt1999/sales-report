@@ -105,7 +105,9 @@ class ProductController extends Controller
 
                 if( isset($inventory)){
                     foreach ($inventory as $inv){
-                    $inv_save =   InventoryLocationQuantity::where('inventory_item_id',$variant->inventory_item_id)->where('location_id',$inv['location_id'])->first();
+                    $updated_date = Carbon::createFromTimeString($inv['updated_at'])->format('Y-m-d H:i:s');
+                    $inv_save =   InventoryLocationQuantity::where('inventory_item_id',$variant->inventory_item_id)->where('location_id',$inv['location_id'])->where('created_at',$updated_date)->first();
+                    dd($inv_save);
                     if($inv_save == null){
                         $inv_save  = new InventoryLocationQuantity();
                     }
