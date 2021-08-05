@@ -296,7 +296,7 @@
                                                                 }
                                                             }
                                                         }else {
-                                                            dd(1);
+
                                                             $arr = [];
                                                             foreach ($collection->Products as $product) {
                                                                 foreach ($product->Variants as $variant) {
