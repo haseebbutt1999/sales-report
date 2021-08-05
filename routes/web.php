@@ -98,5 +98,9 @@ Route::get('qty',function (){
 //    }
 //    return 'ok';
 });
+Route::get('var',function(){
+    $v = \App\InventoryLocationQuantity::where('inventory_item_id',15020261277748)->get();
+    dd($v);
+});
 
 

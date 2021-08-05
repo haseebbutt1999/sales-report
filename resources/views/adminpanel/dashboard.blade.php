@@ -268,13 +268,13 @@
                                                             foreach ($collec_products as $product) {
                                                                 foreach ($product->Variants as $variant) {
 
-                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->where('location_id', $location_select)->count()) {
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_location_quanitites) && $variant->inventory_location_quanitites()->where('location_id', $location_select)->count()) {
 
-                                                                        $stock_date = $variant->inventory_levels()->where('location_id', $location_select)->first();
-                                                                        $variant_inventory_level_with_date = $variant->inventory_levels()->where('location_id', $location_select)->get();
+                                                                        $stock_date = $variant->inventory_location_quanitites()->where('location_id', $location_select)->first();
+                                                                        $variant_inventory_level_with_date = $variant->inventory_location_quanitites()->where('location_id', $location_select)->get();
 
                                                                         $stock = ($stock_date->available) + $stock;
-                                                                        $variant_qunatity_count = $variant->inventory_levels()->where('location_id', $location_select)->count();
+                                                                        $variant_qunatity_count = $variant->inventory_location_quanitites()->where('location_id', $location_select)->count();
 
                                                                         $stock_begin = ($stock_date->available);
                                                                         $stock_new = ($variant_inventory_level_with_date[$variant_qunatity_count - 1]->available);
