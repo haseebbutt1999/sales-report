@@ -105,8 +105,8 @@ class ProductController extends Controller
                 foreach ($inventory as $inv){
                     $inv_save  = new InventoryLocationQuantity();
                     $inv_save->inventory_item_id = $variant->inventory_item_id;
-                    $inv_save->location_id = $inv->location_id;
-                    $inv_save->available = $inv->available;
+                    $inv_save->location_id = $inv['location_id'];
+                    $inv_save->available = $inv['available'];
                     $inv_save->save();
                 }
             }
