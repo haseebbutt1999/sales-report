@@ -89,7 +89,9 @@ Route::get('change',function (){
 //    return 'ok';
 });
 Route::get('qty',function (){
-    $variant = \App\Variant::where('shopify_variant_id',14626753937460)->first();
+    $variant = \App\Variant::where('shopify_variant_id',14606888435764)->first();
+    $variant_qunatity_count = $variant->inventory_location_quanitites()->where('location_id',15144583220)->first();
+    dd($variant_qunatity_count);
     $variant_qunatity_count = $variant->quantities()->count();
     dd($variant->quantities[$variant_qunatity_count -1]->quantity);
 //    foreach ($datas  as $data ){
@@ -98,9 +100,8 @@ Route::get('qty',function (){
 //    }
 //    return 'ok';
 });
+
 Route::get('var',function(){
     $v = \App\InventoryLocationQuantity::where('inventory_item_id',15020261277748)->get();
     dd($v);
 });
-
-
