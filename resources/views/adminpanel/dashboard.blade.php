@@ -220,8 +220,6 @@
                                                                     }
 
 
-
-
                                                                     if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
 
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count();
@@ -320,7 +318,7 @@
                                                         $val = [];
                                                         $totalDiscountVal = [];
                                                         if ($start_date != '' && $end_date != '') {
-                                                            $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
+                                                            $collec_products = $collection->Products;
                                                             foreach ($collec_products as $collection_product) {
                                                                 foreach ($all_orders as $order_lineitem) {
                                                                     foreach ($order_lineitem->lineitems as $lineitem) {
