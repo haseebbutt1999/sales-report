@@ -57,7 +57,7 @@ Route::group(['middleware'=>['auth.shopify']], function () {
 
         $customer = Auth::user();
         $inventory =  $customer->api()->rest('GET', '/admin/inventory_levels.json',[
-            'inventory_item_ids'=>"41888448479392",
+            'inventory_item_ids'=>"15044029513780",
 //            'location_ids'=>"61573333152",
         ])['body']['container'];
 //        $inventory =  $customer->api()->rest('GET', '/admin/locations.json');
