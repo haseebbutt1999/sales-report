@@ -210,8 +210,7 @@
                                                                     //  $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
 
 
-                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) ) {
-//                                                                        && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
 
                                                                         $stock_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->first();
                                                                         $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->get();
@@ -236,8 +235,8 @@
                                                                     }
 
 
-                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) ) {
-//                                                                        && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
+
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count();
                                                                         $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->get();
                                                                         if ($variant_inventory_count_for_unit_out == 1) {
