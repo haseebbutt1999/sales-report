@@ -263,55 +263,39 @@
                                                                     }
                                                                 }
                                                             }
-                                                        }
-//                                                        elseif($location_select != "select_option"){
-//                                                            $collec_products = $collection->Products);
-//                                                            foreach ($collec_products as $product) {
-//                                                                foreach ($product->Variants as $variant) {
-//
-//                                                                    if ($variant->quantities->whereBetween('created_at', [$start_date, $end_date])->count()) {
-//                                                                        $stock_date = $variant->quantities->whereBetween('created_at', [$start_date, $end_date])->first();
-//
-//                                                                        $stock = ($stock_date->quantity) + $stock;
-//
-//                                                                        $variant_qunatity_count = $variant->quantities()->whereBetween('created_at', [$start_date, $end_date])->count();
-//                                                                        $stock_begin = ($stock_date->quantity);
-//                                                                        $stock_new = ($variant->quantities[$variant_qunatity_count - 1]->quantity);
-//                                                                        $unitIn = ($stock_new - $stock_begin) + $unitIn;
-//                                                                    }
-//
-//
-//                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
-//
-//                                                                        $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count();
-//                                                                        $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->get();
-//                                                                        if ($variant_inventory_count_for_unit_out == 1) {
-//
-//                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available > $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
-//                                                                            $unitOut = $unitOut;
-//                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available < $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
-//                                                                            $unitOut = $unitOut + ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available - $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available);
-//                                                                        }
-//
-//
-//                                                                    } else {
-//                                                                        if (isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->count()) {
-//                                                                            $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->count();
-//                                                                            $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->get();
-//                                                                            if ($variant_inventory_count_for_unit_out == 1) {
-//
-//                                                                            } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available > $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
-//                                                                                $unitOut = $unitOut;
-//                                                                            } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available < $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
-//                                                                                $unitOut = $unitOut + ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available - $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available);
-//                                                                            }
-//                                                                        }
-//                                                                    }
-//                                                                }
-//                                                            }
-//
-//                                                        }
-                                                        else {
+                                                        }elseif($location_select != "select_option"){
+                                                            $collec_products = $collection->Products;
+                                                            foreach ($collec_products as $product) {
+                                                                foreach ($product->Variants as $variant) {
+
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->where('location_id', $location_select)->count()) {
+
+                                                                        $stock_date = $variant->inventory_levels()->where('location_id', $location_select)->first();
+                                                                        $variant_inventory_level_with_date = $variant->inventory_levels()->where('location_id', $location_select)->get();
+
+                                                                        $stock = ($stock_date->available) + $stock;
+                                                                        $variant_qunatity_count = $variant->inventory_levels()->where('location_id', $location_select)->count();
+
+                                                                        $stock_begin = ($stock_date->available);
+                                                                        $stock_new = ($variant_inventory_level_with_date[$variant_qunatity_count - 1]->available);
+                                                                        $unitIn = ($stock_new - $stock_begin) + $unitIn;
+                                                                    }
+
+                                                                    if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->where('location_id', $location_select)->count()) {
+
+                                                                        $variant_inventory_count_for_unit_out = $variant->inventory_levels()->where('location_id', $location_select)->count();
+                                                                        $variant_inventory_level_with_date = $variant->inventory_levels()->where('location_id', $location_select)->get();
+                                                                        if ($variant_inventory_count_for_unit_out == 1) {
+
+                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available > $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
+                                                                            $unitOut = $unitOut;
+                                                                        } elseif ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available < $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available) {
+                                                                            $unitOut = $unitOut + ($variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 1]->available - $variant_inventory_level_with_date[$variant_inventory_count_for_unit_out - 2]->available);
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }else {
                                                             $arr = [];
                                                             foreach ($collection->Products as $product) {
                                                                 foreach ($product->Variants as $variant) {
