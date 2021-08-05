@@ -12,8 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Variant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Variant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,14 +227,7 @@
       <workItem from="1627998937482" duration="2487000" />
       <workItem from="1628054906099" duration="194000" />
       <workItem from="1628078552838" duration="8521000" />
-      <workItem from="1628141419988" duration="14431000" />
-    </task>
-    <task id="LOCAL-00100" summary="location and units out">
-      <created>1626677957201</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1626677957201</updated>
+      <workItem from="1628141419988" duration="14783000" />
     </task>
     <task id="LOCAL-00101" summary="location and units out">
       <created>1626678074470</created>
@@ -573,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628158492377</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="location and units out">
+      <created>1628160594014</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1628160594014</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,10 +639,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628158496737">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628160596784">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628158496737" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628160596784" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1628144683899">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -675,12 +674,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>358</line>
+          <line>359</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>363</line>
+          <line>364</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -690,7 +689,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>928</line>
+          <line>929</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
