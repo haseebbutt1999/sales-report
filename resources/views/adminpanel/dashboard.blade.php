@@ -275,9 +275,10 @@
 
                                                                         $stock = ($stock_date->available) + $stock;
                                                                         $variant_qunatity_count = $variant->inventory_location_quanitites()->where('location_id', $location_select)->count();
-                                                                        dd($stock_new);
+
                                                                         $stock_begin = ($stock_date->available);
                                                                         $stock_new = ($variant_inventory_level_with_date[$variant_qunatity_count - 1]->available);
+                                                                        dd($stock_new);
                                                                         $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
 
