@@ -96,8 +96,8 @@ class ProductController extends Controller
             $variant_save->shopify_product_id = $product->id;
             $variant_save->shopify_variant_id = $variant->id;
             $variant_save->shopify_shop_id = $shop->id;
-            $inventory_location_quantity =   InventoryLocationQuantity::where('inventory_item_id',$variant->inventory_item_id)->first();
-            if($inventory_location_quantity == null){
+//            $inventory_location_quantity =   InventoryLocationQuantity::where('inventory_item_id',$variant->inventory_item_id)->first();
+//            if($inventory_location_quantity == null){
                 $inventory =  $shop->api()->rest('GET', '/admin/inventory_levels.json',[
                     'inventory_item_ids'=>$variant->inventory_item_id,
 //            'location_ids'=>"61573333152",
@@ -111,7 +111,7 @@ class ProductController extends Controller
                     $inv_save->available = $inv['available'];
                     $inv_save->save();
                 }
-                }
+//                }
             }
 
 //            foreach($product->images as $product_image_id){
