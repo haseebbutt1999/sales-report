@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ErrorLog;
 use App\Inventorylevel;
 use App\InventorylevelVariant;
+use App\InventoryLocationQuantity;
 use App\Product;
 use App\Quantity;
 use App\User;
@@ -86,8 +87,21 @@ class ProductController extends Controller
                 $quantity->shopify_shop_id = $shop->id;
                 $quantity->created_at = Carbon::createFromTimeString($variant->updated_at)->format('Y-m-d H:i:s');
                 $quantity->save();
-            }
 
+                $inventory =  $shop->api()->rest('GET', '/admin/inventory_levels.json',[
+                    'inventory_item_ids'=>$variant->inventory_item_id,
+//            'location_ids'=>"61573333152",
+                ])['body']['container'];
+                if(!$inventory['errors'] ){
+                    foreach ($inventory as $inv){
+                        $inv_save  = new InventoryLocationQuantity();
+                        $inv_save->inventory_item_id = $variant->inventory_item_id;
+                        $inv_save->location_id = $inv->location_id;
+                        $inv_save->available = $inv->available;
+                        $inv_save->save();
+                    }
+                }
+            }
 
 // add quantity to new table end
 

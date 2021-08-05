@@ -14,6 +14,9 @@ class Variant extends Model
     public function inventory_levels(){
         return $this->hasMany(Inventorylevel::class, 'inventory_item_id', 'inventory_item_id');
     }
+    public function inventory_location_quanitites(){
+        return $this->hasMany(InventoryLocationQuantity::class, 'inventory_item_id', 'inventory_item_id');
+    }
     public function quantities(){
         return $this->hasMany(Quantity::class, 'shopify_variant_id', 'shopify_variant_id');
     }
