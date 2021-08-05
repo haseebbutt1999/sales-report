@@ -281,7 +281,7 @@
                                                                             //                                                                                $unitOut = $unitOut + 0;
                                                                         }elseif ( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available) {
                                                                             //                                                                                $unitOut = $unitOut - $inventory_level->available;
-                                                                            dd($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available);
+//                                                                            dd($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available);
                                                                             $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]->available - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]->available);
                                                                         }
                                                                         //                                                                        }
