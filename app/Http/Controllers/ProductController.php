@@ -99,8 +99,8 @@ class ProductController extends Controller
             $inventory =  $shop->api()->rest('GET', '/admin/inventory_levels.json',[
                 'inventory_item_ids'=>$variant->inventory_item_id,
 //            'location_ids'=>"61573333152",
-            ])['body']['container'];
-            dd($inventory);
+            ])['body']['container']['inventory_levels'];
+
             if( isset($inventory)){
                 foreach ($inventory as $inv){
                     $inv_save  = new InventoryLocationQuantity();
