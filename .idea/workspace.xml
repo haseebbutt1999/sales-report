@@ -226,14 +226,8 @@
       <workItem from="1626674596375" duration="12751000" />
       <workItem from="1627998937482" duration="2487000" />
       <workItem from="1628054906099" duration="194000" />
-      <workItem from="1628078552838" duration="8311000" />
-    </task>
-    <task id="LOCAL-00071" summary="print report and add currency">
-      <created>1623916108976</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1623916108976</updated>
+      <workItem from="1628078552838" duration="8521000" />
+      <workItem from="1628141419988" duration="459000" />
     </task>
     <task id="LOCAL-00072" summary="print report and add currency">
       <created>1623917569425</created>
@@ -571,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628087952123</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="location and units out">
+      <created>1628088604033</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1628088604033</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,10 +639,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628087954456">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628088655252">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628087954456" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628088655252" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621343226400">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -668,22 +669,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>72</line>
+          <line>88</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>272</line>
+          <line>281</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>278</line>
+          <line>288</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/adminpanel/dashboard.blade.php</url>
-          <line>325</line>
+          <line>335</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

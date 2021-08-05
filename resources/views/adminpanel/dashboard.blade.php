@@ -1,7 +1,6 @@
 @extends('adminpanel.layout.default')
 @section('content')
     {{--    @dd($all_orders)--}}
-
     <div class="col-lg-12 col-md-12 p-4 all-page">
         <!-- start info box -->
         <div class="row">
@@ -20,26 +19,21 @@
                     <input type="search" autocomplete="off" name="datefilter" value="{{$datefilter}}"
                            class="datefilter w-50 mr-2" placeholder="Select date.."/>
                     <button class="btn btn-primary align-items-center  d-flex filter-button">
-                        <span class="loader-span mr-2">
-                            <div class="loader"></div>
-                        </span>
-
+               <span class="loader-span mr-2">
+                  <div class="loader"></div>
+               </span>
                         Filter
                     </button>
                 </form>
-
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-end print-div" id="print-button-main">
                     {{--                    --}}
                     {{--                    --}}
                     {{--                    <button class="print">--}}
-
                     {{--                        Print this--}}
-
                     {{--                    </button>--}}
                     {{--                    <button type="button" id="print" class="btn btn-light btn-block border">Print</button>--}}
-
                     <button class="btn btn-primary mr-2 print-report"><i class=" fa fa-print text-white"
                                                                          style="font-size: 20px;margin-right: 10px;cursor: pointer;"
                                                                          aria-hidden="true"></i>Print
@@ -70,8 +64,6 @@
                                     </div>
                                 </div>
                                 <div class="block-content">
-
-
                                     <div class='form-group '>
                                         <label class='control-label'>Report Name:</label>
                                         <input class='form-control report-name' type='text' name="report_name">
@@ -80,13 +72,11 @@
                                     <div class="text-right mb-2">
                                         <button class="btn btn-primary btn-lg save-btn" type="submit">Save</button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 {{--        model end--}}
                 <div class="row ">
                     <div class="col-md-12 pl-3 pt-2 " style="margin: auto;">
@@ -105,7 +95,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="card-body">
                                 <div id="product_append">
                                     <div class="row px-3" style="overflow-x:auto;">
@@ -128,7 +117,6 @@
                                                         <div class="custom-grid">Units Out</div>
                                                     </th>
                                                 @endif
-
                                                 @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')
                                                     <th class="font-weight-bold ">
                                                         <div class="custom-grid">Units Sales</div>
@@ -179,7 +167,6 @@
                                                         <div class="custom-grid">Total Sales</div>
                                                     </th>
                                                 @endif
-
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -218,15 +205,15 @@
 
 
                                                             $collec_products = $collection->Products->whereBetween('created_at', [$start_date, $end_date]);
-//                                                            $collec_products = $collection->Products;
+                                                            //                                                            $collec_products = $collection->Products;
                                                             foreach ($collec_products as $product) {
                                                                 foreach ($product->Variants as $variant) {
-//                                                                    $stock = $variant->old_inventory_quantity + $stock;
-//                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
-//                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    //                                                                    $stock = $variant->old_inventory_quantity + $stock;
+                                                                    //                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock;
+                                                                    //                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
                                                                     if($variant->quantities->whereBetween('created_at', [$start_date, $end_date])->count()){
                                                                         $stock_date = $variant->quantities->whereBetween('created_at', [$start_date, $end_date])->first();
-//                                                                        dd($stock_date);
+                                                                        //                                                                        dd($stock_date);
                                                                         $stock = ($stock_date->quantity) + $stock;
 
                                                                         $variant_qunatity_count = $variant->quantities()->whereBetween('created_at', [$start_date, $end_date])->count();
@@ -265,10 +252,10 @@
                                                             $arr = [];
                                                             foreach ($collection->Products as $product) {
                                                                 foreach ($product->Variants as $variant) {
-//                                                                    $stock = $variant->old_inventory_quantity + $stock;
-//                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
+                                                                    //                                                                    $stock = $variant->old_inventory_quantity + $stock;
+                                                                    //                                                                    $unitIn = ($variant->old_inventory_quantity - $variant->inventory_quantity) + $unitIn;
 
-//                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
+                                                                    //                                                                    $variant = \App\Variant::where('shopify_variant_id',39414472802398)->first();
 
                                                                     if($variant->quantities->count()){
                                                                         $stock = ($variant->quantities[0]->quantity) + $stock;
@@ -278,33 +265,34 @@
                                                                         $unitIn = ($stock_begin - $stock_new  ) + $unitIn;
                                                                     }
 
-//                                                                    $unitOut = ($stock - $unitIn);
+                                                                    //                                                                    $unitOut = ($stock - $unitIn);
 
                                                                     if (isset($variant->inventory_levels) && $variant->inventory_levels()->count()) {
-//                                                                       array_push($arr,$variant->inventory_levels);
-//                                                                       dd();
+                                                                        //                                                                       array_push($arr,$variant->inventory_levels);
+                                                                        //                                                                       dd();
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->count();
-//                                                                        foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
+                                                                        //                                                                        foreach ($variant->inventory_levels as $inv_key => $inventory_level) {
 
-                                                                            if ($variant_inventory_count_for_unit_out == 1) {
-//                                                                                $unitOut = intval($inventory_level->available);
-//                                                                                $unitOut = 0;
-                                                                            } elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
-//                                                                                $unitOut = $unitOut + $inventory_level->available;
-                                                                                $unitOut = $unitOut + 0;
-                                                                            } elseif ( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
-//                                                                                $unitOut = $unitOut - $inventory_level->available;
-                                                                                $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]);
-                                                                            }
-//                                                                        }
-//                                                                       $unitOut = $unitOut;
-//                                                                       dump($unitOut);
-//                                                                       break;
+                                                                        if($variant_inventory_count_for_unit_out == 1) {
+                                                                            //                                                                                $unitOut = intval($inventory_level->available);
+                                                                            //                                                                                $unitOut = 0;
+                                                                        }elseif ($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] > $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
+                                                                            //                                                                                $unitOut = $unitOut + $inventory_level->available;
+                                                                            //                                                                                $unitOut = $unitOut + 0;
+                                                                        }elseif ( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] < $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]) {
+                                                                            //                                                                                $unitOut = $unitOut - $inventory_level->available;
+                                                                            dd($variant->inventory_levels[$variant_inventory_count_for_unit_out - 1]);
+                                                                            $unitOut = $unitOut +( $variant->inventory_levels[$variant_inventory_count_for_unit_out - 1] - $variant->inventory_levels[$variant_inventory_count_for_unit_out - 2]);
+                                                                        }
+                                                                        //                                                                        }
+                                                                        //                                                                       $unitOut = $unitOut;
+                                                                        //                                                                       dump($unitOut);
+                                                                        //                                                                       break;
                                                                     }
 
-//                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock ;
-//                                                                    dd($unitOut);
-//                                                                    $remainingStock = ($stock + $unitIn - $unitOut) + $remainingStock ;
+                                                                    //                                                                    $remainingStock = $variant->inventory_quantity + $remainingStock ;
+                                                                    //                                                                    dd($unitOut);
+                                                                    //                                                                    $remainingStock = ($stock + $unitIn - $unitOut) + $remainingStock ;
 
                                                                 }
                                                             }
@@ -335,10 +323,7 @@
                                                                        value="{{abs($unitOut)}}">
                                                             </td>
                                                         @endif
-
-
                                                         <?php
-
                                                         $unitSales = 0;
                                                         $grossSales = 0;
                                                         $totalSales = 0;
@@ -494,7 +479,6 @@
                                                                        value="{{abs($stock + $unitIn - $unitOut - array_sum($val))}}">
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
                                                             {{--                                            @dd($order_lineitem)--}}
                                                             <td class="credit-card-sale-{{$key}}">
@@ -507,7 +491,6 @@
                                                                        @else value="{{number_format(array_sum($creditSaleVal),2) }}" @endif>
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')
                                                             <td class="cash-sale-{{$key}}">
                                                                 @if( $cashSaleVal != null)
@@ -517,10 +500,8 @@
                                                                        name="cashsale[]"
                                                                        @if( $cashSaleVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($cashSaleVal),2) }}"
                                                                        @else value="{{number_format(array_sum($cashSaleVal),2) }}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')
                                                             <td class="bank-sale-{{$key}}">
                                                                 @if( $bankSaleVal != null)
@@ -530,25 +511,19 @@
                                                                        name="bank_sale[]"
                                                                        @if( $bankSaleVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($bankSaleVal),2)}}"
                                                                        @else value="{{number_format(array_sum($bankSaleVal),2)}}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')
-
                                                             <td class="gross-sale-{{$key}}">
                                                                 @if($GrossSumVal != null)
                                                                     {{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}
                                                                 @endif
-
                                                                 <input type="hidden" class="gross-sale"
                                                                        name="gross_sale[]"
                                                                        @if($GrossSumVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($GrossSumVal),2) }}"
                                                                        @else  value="{{number_format(array_sum($GrossSumVal),2) }}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')
                                                             <td class="total-discount-{{$key}}">
                                                                 @if($totalDiscountVal != null)
@@ -558,10 +533,8 @@
                                                                        name="total_discount[]"
                                                                        @if($totalDiscountVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalDiscountVal),2) }}"
                                                                        @else  value="{{number_format(array_sum($totalDiscountVal),2) }}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')
                                                             <td class="net-sale-{{$key}}">
                                                                 @if($netSalesVal != null)
@@ -570,10 +543,8 @@
                                                                 <input type="hidden" class="net-sale" name="net_sale[]"
                                                                        @if($netSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($netSalesVal),2) }}"
                                                                        @else  value="{{number_format(array_sum($netSalesVal),2) }}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')
                                                             <td class="total-shipping-{{$key}}">
                                                                 @if($totalShippingSalesVal != null)
@@ -583,10 +554,8 @@
                                                                        name="shipping_sale[]"
                                                                        @if($totalShippingSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalShippingSalesVal),2)}}"
                                                                        @else   value="{{number_format(array_sum($totalShippingSalesVal),2)}}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                         @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')
                                                             <td class="total-sale-{{$key}}">
                                                                 @if($totalSalesVal != null)
@@ -596,44 +565,53 @@
                                                                        name="total_sale[]"
                                                                        @if($totalSalesVal != null) value="{{$order_lineitem->currency." ".number_format(array_sum($totalSalesVal),2)}}"
                                                                        @else value="{{number_format(array_sum($totalSalesVal),2)}}" @endif>
-
                                                             </td>
                                                         @endif
-
                                                     </tr>
                                                 @endforeach
-
                                             @endif
                                             </tbody>
                                             <tr>
                                                 <td><b>Total</b></td>
                                                 @if(isset($column_data->begin_stock) && $column_data->begin_stock == 'show')
-                                                    <td></td>@endif
+                                                    <td></td>
+                                                @endif
                                                 @if(isset($column_data->units_in) && $column_data->units_in == 'show')
-                                                    <td></td>@endif
+                                                    <td></td>
+                                                @endif
                                                 @if(isset($column_data->units_out) && $column_data->units_out == 'show')
-                                                    <td></td>@endif
+                                                    <td></td>
+                                                @endif
                                                 @if(isset($column_data->remaining_stock) && $column_data->remaining_stock == 'show')
-                                                    <td></td>@endif
+                                                    <td></td>
+                                                @endif
                                                 @if(isset($column_data->units_sales) && $column_data->units_sales == 'show')
-                                                    <td></td>@endif
+                                                    <td></td>
+                                                @endif
                                                 @if(isset($column_data->cashsales) && $column_data->cashsales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_credit),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_credit),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_cash),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_cash),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->bank_transfer_sales) && $column_data->bank_transfer_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_bank),2)}}</b></td>@endif
-
+                                                    <td><b>{{number_format(array_sum($all_bank),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->gross_sales) && $column_data->gross_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_gross),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_gross),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->total_discounts) && $column_data->total_discounts == 'show')
-                                                    <td><b>{{number_format(array_sum($all_dis),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_dis),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->net_sales) && $column_data->net_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_net),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_net),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->shipping_sales) && $column_data->shipping_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_shipp),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_shipp),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->total_sales) && $column_data->total_sales == 'show')
-                                                    <td><b>{{number_format(array_sum($all_totalSale),2)}}</b></td>@endif
+                                                    <td><b>{{number_format(array_sum($all_totalSale),2)}}</b></td>
+                                                @endif
                                                 @if(isset($column_data->credit_card_sales) && $column_data->credit_card_sales == 'show')
                                                     <input type="hidden" class="cash-sale-input" name="all_credit"
                                                            value="{{number_format(array_sum($all_credit),2)}}">@endif
@@ -664,15 +642,12 @@
                                         {{--                                        {!!  $collection_data->links() !!}--}}
                                         {{--                                    @endif--}}
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <input type="hidden" class="net_sale" value="{{array_sum($all_net)}}">
-
                 <div class="w-100 bg-white mt-3">
                     <div class="row ">
                         <div class="col-md-6 pl-3 pt-2 " style="margin-top: -10px;">
@@ -692,11 +667,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="card-body">
                                     <div id="product_append">
                                         <div class="row px-3" style="overflow-x:auto;">
-
                                             <table id="datatabled" class="table   table-hover  table-class ">
                                                 <tbody>
                                                 <tr class="td-text-center ">
@@ -933,7 +906,6 @@
                                                             </div>
                                                         </div>
                                                         {{--        model end--}}
-
                                                     </td>
                                                 </tr>
                                                 <tr class="td-text-center ">
@@ -1002,7 +974,6 @@
                                                             </div>
                                                         </div>
                                                         {{--        model end--}}
-
                                                     </td>
                                                 </tr>
                                                 <tr class="td-text-center ">
@@ -1071,7 +1042,6 @@
                                                             </div>
                                                         </div>
                                                         {{--        model end--}}
-
                                                     </td>
                                                 </tr>
                                                 <tr class="td-text-center ">
@@ -1079,7 +1049,6 @@
                                                     <td class="d-flex ">
                                                         <div>{{$currency}}</div>
                                                         <div class="ml-1 total-cash-remaining">
-
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -1089,8 +1058,8 @@
                                                         <div style="width: 15%;" class="d-flex ">
                                                             <div>{{$currency}}</div>
                                                             <span class="ml-1 total-amount-collected">
-                                                        0
-                                                    </span>
+                                             0
+                                             </span>
                                                         </div>
                                                         <div style="width: 70%;">
                                                             <span><strong>Note:</strong></span>
@@ -1144,14 +1113,11 @@
                                                             </div>
                                                         </div>
                                                         {{--        model end--}}
-
                                                     </td>
                                                 </tr>
-
                                                 </tbody>
                                             </table>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -1175,27 +1141,19 @@
                 <input type="hidden" class="all-total-cash-collected-note" name="total_cash_collected_note" value="">
             </form>
         </div>
-
     </div>
-
 @endsection
 @section('js_after')
-
     {{--    datepicker js--}}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
     {{--    </script>--}}
     {{--    <script type="text/javascript" src=""></script>--}}
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-
     {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>--}}
     {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>--}}
-
     {{--    printThis cdn for orint multiple doms on multi pages prints--}}
     <script type="text/javascript" src="{{asset('print_mul_dom/printThis.js')}}"></script>
-
     {{--    --}}
     {{--    <script src="{{asset('assets/js/jquery.PrintArea.js')}}"></script>--}}
     <script>
