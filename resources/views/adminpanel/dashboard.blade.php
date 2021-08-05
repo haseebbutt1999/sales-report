@@ -236,7 +236,7 @@
 
 
                                                                     if ($location_select != "select_option" && isset($variant->inventory_levels) && $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count()) {
-                                                                        dd(1);
+                                                                        dd($variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count());
                                                                         $variant_inventory_count_for_unit_out = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->count();
                                                                         $variant_inventory_level_with_date = $variant->inventory_levels()->whereBetween('created_at', [$start_date, $end_date])->where('location_id', $location_select)->get();
                                                                         if ($variant_inventory_count_for_unit_out == 1) {
