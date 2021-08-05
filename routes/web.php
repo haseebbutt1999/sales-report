@@ -80,7 +80,7 @@ Route::get('test',function(Request $request){
 
 });
 Route::get('change',function (){
-    $datas = \App\Variant::where('inventory_item_id',41483285495902)->first();
+    $datas = \App\Variant::where('inventory_item_id',14941852958772)->first();
     dd($datas->inventory_levels);
 //    foreach ($datas  as $data ){
 //        $data->shopify_shop_id = 3;
