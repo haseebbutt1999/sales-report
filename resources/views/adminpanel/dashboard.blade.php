@@ -278,7 +278,7 @@
 
                                                                         $stock_begin = ($stock_date->available);
                                                                         $stock_new = ($variant_inventory_level_with_date[$variant_qunatity_count - 1]->available);
-                                                                        dd($stock_new,$stock_begin);
+//                                                                        dd($stock_new,$stock_begin);
                                                                         $unitIn = ($stock_new - $stock_begin) + $unitIn;
                                                                     }
 
