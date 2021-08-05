@@ -109,6 +109,7 @@ class ProductController extends Controller
                     $inv_save->inventory_item_id = $variant->inventory_item_id;
                     $inv_save->location_id = $inv['location_id'];
                     $inv_save->available = $inv['available'];
+                    $inv_save->created_at = Carbon::createFromTimeString($inv->updated_at)->format('Y-m-d H:i:s');
                     $inv_save->save();
                 }
 //                }
