@@ -100,8 +100,8 @@ class ProductController extends Controller
                 'inventory_item_ids'=>$variant->inventory_item_id,
 //            'location_ids'=>"61573333152",
             ])['body']['container'];
-            dd($inventory);
-            if(!$inventory['errors'] ){
+
+            if($inventory->count() && isset($inventory)){
                 foreach ($inventory as $inv){
                     $inv_save  = new InventoryLocationQuantity();
                     $inv_save->inventory_item_id = $variant->inventory_item_id;
