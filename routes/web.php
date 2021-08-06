@@ -105,3 +105,12 @@ Route::get('var',function(){
     $v = \App\InventoryLocationQuantity::where('inventory_item_id',15020261277748)->get();
     dd($v);
 });
+Route::get('status',function(){
+    $v = \App\InventoryLocationQuantity::where('created_at','like','%'.'2021-08-05'.'%')->get();
+
+    foreach ($v as $a){
+        $a->status = 1;
+        $a->save();
+    }
+    dd('done');
+});
