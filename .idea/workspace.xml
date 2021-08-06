@@ -13,7 +13,6 @@
     <list default="true" id="cc13ff63-31d4-42fd-b054-cab427a371ac" name="Default Changelist" comment="location and units out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,14 +229,7 @@
       <workItem from="1628078552838" duration="8521000" />
       <workItem from="1628141419988" duration="24175000" />
       <workItem from="1628187001187" duration="255000" />
-      <workItem from="1628229812148" duration="138000" />
-    </task>
-    <task id="LOCAL-00123" summary="location and units out">
-      <created>1628142498305</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1628142498305</updated>
+      <workItem from="1628229812148" duration="1380000" />
     </task>
     <task id="LOCAL-00124" summary="location and units out">
       <created>1628142610787</created>
@@ -575,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628174208986</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="location and units out">
+      <created>1628229959275</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1628229959277</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,10 +629,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="174" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1619774111158" />
-    <state x="663" y="346" key="Github.Dialog.Accounts.Choose" timestamp="1628083655284">
+    <state x="663" y="346" key="Github.Dialog.Accounts.Choose" timestamp="1628230020801">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="663" y="346" key="Github.Dialog.Accounts.Choose/0.0.1600.860@0.0.1600.860" timestamp="1628083655284" />
+    <state x="663" y="346" key="Github.Dialog.Accounts.Choose/0.0.1600.860@0.0.1600.860" timestamp="1628230020801" />
     <state x="303" y="76" key="SettingsEditor" timestamp="1621261589377">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -642,10 +641,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="561" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1621261605083" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628174211697">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1628230005472">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628174211697" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1628230005472" />
     <state x="611" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1628144683899">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -658,10 +657,6 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="601" y="339" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1600.860@0.0.1600.860" timestamp="1619774209771" />
-    <state x="456" y="195" key="run.anything.popup" timestamp="1619523596793">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1619523596793" />
     <state x="456" y="83" width="672" height="676" key="search.everywhere.popup" timestamp="1628151661412">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
